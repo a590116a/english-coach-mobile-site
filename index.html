@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#cf5c36">
+  <meta name="description" content="可依單字量等級切換的英文單字學習小教室，每天 50 個單字，支援手機使用。">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>英文單字學習小教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Web English Studio</p>
+        <h1>英文單字學習小教室</h1>
+        <p class="hero-text">
+          這是一個可以依照程度選擇單字範圍的網頁版英文學習小程式。你可以從 2000、3000、
+          4000、5000 到 10000 字量中選擇適合自己的等級，並且每天穩定學習 50 個單字。
+        </p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#lesson">開始學習</a>
+        </div>
+        <div class="level-picker" aria-label="單字量選擇">
+          <p class="level-picker-label">單字量等級</p>
+          <div class="level-buttons" id="level-buttons">
+            <button class="level-btn is-active" type="button" data-level="2000">2000 字</button>
+            <button class="level-btn" type="button" data-level="3000">3000 字</button>
+            <button class="level-btn" type="button" data-level="4000">4000 字</button>
+            <button class="level-btn" type="button" data-level="5000">5000 字</button>
+            <button class="level-btn" type="button" data-level="10000">10000 字</button>
+          </div>
+        </div>
+      </div>
+      <section class="hero-card">
+        <p class="card-label">今日學習目標</p>
+        <h2><span id="progress-current">1</span> / <span id="progress-total">50</span></h2>
+        <p id="progress-label">今天要學 50 個單字</p>
+        <p id="focus-level">難度：英文常用 2000 字範圍</p>
+        <p id="library-status" class="library-status"></p>
+        <p id="mastered-summary">已學會 0 / 50</p>
+      </section>
+    </header>
+
+    <main>
+      <section class="panel lesson-panel" id="lesson">
+        <div class="section-title">
+          <p class="section-kicker">Lesson 01</p>
+          <h2>今日學習流程</h2>
+        </div>
+        <div class="lesson-grid">
+          <article class="lesson-step">
+            <span>1</span>
+            <h3>先記單字</h3>
+            <p>先看英文、中文意思和例句，建立基本印象。</p>
+          </article>
+          <article class="lesson-step">
+            <span>2</span>
+            <h3>再聽發音</h3>
+            <p>按下發音按鈕，練習正確的單字讀法與重音。</p>
+          </article>
+          <article class="lesson-step">
+            <span>3</span>
+            <h3>最後做測驗</h3>
+            <p>用小題目檢查自己是不是真的記住了。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <section class="panel">
+          <div class="section-title">
+            <p class="section-kicker">Vocabulary</p>
+            <h2>單字卡</h2>
+          </div>
+          <div class="flashcard" id="flashcard">
+            <p class="flashcard-tip">點一下卡片，可以切換中文意思與英文例句</p>
+            <div class="word-heading">
+              <h3 id="card-word">ability</h3>
+              <p id="card-phonetic">/əˈbɪləti/</p>
+            </div>
+            <p id="card-detail">能力</p>
+          </div>
+          <div class="audio-row">
+            <button class="ghost-btn" id="next-button" type="button">下一個單字</button>
+            <button class="speak-btn" id="speak-button" type="button">播放發音</button>
+            <button class="speak-btn slow-word" id="word-slow-button" type="button">慢速播放單字</button>
+            <button class="master-btn" id="master-button" type="button">標記為已學會</button>
+            <p class="audio-tip" id="audio-status">按下按鈕聽英文發音</p>
+          </div>
+          <div class="difficulty-feedback">
+            <button class="feedback-btn easy" id="too-easy-button" type="button">太簡單</button>
+            <button class="feedback-btn hard" id="too-hard-button" type="button">太難</button>
+            <p class="feedback-tip" id="difficulty-status">你可以用這兩個按鈕微調今天的單字難度。</p>
+          </div>
+          <div class="example-box">
+            <p class="example-label">Example sentence</p>
+            <p id="card-example" class="example-text">Practice gives you the ability to speak clearly.</p>
+            <p class="example-translation" id="card-example-translation">練習會給你清楚說話的能力。</p>
+            <div class="sentence-actions">
+              <button class="sentence-btn" id="sentence-speak-button" type="button">播放例句發音</button>
+              <button class="sentence-btn slow" id="sentence-slow-button" type="button">慢速播放例句</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="section-title">
+            <p class="section-kicker">Practice</p>
+            <h2>小測驗</h2>
+          </div>
+          <p class="quiz-question" id="quiz-question">請選出 ability 的正確中文意思：</p>
+          <div class="quiz-options" id="quiz-options"></div>
+          <p class="quiz-result" id="quiz-result" aria-live="polite"></p>
+        </section>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <p class="section-kicker">Daily 50</p>
+          <h2>今日單字清單</h2>
+        </div>
+        <p class="list-tip">點任一單字，就能切換到那個單字的卡片、發音與測驗。</p>
+        <div class="word-list" id="word-list"></div>
+      </section>
+
+      <section class="panel completion-panel hidden" id="completion-panel">
+        <div class="section-title">
+          <p class="section-kicker">Stage Clear</p>
+          <h2>這一階段的 50 個單字完成了</h2>
+        </div>
+        <p class="list-tip" id="completion-text">你可以繼續複習這 50 個單字，或前往下一階段。</p>
+        <div class="completion-actions">
+          <button class="ghost-btn" id="review-button" type="button">繼續複習原本的 50 個單字</button>
+          <button class="primary-btn" id="next-stage-button" type="button">進行下一個階段的 50 個單字</button>
+        </div>
+      </section>
+
+      <section class="panel tips-panel">
+        <div class="section-title">
+          <p class="section-kicker">Study Tips</p>
+          <h2>新手學英文建議</h2>
+        </div>
+        <ul class="tips-list">
+          <li>五十個字可以分成早上 20 個、下午 15 個、晚上 15 個。</li>
+          <li>每學一個字都先聽一次，再自己跟讀兩次。</li>
+          <li>如果一天五十個太吃力，也可以先完成前二十個，再慢慢加量。</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="vocab-catalog.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

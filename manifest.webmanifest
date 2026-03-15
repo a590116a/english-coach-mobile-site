@@ -1,0 +1,18 @@
+{
+  "name": "英文單字學習小教室",
+  "short_name": "英文小教室",
+  "description": "可依單字量等級切換的英文單字學習小教室，每天 50 個單字，支援手機使用。",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8f2e8",
+  "theme_color": "#cf5c36",
+  "lang": "zh-Hant",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
