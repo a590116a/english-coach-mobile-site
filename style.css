@@ -348,6 +348,14 @@ body {
   color: #2f5d50;
 }
 
+.version-stamp {
+  margin: 10px 0 0;
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  opacity: 0.9;
+}
+
 .example-box {
   margin-top: 8px;
   padding: 14px 16px;
