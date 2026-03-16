@@ -26,7 +26,7 @@
           4000、5000 到 10000 字量中選擇適合自己的等級，並且每天穩定學習 50 個單字。
         </p>
         <div class="hero-actions">
-          <a class="primary-btn" href="#lesson">開始學習</a>
+          <a class="primary-btn" href="#flashcard">開始學習</a>
         </div>
         <div class="level-picker" aria-label="單字量選擇">
           <p class="level-picker-label">單字量等級</p>
@@ -50,30 +50,6 @@
     </header>
 
     <main>
-      <section class="panel lesson-panel" id="lesson">
-        <div class="section-title">
-          <p class="section-kicker">Lesson 01</p>
-          <h2>今日學習流程</h2>
-        </div>
-        <div class="lesson-grid">
-          <article class="lesson-step">
-            <span>1</span>
-            <h3>先記單字</h3>
-            <p>先看英文、中文意思和例句，建立基本印象。</p>
-          </article>
-          <article class="lesson-step">
-            <span>2</span>
-            <h3>再聽發音</h3>
-            <p>按下發音按鈕，練習正確的單字讀法與重音。</p>
-          </article>
-          <article class="lesson-step">
-            <span>3</span>
-            <h3>最後做測驗</h3>
-            <p>用小題目檢查自己是不是真的記住了。</p>
-          </article>
-        </div>
-      </section>
-
       <section class="content-grid">
         <section class="panel">
           <div class="section-title">
@@ -92,13 +68,7 @@
             <button class="ghost-btn" id="next-button" type="button">下一個單字</button>
             <button class="speak-btn" id="speak-button" type="button">播放發音</button>
             <button class="speak-btn slow-word" id="word-slow-button" type="button">慢速播放單字</button>
-            <button class="master-btn" id="master-button" type="button">標記為已學會</button>
             <p class="audio-tip" id="audio-status">按下按鈕聽英文發音</p>
-          </div>
-          <div class="difficulty-feedback">
-            <button class="feedback-btn easy" id="too-easy-button" type="button">太簡單</button>
-            <button class="feedback-btn hard" id="too-hard-button" type="button">太難</button>
-            <p class="feedback-tip" id="difficulty-status">你可以用這兩個按鈕微調今天的單字難度。</p>
           </div>
           <div class="example-box">
             <p class="example-label">Example sentence</p>
@@ -110,16 +80,6 @@
             </div>
           </div>
         </section>
-
-        <section class="panel">
-          <div class="section-title">
-            <p class="section-kicker">Practice</p>
-            <h2>小測驗</h2>
-          </div>
-          <p class="quiz-question" id="quiz-question">請選出 ability 的正確中文意思：</p>
-          <div class="quiz-options" id="quiz-options"></div>
-          <p class="quiz-result" id="quiz-result" aria-live="polite"></p>
-        </section>
       </section>
 
       <section class="panel">
@@ -127,7 +87,7 @@
           <p class="section-kicker">Daily 50</p>
           <h2>今日單字清單</h2>
         </div>
-        <p class="list-tip">點任一單字，就能切換到那個單字的卡片、發音與測驗。</p>
+        <p class="list-tip">點任一單字，就能切換到那個單字的卡片、發音與例句。</p>
         <div class="word-list" id="word-list"></div>
       </section>
 

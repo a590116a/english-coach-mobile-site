@@ -229,12 +229,16 @@ const TARGET_LEVEL_WORD_COUNTS = {
   ...DEFAULT_TARGET_LEVEL_WORD_COUNTS,
   ...(externalCatalog.targetWordCounts ?? {})
 };
+const DEFAULT_CHALLENGE_WINDOW = 700;
+const CHALLENGE_WINDOW = Number.isInteger(externalCatalog.challengeWindow) && externalCatalog.challengeWindow > 0
+  ? externalCatalog.challengeWindow
+  : DEFAULT_CHALLENGE_WINDOW;
 const LEVEL_BAND_RANGES = {
-  2000: { start: 0, end: 2000 },
-  3000: { start: 2000, end: 3000 },
-  4000: { start: 3000, end: 4000 },
-  5000: { start: 4000, end: 5000 },
-  10000: { start: 5000, end: 10000 }
+  2000: { start: 2000 - CHALLENGE_WINDOW, end: 2000 },
+  3000: { start: 3000 - CHALLENGE_WINDOW, end: 3000 },
+  4000: { start: 4000 - CHALLENGE_WINDOW, end: 4000 },
+  5000: { start: 5000 - CHALLENGE_WINDOW, end: 5000 },
+  10000: { start: 10000 - CHALLENGE_WINDOW, end: 10000 }
 };
 
 const ORDERED_LEVEL_WORDS = [
@@ -421,20 +425,13 @@ const cardExample = document.querySelector("#card-example");
 const cardExampleTranslation = document.querySelector("#card-example-translation");
 const flashcard = document.querySelector("#flashcard");
 const exampleBox = document.querySelector(".example-box");
-const quizQuestion = document.querySelector("#quiz-question");
-const quizOptions = document.querySelector("#quiz-options");
-const quizResult = document.querySelector("#quiz-result");
 const nextButton = document.querySelector("#next-button");
 const wordList = document.querySelector("#word-list");
 const speakButton = document.querySelector("#speak-button");
 const wordSlowButton = document.querySelector("#word-slow-button");
 const sentenceSpeakButton = document.querySelector("#sentence-speak-button");
 const sentenceSlowButton = document.querySelector("#sentence-slow-button");
-const masterButton = document.querySelector("#master-button");
-const tooEasyButton = document.querySelector("#too-easy-button");
-const tooHardButton = document.querySelector("#too-hard-button");
 const audioStatus = document.querySelector("#audio-status");
-const difficultyStatus = document.querySelector("#difficulty-status");
 const masteredSummary = document.querySelector("#mastered-summary");
 const completionPanel = document.querySelector("#completion-panel");
 const completionText = document.querySelector("#completion-text");
@@ -455,9 +452,7 @@ const progressByLevel = Object.fromEntries(
     {
       currentStageIndex: 0,
       currentIndex: 0,
-      masteredWordsByStage: createMasteredWordsByStage(lessonStagesByLevel[level]),
-      tooEasyWordsByStage: createMasteredWordsByStage(lessonStagesByLevel[level]),
-      tooHardWordsByStage: createMasteredWordsByStage(lessonStagesByLevel[level])
+      masteredWordsByStage: createMasteredWordsByStage(lessonStagesByLevel[level])
     }
   ])
 );
@@ -465,7 +460,6 @@ const progressByLevel = Object.fromEntries(
 let sentenceHighlightTimer = null;
 let sentenceHighlightFallbackTimer = null;
 let exampleWordElements = [];
-let quizOptionButtons = [];
 
 let selectedVocabLevel = VOCAB_LEVELS[0];
 let currentStageIndex = 0;
@@ -500,14 +494,6 @@ function getCurrentMasteredWords() {
   return getProgressForLevel().masteredWordsByStage[currentStageIndex];
 }
 
-function getCurrentTooEasyWords() {
-  return getProgressForLevel().tooEasyWordsByStage[currentStageIndex];
-}
-
-function getCurrentTooHardWords() {
-  return getProgressForLevel().tooHardWordsByStage[currentStageIndex];
-}
-
 function getCurrentLevelWordCount() {
   return getLessonStagesForLevel().reduce((total, stage) => total + stage.length, 0);
 }
@@ -526,12 +512,12 @@ function renderLibraryStatus() {
   const bandEnd = Math.min(LEVEL_BAND_RANGES[selectedVocabLevel]?.end ?? availableWords, (LEVEL_BAND_RANGES[selectedVocabLevel]?.start ?? 0) + availableWords);
 
   if (availableWords >= targetWordCount) {
-    libraryStatus.textContent = `詞庫已就緒：目前會優先使用約第 ${bandStart} 到第 ${bandEnd} 個常用字，可支援 ${requiredDays} 天、每天 ${WORDS_PER_DAY} 字的不重複學習。`;
+    libraryStatus.textContent = `詞庫已就緒：目前會優先使用接近 ${selectedVocabLevel} 字程度、約第 ${bandStart} 到第 ${bandEnd} 個常用字，可支援 ${requiredDays} 天、每天 ${WORDS_PER_DAY} 字的不重複學習。`;
     libraryStatus.classList.add("is-ready");
     return;
   }
 
-  libraryStatus.textContent = `詞庫不足：目前只能提供約第 ${bandStart} 到第 ${bandEnd} 個常用字，共 ${availableWords} 個字，可支援 ${availableDays} 天；距離 ${selectedVocabLevel} 字量還差 ${remainingWords} 個字。`;
+  libraryStatus.textContent = `詞庫不足：目前只能提供接近 ${selectedVocabLevel} 字程度、約第 ${bandStart} 到第 ${bandEnd} 個常用字，共 ${availableWords} 個字，可支援 ${availableDays} 天；距離 ${selectedVocabLevel} 字量還差 ${remainingWords} 個字。`;
   libraryStatus.classList.remove("is-ready");
 }
 
@@ -553,7 +539,7 @@ function setCurrentLesson(index) {
 }
 
 function renderVocabLevel() {
-  focusLevel.textContent = `\u96E3\u5EA6\uFF1A\u82F1\u6587\u5E38\u7528 ${selectedVocabLevel} \u5B57\u7BC4\u570D`;
+  focusLevel.textContent = `\u96E3\u5EA6\uFF1A\u63A5\u8FD1\u82F1\u6587\u5E38\u7528 ${selectedVocabLevel} \u5B57\u7A0B\u5EA6`;
 
   levelButtons.forEach((button) => {
     const isActive = Number(button.dataset.level) === selectedVocabLevel;
@@ -577,38 +563,14 @@ function setVocabLevel(level) {
 function getNextLessonIndex(startIndex = currentIndex) {
   const currentLessons = getCurrentLessons();
   const currentMasteredWords = getCurrentMasteredWords();
-  const currentTooEasyWords = getCurrentTooEasyWords();
-  const currentTooHardWords = getCurrentTooHardWords();
-  let normalCandidate = -1;
-  let easyCandidate = -1;
 
   for (let offset = 1; offset <= currentLessons.length; offset += 1) {
     const nextIndex = (startIndex + offset) % currentLessons.length;
     const nextWord = currentLessons[nextIndex].word;
 
-    if (currentTooHardWords.has(nextWord) && !currentMasteredWords.has(nextWord)) {
+    if (!currentMasteredWords.has(nextWord)) {
       return nextIndex;
     }
-
-    if (currentTooEasyWords.has(nextWord)) {
-      if (easyCandidate === -1) {
-        easyCandidate = nextIndex;
-      }
-
-      continue;
-    }
-
-    if (!currentMasteredWords.has(nextWord) && normalCandidate === -1) {
-      normalCandidate = nextIndex;
-    }
-  }
-
-  if (normalCandidate !== -1) {
-    return normalCandidate;
-  }
-
-  if (easyCandidate !== -1) {
-    return easyCandidate;
   }
 
   return (startIndex + 1) % currentLessons.length;
@@ -623,9 +585,7 @@ function saveProgress() {
         {
           currentStageIndex: progressByLevel[level].currentStageIndex,
           currentIndex: progressByLevel[level].currentIndex,
-          masteredWordsByStage: progressByLevel[level].masteredWordsByStage.map((set) => Array.from(set)),
-          tooEasyWordsByStage: progressByLevel[level].tooEasyWordsByStage.map((set) => Array.from(set)),
-          tooHardWordsByStage: progressByLevel[level].tooHardWordsByStage.map((set) => Array.from(set))
+          masteredWordsByStage: progressByLevel[level].masteredWordsByStage.map((set) => Array.from(set))
         }
       ])
     )
@@ -687,30 +647,6 @@ function loadProgress() {
             });
           });
         }
-
-        if (Array.isArray(savedLevel.tooEasyWordsByStage)) {
-          savedLevel.tooEasyWordsByStage.forEach((items, stageIndex) => {
-            if (!Array.isArray(items) || !levelProgress.tooEasyWordsByStage[stageIndex]) {
-              return;
-            }
-
-            items.forEach((word) => {
-              levelProgress.tooEasyWordsByStage[stageIndex].add(word);
-            });
-          });
-        }
-
-        if (Array.isArray(savedLevel.tooHardWordsByStage)) {
-          savedLevel.tooHardWordsByStage.forEach((items, stageIndex) => {
-            if (!Array.isArray(items) || !levelProgress.tooHardWordsByStage[stageIndex]) {
-              return;
-            }
-
-            items.forEach((word) => {
-              levelProgress.tooHardWordsByStage[stageIndex].add(word);
-            });
-          });
-        }
       });
     } else if (Array.isArray(data.masteredWordsByStage)) {
       const currentLevelProgress = getProgressForLevel(selectedVocabLevel);
@@ -757,45 +693,17 @@ function renderLesson(lesson) {
   cardDetail.textContent = lesson.meaning;
   renderExampleText(lesson.example);
   cardExampleTranslation.textContent = exampleTranslations[lesson.word] || `這個單字的意思是：${lesson.meaning}`;
-  quizQuestion.textContent = lesson.question;
-  quizResult.textContent = "";
   audioStatus.textContent = "按下按鈕聽英文發音";
   progressCurrent.textContent = String(currentIndex + 1);
   progressTotal.textContent = String(currentLessons.length);
   progressLabel.textContent = `\u7B2C ${currentStageIndex + 1} \u5929\uFF0C\u4ECA\u5929\u8981\u5B78 ${currentLessons.length} \u500B\u55AE\u5B57\uFF08\u5171 ${totalDays} \u5929\uFF0C${totalWords} \u5B57\uFF09`;
   renderLibraryStatus();
 
-  renderOptions(lesson);
   renderWordList();
   renderMasteredState();
-  renderDifficultyFeedback();
   renderCompletionState();
   renderVocabLevel();
   saveProgress();
-}
-
-function renderDifficultyFeedback() {
-  const currentTooEasyWords = getCurrentTooEasyWords();
-  const currentTooHardWords = getCurrentTooHardWords();
-  const isTooEasy = currentTooEasyWords.has(currentLesson.word);
-  const isTooHard = currentTooHardWords.has(currentLesson.word);
-
-  tooEasyButton.classList.toggle("is-active", isTooEasy);
-  tooHardButton.classList.toggle("is-active", isTooHard);
-  tooEasyButton.setAttribute("aria-pressed", String(isTooEasy));
-  tooHardButton.setAttribute("aria-pressed", String(isTooHard));
-
-  if (isTooEasy) {
-    difficultyStatus.textContent = "這個字已標記為太簡單，之後會降低出現優先度。";
-    return;
-  }
-
-  if (isTooHard) {
-    difficultyStatus.textContent = "這個字已標記為太難，之後會優先安排你再看到它。";
-    return;
-  }
-
-  difficultyStatus.textContent = "你可以用這兩個按鈕微調今天的單字難度。";
 }
 
 function renderExampleText(example) {
@@ -880,46 +788,9 @@ function startSentenceHighlightFallback(durationMs) {
   }, stepMs);
 }
 
-function renderOptions(lesson) {
-  quizOptions.innerHTML = "";
-  quizOptionButtons = [];
-  const fragment = document.createDocumentFragment();
-
-  shuffleArray(lesson.options).forEach((option) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "quiz-option";
-    button.textContent = option;
-
-    button.addEventListener("click", () => {
-      quizOptionButtons.forEach((item) => {
-        item.disabled = true;
-
-        if (item.textContent === lesson.answer) {
-          item.classList.add("correct");
-        }
-      });
-
-      if (option === lesson.answer) {
-        quizResult.textContent = "答對了，做得很好。";
-      } else {
-        button.classList.add("wrong");
-        quizResult.textContent = `這題答錯了，正確答案是「${lesson.answer}」。`;
-      }
-    });
-
-    quizOptionButtons.push(button);
-    fragment.appendChild(button);
-  });
-
-  quizOptions.appendChild(fragment);
-}
-
 function renderWordList() {
   wordList.innerHTML = "";
   const currentMasteredWords = getCurrentMasteredWords();
-  const currentTooEasyWords = getCurrentTooEasyWords();
-  const currentTooHardWords = getCurrentTooHardWords();
   const fragment = document.createDocumentFragment();
 
   getCurrentLessons().forEach((lesson, index) => {
@@ -933,14 +804,6 @@ function renderWordList() {
 
     if (currentMasteredWords.has(lesson.word)) {
       classes.push("mastered");
-    }
-
-    if (currentTooEasyWords.has(lesson.word)) {
-      classes.push("too-easy");
-    }
-
-    if (currentTooHardWords.has(lesson.word)) {
-      classes.push("too-hard");
     }
 
     button.className = classes.join(" ");
@@ -961,52 +824,6 @@ function renderMasteredState() {
   const currentMasteredWords = getCurrentMasteredWords();
 
   masteredSummary.textContent = `第 ${currentStageIndex + 1} 階段已學會 ${currentMasteredWords.size} / ${currentLessons.length}`;
-
-  if (currentMasteredWords.has(currentLesson.word)) {
-    masterButton.textContent = "取消已學會";
-    masterButton.classList.add("is-mastered");
-  } else {
-    masterButton.textContent = "標記為已學會";
-    masterButton.classList.remove("is-mastered");
-  }
-}
-
-function markLessonDifficulty(feedbackType) {
-  const currentTooEasyWords = getCurrentTooEasyWords();
-  const currentTooHardWords = getCurrentTooHardWords();
-  const currentMasteredWords = getCurrentMasteredWords();
-
-  if (feedbackType === "easy") {
-    if (currentTooEasyWords.has(currentLesson.word)) {
-      currentTooEasyWords.delete(currentLesson.word);
-      difficultyStatus.textContent = "已取消太簡單標記。";
-    } else {
-      currentTooEasyWords.add(currentLesson.word);
-      currentTooHardWords.delete(currentLesson.word);
-      currentMasteredWords.add(currentLesson.word);
-      difficultyStatus.textContent = "已標記為太簡單，之後會盡量少出現。";
-    }
-
-    renderLesson(currentLesson);
-
-    if (currentTooEasyWords.has(currentLesson.word)) {
-      setCurrentLesson(getNextLessonIndex());
-    }
-
-    return;
-  }
-
-  if (currentTooHardWords.has(currentLesson.word)) {
-    currentTooHardWords.delete(currentLesson.word);
-    difficultyStatus.textContent = "已取消太難標記。";
-  } else {
-    currentTooHardWords.add(currentLesson.word);
-    currentTooEasyWords.delete(currentLesson.word);
-    currentMasteredWords.delete(currentLesson.word);
-    difficultyStatus.textContent = "已標記為太難，接下來會優先再複習。";
-  }
-
-  renderLesson(currentLesson);
 }
 
 function renderCompletionState() {
@@ -1146,6 +963,7 @@ flashcard.addEventListener("click", () => {
 });
 
 nextButton.addEventListener("click", () => {
+  getCurrentMasteredWords().add(currentLesson.word);
   setCurrentLesson(getNextLessonIndex());
 });
 
@@ -1153,26 +971,6 @@ speakButton.addEventListener("click", speakWord);
 wordSlowButton.addEventListener("click", speakWordSlowly);
 sentenceSpeakButton.addEventListener("click", speakSentence);
 sentenceSlowButton.addEventListener("click", speakSentenceSlowly);
-
-masterButton.addEventListener("click", () => {
-  const currentMasteredWords = getCurrentMasteredWords();
-
-  if (currentMasteredWords.has(currentLesson.word)) {
-    currentMasteredWords.delete(currentLesson.word);
-  } else {
-    currentMasteredWords.add(currentLesson.word);
-  }
-
-  renderLesson(currentLesson);
-});
-
-tooEasyButton.addEventListener("click", () => {
-  markLessonDifficulty("easy");
-});
-
-tooHardButton.addEventListener("click", () => {
-  markLessonDifficulty("hard");
-});
 
 reviewButton.addEventListener("click", () => {
   setCurrentLesson(0);
