@@ -460,6 +460,7 @@ const progressByLevel = Object.fromEntries(
 let sentenceHighlightTimer = null;
 let sentenceHighlightFallbackTimer = null;
 let exampleWordElements = [];
+let preferredEnglishVoice = null;
 
 let selectedVocabLevel = VOCAB_LEVELS[0];
 let currentStageIndex = 0;
@@ -849,12 +850,38 @@ function renderCompletionState() {
   reviewButton.textContent = `重新複習第 ${currentStageIndex + 1} 天`;
 }
 
+function pickPreferredEnglishVoice() {
+  const voices = window.speechSynthesis?.getVoices?.() ?? [];
+
+  if (!voices.length) {
+    preferredEnglishVoice = null;
+    return null;
+  }
+
+  preferredEnglishVoice =
+    voices.find((voice) => /^en[-_]/i.test(voice.lang) && /Google|Samantha|Microsoft|English/i.test(voice.name)) ||
+    voices.find((voice) => /^en[-_]/i.test(voice.lang)) ||
+    voices[0];
+
+  return preferredEnglishVoice;
+}
+
+function configureEnglishUtterance(utterance, rate) {
+  const voice = preferredEnglishVoice ?? pickPreferredEnglishVoice();
+
+  utterance.lang = voice?.lang || "en-US";
+  utterance.voice = voice ?? null;
+  utterance.rate = rate;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+}
+
 function speakWord() {
-  speakWordAtRate(0.9, `正在播放 ${currentLesson.word} 的發音`, "播放完成，請跟讀一次。");
+  speakWordAtRate(1, `正在播放 ${currentLesson.word} 的發音`, "播放完成，請跟讀一次。");
 }
 
 function speakWordSlowly() {
-  speakWordAtRate(0.6, `正在慢速播放 ${currentLesson.word}`, "慢速播放完成，請慢慢跟讀一次。");
+  speakWordAtRate(0.45, `正在慢速播放 ${currentLesson.word}`, "慢速播放完成，請慢慢跟讀一次。");
 }
 
 function speakWordAtRate(rate, startMessage, endMessage) {
@@ -866,9 +893,7 @@ function speakWordAtRate(rate, startMessage, endMessage) {
   window.speechSynthesis.cancel();
 
   const utterance = new SpeechSynthesisUtterance(currentLesson.word);
-  utterance.lang = "en-US";
-  utterance.rate = rate;
-  utterance.pitch = 1;
+  configureEnglishUtterance(utterance, rate);
 
   utterance.onstart = () => {
     flashcard.classList.add("is-speaking");
@@ -890,11 +915,11 @@ function speakWordAtRate(rate, startMessage, endMessage) {
 }
 
 function speakSentence() {
-  speakSentenceAtRate(0.88, "正在播放例句發音", "例句播放完成，可以跟讀一次。");
+  speakSentenceAtRate(0.95, "正在播放例句發音", "例句播放完成，可以跟讀一次。");
 }
 
 function speakSentenceSlowly() {
-  speakSentenceAtRate(0.65, "正在慢速播放例句", "慢速例句播放完成，可以慢慢跟讀一次。");
+  speakSentenceAtRate(0.55, "正在慢速播放例句", "慢速例句播放完成，可以慢慢跟讀一次。");
 }
 
 function speakSentenceAtRate(rate, startMessage, endMessage) {
@@ -906,9 +931,7 @@ function speakSentenceAtRate(rate, startMessage, endMessage) {
   window.speechSynthesis.cancel();
 
   const utterance = new SpeechSynthesisUtterance(currentLesson.example);
-  utterance.lang = "en-US";
-  utterance.rate = rate;
-  utterance.pitch = 1;
+  configureEnglishUtterance(utterance, rate);
   let boundaryTriggered = false;
 
   utterance.onstart = () => {
@@ -995,6 +1018,11 @@ levelButtons.forEach((button) => {
 loadProgress();
 syncStateFromSelectedLevel();
 renderLesson(currentLesson);
+
+if ("speechSynthesis" in window) {
+  pickPreferredEnglishVoice();
+  window.speechSynthesis.addEventListener("voiceschanged", pickPreferredEnglishVoice);
+}
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
