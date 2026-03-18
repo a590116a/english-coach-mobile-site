@@ -1630,6 +1630,75 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   interface: {
     example: "The app has a simple interface that is easy to use.",
     exampleTranslation: "這個應用程式的介面很簡單，也很容易使用。"
+  },
+  warning: {
+    example: "The sign gave a clear warning about the wet floor.",
+    exampleTranslation: "那個告示牌清楚地警告大家地板很滑。"
+  },
+  wine: {
+    example: "They served wine with dinner at the small hotel.",
+    exampleTranslation: "他們在那家小旅館的晚餐時供應葡萄酒。"
+  },
+  locations: {
+    example: "The map shows the locations of all the bus stops.",
+    exampleTranslation: "地圖顯示了所有公車站的位置。"
+  },
+  vote: {
+    example: "Students will vote for the new class leader tomorrow.",
+    exampleTranslation: "學生們明天會投票選出新的班長。"
+  },
+  forward: {
+    example: "I look forward to our next English lesson.",
+    exampleTranslation: "我很期待下一堂英文課。"
+  },
+  flowers: {
+    example: "She put fresh flowers on the dining table.",
+    exampleTranslation: "她把新鮮的花放在餐桌上。"
+  },
+  stars: {
+    example: "We could see many stars in the sky that night.",
+    exampleTranslation: "那天晚上我們可以看見天空中很多星星。"
+  },
+  significant: {
+    example: "There was a significant change in his attitude after the talk.",
+    exampleTranslation: "談完之後，他的態度有了明顯的改變。"
+  },
+  technologies: {
+    example: "New technologies are changing the way people learn languages.",
+    exampleTranslation: "新科技正在改變人們學語言的方式。"
+  },
+  owner: {
+    example: "The owner of the cafe knows many of the regular customers.",
+    exampleTranslation: "那家咖啡店的老闆認識許多常客。"
+  },
+  retail: {
+    example: "She found a part-time job in retail during the summer.",
+    exampleTranslation: "她在暑假期間找到一份零售業的兼職工作。"
+  },
+  animals: {
+    example: "The children learned about wild animals at the zoo.",
+    exampleTranslation: "孩子們在動物園學到了很多野生動物的知識。"
+  },
+  useful: {
+    example: "This short phrase is useful in everyday conversation.",
+    exampleTranslation: "這個短句在日常對話中很實用。"
+  },
+  directly: {
+    example: "Please send the message directly to me.",
+    exampleTranslation: "請直接把訊息傳給我。"
+  },
+  manufacturer: {
+    example: "The manufacturer released a safer version of the product.",
+    exampleTranslation: "製造商推出了這個產品更安全的新版本。"
+  },
+  ways: {
+    example: "There are many ways to improve your listening skill.",
+    exampleTranslation: "有很多方法可以提升你的聽力能力。"
+  },
+  son: {
+    example: "Their son started junior high school this year.",
+    exampleTranslation: "他們的兒子今年開始讀國中。"
+  }
   }
 };
 
