@@ -2118,6 +2118,158 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   final: {
     example: "This is the final page of today's lesson.",
     exampleTranslation: "這是今天課程的最後一頁。"
+  },
+  quotations: {
+    example: "The report includes quotations from two experts.",
+    exampleTranslation: "這份報告收錄了兩位專家的引述。"
+  },
+  inspector: {
+    example: "The inspector checked the building for safety problems.",
+    exampleTranslation: "檢查員查看了這棟建築是否有安全問題。"
+  },
+  beans: {
+    example: "She added beans to the soup before dinner.",
+    exampleTranslation: "她在晚餐前把豆子加進湯裡。"
+  },
+  bookmarks: {
+    example: "I bought two new bookmarks at the bookstore.",
+    exampleTranslation: "我在書店買了兩個新的書籤。"
+  },
+  ellis: {
+    example: "Ellis joined our reading group last week.",
+    exampleTranslation: "Ellis 上週加入了我們的閱讀小組。"
+  },
+  leonard: {
+    example: "Leonard brought cookies to the meeting.",
+    exampleTranslation: "Leonard 帶了餅乾來開會。"
+  },
+  lending: {
+    example: "The bank is careful about lending money to new customers.",
+    exampleTranslation: "銀行在借錢給新客戶這件事上很謹慎。"
+  },
+  oops: {
+    example: "\"Oops, I made a spelling mistake,\" she said.",
+    exampleTranslation: "「哎呀，我拼錯字了。」她說。"
+  },
+  xi: {
+    example: "The teacher wrote the Greek letter xi on the board.",
+    exampleTranslation: "老師把希臘字母 xi 寫在黑板上。"
+  },
+  bathrooms: {
+    example: "The hotel has two public bathrooms on this floor.",
+    exampleTranslation: "這間飯店這一層有兩間公共浴室。"
+  },
+  plains: {
+    example: "The train crossed the wide plains at sunset.",
+    exampleTranslation: "火車在夕陽下穿過遼闊的平原。"
+  },
+  sku: {
+    example: "Each product has its own SKU number.",
+    exampleTranslation: "每個商品都有自己的 SKU 編號。"
+  },
+  ht: {
+    example: "Please check the HT information on the label.",
+    exampleTranslation: "請查看標籤上的 HT 資訊。"
+  },
+  raymond: {
+    example: "Raymond called to confirm the schedule.",
+    exampleTranslation: "Raymond 打電話來確認行程。"
+  },
+  sullivan: {
+    example: "Sullivan will lead the discussion this afternoon.",
+    exampleTranslation: "Sullivan 今天下午會帶領討論。"
+  },
+  za: {
+    example: "The website uses .za in its web address.",
+    exampleTranslation: "那個網站的網址裡使用了 .za。"
+  },
+  midwest: {
+    example: "He grew up in the Midwest of the United States.",
+    exampleTranslation: "他在美國中西部長大。"
+  },
+  fool: {
+    example: "Do not let false promises fool you.",
+    exampleTranslation: "不要讓虛假的承諾騙了你。"
+  },
+  ve: {
+    example: "The list used VE as a short country code.",
+    exampleTranslation: "那份清單把 VE 當成簡短的國家代碼。"
+  },
+  lancaster: {
+    example: "They spent two nights in Lancaster during the trip.",
+    exampleTranslation: "他們在旅行期間在 Lancaster 住了兩晚。"
+  },
+  hereby: {
+    example: "I hereby agree to follow the school rules.",
+    exampleTranslation: "我在此同意遵守校規。"
+  },
+  julia: {
+    example: "Julia shared her notes with the whole class.",
+    exampleTranslation: "Julia 把她的筆記分享給全班。"
+  },
+  karl: {
+    example: "Karl arrived early and helped set up the room.",
+    exampleTranslation: "Karl 很早就到了，還幫忙整理教室。"
+  },
+  bermuda: {
+    example: "My uncle once traveled to Bermuda for a holiday.",
+    exampleTranslation: "我叔叔以前曾去百慕達度假。"
+  },
+  amanda: {
+    example: "Amanda brought fruit for everyone in the office.",
+    exampleTranslation: "Amanda 帶了水果給辦公室裡的每一個人。"
+  },
+  mobiles: {
+    example: "The shop sells mobiles and phone cases.",
+    exampleTranslation: "那家店賣手機和手機殼。"
+  },
+  wanting: {
+    example: "The report was still wanting in detail.",
+    exampleTranslation: "那份報告在細節上仍然有所不足。"
+  },
+  soonest: {
+    example: "Please reply as soonest as possible.",
+    exampleTranslation: "請儘快回覆。"
+  },
+  haiti: {
+    example: "The charity sent supplies to Haiti after the storm.",
+    exampleTranslation: "那個慈善組織在風暴過後把物資送往海地。"
+  },
+  poly: {
+    example: "He studied design at a local poly.",
+    exampleTranslation: "他在當地的一所理工學校學設計。"
+  },
+  ears: {
+    example: "Her ears turned red in the cold wind.",
+    exampleTranslation: "她的耳朵在冷風中凍得發紅。"
+  },
+  dod: {
+    example: "The report was later sent to the DoD office.",
+    exampleTranslation: "那份報告後來被送到國防部辦公室。"
+  },
+  wp: {
+    example: "He saved the file in his WP folder.",
+    exampleTranslation: "他把檔案存進自己的 WP 資料夾。"
+  },
+  fist: {
+    example: "He raised his fist in the air after winning.",
+    exampleTranslation: "他贏了之後把拳頭舉向空中。"
+  },
+  chester: {
+    example: "Chester sent the email before lunch.",
+    exampleTranslation: "Chester 在午餐前寄出了那封電子郵件。"
+  },
+  loc: {
+    example: "The map marked the loc of the meeting point.",
+    exampleTranslation: "地圖標出了集合地點的位置。"
+  },
+  shaw: {
+    example: "Mr Shaw will lead today's discussion.",
+    exampleTranslation: "Shaw 先生今天會帶領討論。"
+  },
+  vp: {
+    example: "The VP will visit our office next week.",
+    exampleTranslation: "副總下週會來我們辦公室。"
   }
 };
 
