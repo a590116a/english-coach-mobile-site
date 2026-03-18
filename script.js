@@ -518,6 +518,158 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   interface: {
     example: "The new app has a clean and simple interface.",
     exampleTranslation: "這個新 App 有乾淨又簡單的介面。"
+  },
+  partners: {
+    example: "The two business partners opened a new shop together.",
+    exampleTranslation: "那兩位生意夥伴一起開了一家新店。"
+  },
+  budget: {
+    example: "We planned the trip on a small budget.",
+    exampleTranslation: "我們用不高的預算規劃了這趟旅行。"
+  },
+  rated: {
+    example: "This hotel is highly rated by travelers online.",
+    exampleTranslation: "這間飯店在網路上受到旅客高度評價。"
+  },
+  guides: {
+    example: "These guides help visitors find the museum quickly.",
+    exampleTranslation: "這些指南能幫助遊客很快找到博物館。"
+  },
+  success: {
+    example: "Hard work was the key to her success.",
+    exampleTranslation: "努力工作是她成功的關鍵。"
+  },
+  maximum: {
+    example: "The room can hold a maximum of twenty people.",
+    exampleTranslation: "這個房間最多可以容納二十個人。"
+  },
+  ma: {
+    example: "Ma called me home for dinner at six.",
+    exampleTranslation: "媽媽六點叫我回家吃晚餐。"
+  },
+  operation: {
+    example: "The doctor explained the operation before it began.",
+    exampleTranslation: "醫生在手術開始前先做了解釋。"
+  },
+  existing: {
+    example: "We kept the existing rules for this semester.",
+    exampleTranslation: "我們這學期維持原有的規則。"
+  },
+  quite: {
+    example: "The test was quite easy for most students.",
+    exampleTranslation: "這份考試對多數學生來說相當容易。"
+  },
+  selected: {
+    example: "Only ten students were selected for the team.",
+    exampleTranslation: "只有十位學生被選進隊伍。"
+  },
+  boy: {
+    example: "The boy ran across the playground after school.",
+    exampleTranslation: "那個男孩放學後跑過操場。"
+  },
+  amazon: {
+    example: "She ordered the notebook from Amazon last night.",
+    exampleTranslation: "她昨晚在 Amazon 訂了那本筆記本。"
+  },
+  patients: {
+    example: "The nurses cared for the patients all night.",
+    exampleTranslation: "護理師整晚都在照顧病人。"
+  },
+  restaurants: {
+    example: "This street has many small restaurants.",
+    exampleTranslation: "這條街上有很多小餐廳。"
+  },
+  beautiful: {
+    example: "The beach looked beautiful at sunset.",
+    exampleTranslation: "那片海灘在日落時看起來很美。"
+  },
+  warning: {
+    example: "The sign gave a warning about the wet floor.",
+    exampleTranslation: "那個標誌警告大家地板很濕。"
+  },
+  wine: {
+    example: "They served wine with dinner at the hotel.",
+    exampleTranslation: "他們在飯店晚餐時搭配供應葡萄酒。"
+  },
+  locations: {
+    example: "The map shows the locations of all the stations.",
+    exampleTranslation: "地圖標示出所有車站的位置。"
+  },
+  horse: {
+    example: "The horse ran across the field very fast.",
+    exampleTranslation: "那匹馬快速跑過田野。"
+  },
+  vote: {
+    example: "Students will vote for the new class leader tomorrow.",
+    exampleTranslation: "學生們明天會投票選新的班長。"
+  },
+  forward: {
+    example: "I am looking forward to the school trip.",
+    exampleTranslation: "我很期待學校旅行。"
+  },
+  flowers: {
+    example: "She put fresh flowers on the kitchen table.",
+    exampleTranslation: "她把新鮮的花放在廚房桌上。"
+  },
+  stars: {
+    example: "We could see many stars in the night sky.",
+    exampleTranslation: "我們可以在夜空中看到很多星星。"
+  },
+  significant: {
+    example: "There was a significant change in his attitude.",
+    exampleTranslation: "他的態度有了明顯的改變。"
+  },
+  technologies: {
+    example: "New technologies are changing the way we learn.",
+    exampleTranslation: "新科技正在改變我們學習的方式。"
+  },
+  owner: {
+    example: "The owner of the shop knows every customer by name.",
+    exampleTranslation: "那家店的老闆記得每位客人的名字。"
+  },
+  retail: {
+    example: "She works in retail during the summer vacation.",
+    exampleTranslation: "她在暑假期間做零售工作。"
+  },
+  animals: {
+    example: "The children learned about wild animals at the zoo.",
+    exampleTranslation: "孩子們在動物園學習野生動物。"
+  },
+  useful: {
+    example: "This phrase is very useful in daily conversation.",
+    exampleTranslation: "這個片語在日常對話裡很有用。"
+  },
+  directly: {
+    example: "Please send the message directly to me.",
+    exampleTranslation: "請直接把訊息傳給我。"
+  },
+  manufacturer: {
+    example: "The manufacturer released a safer version of the product.",
+    exampleTranslation: "製造商推出了更安全的新版本產品。"
+  },
+  ways: {
+    example: "There are many ways to improve your listening skills.",
+    exampleTranslation: "有很多方法可以提升你的聽力能力。"
+  },
+  est: {
+    example: "The meeting starts at 8 p.m. EST.",
+    exampleTranslation: "那場會議會在美東時間晚上八點開始。"
+  },
+  son: {
+    example: "Their son started junior high school this year.",
+    exampleTranslation: "他們的兒子今年開始上國中。"
+  },
+  providing: {
+    example: "We can go to the park, providing it does not rain.",
+    exampleTranslation: "只要不下雨，我們就可以去公園。"
+  },
+  rule: {
+    example: "One important rule is to arrive on time.",
+    exampleTranslation: "一條重要的規則就是準時到達。"
+  },
+  mac: {
+    example: "He bought a new Mac for his design work.",
+    exampleTranslation: "他買了一台新的 Mac 來做設計工作。"
   }
 };
 
