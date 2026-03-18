@@ -1762,6 +1762,66 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   input: {
     example: "The teacher asked for student input before changing the plan.",
     exampleTranslation: "老師在改變計畫前先徵求學生的意見。"
+  },
+  strategy: {
+    example: "Reading aloud every day is a good strategy for beginners.",
+    exampleTranslation: "每天大聲朗讀對初學者來說是一個很好的策略。"
+  },
+  agent: {
+    example: "The travel agent helped us find a cheaper ticket.",
+    exampleTranslation: "旅行社人員幫我們找到一張比較便宜的票。"
+  },
+  valid: {
+    example: "This ticket is valid until the end of the month.",
+    exampleTranslation: "這張票在月底前都有效。"
+  },
+  modern: {
+    example: "The library has a bright and modern design.",
+    exampleTranslation: "這間圖書館有明亮又現代的設計。"
+  },
+  senior: {
+    example: "My senior gave me useful advice about the exam.",
+    exampleTranslation: "我的學長姐給了我一些關於考試的有用建議。"
+  },
+  teaching: {
+    example: "Good teaching can make difficult ideas easier to understand.",
+    exampleTranslation: "好的教學能讓困難的觀念更容易理解。"
+  },
+  door: {
+    example: "Please close the door before the class begins.",
+    exampleTranslation: "上課前請把門關上。"
+  },
+  grand: {
+    example: "They stayed in a grand old hotel near the river.",
+    exampleTranslation: "他們住在河邊一間氣派的老飯店裡。"
+  },
+  testing: {
+    example: "The new app is still in testing this week.",
+    exampleTranslation: "這個新應用程式這週仍在測試中。"
+  },
+  trial: {
+    example: "We used the software for a free trial last month.",
+    exampleTranslation: "我們上個月試用了這套軟體的免費版本。"
+  },
+  charge: {
+    example: "The hotel did not charge us for breakfast.",
+    exampleTranslation: "那家飯店沒有向我們收早餐費。"
+  },
+  instead: {
+    example: "She stayed home and studied instead of going out.",
+    exampleTranslation: "她沒有出門，反而留在家裡讀書。"
+  },
+  cool: {
+    example: "The evening air feels cool by the sea.",
+    exampleTranslation: "海邊傍晚的空氣感覺很涼爽。"
+  },
+  normal: {
+    example: "It is normal to feel nervous before a speech.",
+    exampleTranslation: "在演講前感到緊張是很正常的。"
+  },
+  enterprise: {
+    example: "The small enterprise started with only five workers.",
+    exampleTranslation: "這家小企業一開始只有五名員工。"
   }
 };
 
