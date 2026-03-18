@@ -1282,6 +1282,126 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   dominant: {
     example: "Blue is the dominant color in this design.",
     exampleTranslation: "藍色是這個設計裡的主色。"
+  },
+  brilliant: {
+    example: "She gave a brilliant answer during the class discussion.",
+    exampleTranslation: "她在課堂討論中給了一個很精彩的回答。"
+  },
+  factory: {
+    example: "My father works at a factory outside the city.",
+    exampleTranslation: "我爸爸在城市外的一間工廠工作。"
+  },
+  familiar: {
+    example: "This song sounds familiar to me.",
+    exampleTranslation: "這首歌聽起來讓我覺得很熟悉。"
+  },
+  famous: {
+    example: "That restaurant is famous for its beef noodles.",
+    exampleTranslation: "那家餐廳以牛肉麵聞名。"
+  },
+  feature: {
+    example: "The app has a new feature for daily review.",
+    exampleTranslation: "這個應用程式有一個新的每日複習功能。"
+  },
+  feed: {
+    example: "The boy feeds the fish every morning before school.",
+    exampleTranslation: "那個男孩每天上學前都會餵魚。"
+  },
+  female: {
+    example: "The female doctor spoke to us kindly.",
+    exampleTranslation: "那位女醫師很親切地和我們說話。"
+  },
+  festival: {
+    example: "We saw colorful lights during the spring festival.",
+    exampleTranslation: "我們在春季節慶期間看到了彩色燈光。"
+  },
+  field: {
+    example: "She wants to work in the medical field one day.",
+    exampleTranslation: "她希望有一天能在醫療領域工作。"
+  },
+  final: {
+    example: "This is the final page of today's lesson.",
+    exampleTranslation: "這是今天課程的最後一頁。"
+  },
+  beyond: {
+    example: "The answer was beyond my expectations.",
+    exampleTranslation: "那個答案超出了我的預期。"
+  },
+  borrow: {
+    example: "You can borrow this English book from me.",
+    exampleTranslation: "你可以跟我借這本英文書。"
+  },
+  breathe: {
+    example: "Take a moment to breathe before you start speaking.",
+    exampleTranslation: "開口說話前，先花一點時間呼吸一下。"
+  },
+  calm: {
+    example: "He stayed calm during the interview.",
+    exampleTranslation: "他在面試時保持冷靜。"
+  },
+  career: {
+    example: "Learning English can help your future career.",
+    exampleTranslation: "學英文可以幫助你未來的職涯發展。"
+  },
+  certain: {
+    example: "I am certain that she will do well in the test.",
+    exampleTranslation: "我很確定她考試會表現得很好。"
+  },
+  challenge: {
+    example: "Speaking in public is still a challenge for me.",
+    exampleTranslation: "對我來說，公開說話仍然是一項挑戰。"
+  },
+  choice: {
+    example: "You have a choice between the red one and the blue one.",
+    exampleTranslation: "你可以在紅色那個和藍色那個之間做選擇。"
+  },
+  common: {
+    example: "This is a common mistake for new learners.",
+    exampleTranslation: "這是新學習者常見的錯誤。"
+  },
+  compare: {
+    example: "Compare your answer with the sample sentence.",
+    exampleTranslation: "把你的答案和範例句子比較一下。"
+  },
+  complete: {
+    example: "She was happy to complete all fifty words today.",
+    exampleTranslation: "她很開心今天完成了五十個單字。"
+  },
+  condition: {
+    example: "The plants grow well under warm conditions.",
+    exampleTranslation: "這些植物在溫暖的條件下長得很好。"
+  },
+  consider: {
+    example: "Please consider my idea before you decide.",
+    exampleTranslation: "請在決定前先考慮我的想法。"
+  },
+  contain: {
+    example: "This box may contain old photos from school.",
+    exampleTranslation: "這個盒子裡可能裝著以前在學校的照片。"
+  },
+  continue: {
+    example: "They continue practicing even after class ends.",
+    exampleTranslation: "即使下課了，他們還是繼續練習。"
+  },
+  control: {
+    example: "He tried to control his voice during the meeting.",
+    exampleTranslation: "他在會議中試著控制自己的音量。"
+  },
+  conversation: {
+    example: "We had a short conversation in English after lunch.",
+    exampleTranslation: "午餐後我們用英文進行了一段簡短對話。"
+  },
+  create: {
+    example: "The designer will create a new logo for the team.",
+    exampleTranslation: "設計師將為團隊製作一個新標誌。"
+  },
+  curious: {
+    example: "The child was curious about the strange machine.",
+    exampleTranslation: "那個孩子對那台奇怪的機器感到好奇。"
+  },
+  custom: {
+    example: "It is a local custom to bring a small gift when visiting.",
+    exampleTranslation: "拜訪別人時帶一份小禮物是當地的習俗。"
   }
 };
 
