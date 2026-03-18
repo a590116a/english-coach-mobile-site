@@ -3515,6 +3515,264 @@ function capitalizeWord(word) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
+function sanitizeMeaningText(meaning) {
+  if (!meaning) {
+    return "這個意思";
+  }
+
+  const cleanedMeaning = String(meaning)
+    .replace(/[?�]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (!cleanedMeaning) {
+    return "這個意思";
+  }
+
+  return cleanedMeaning.split(/[；;、,\/]/)[0].trim() || cleanedMeaning;
+}
+
+function inferExampleTheme(word, meaning) {
+  const sample = `${word} ${sanitizeMeaningText(meaning)}`.toLowerCase();
+
+  if (/(school|study|class|lesson|teacher|student|learn|example|education|practice|exercise|explain|discuss)/.test(sample)) {
+    return "learning";
+  }
+
+  if (/(work|office|factory|budget|project|plan|team|service|system|operation|process|report|business)/.test(sample)) {
+    return "work";
+  }
+
+  if (/(doctor|nurse|patient|health|hospital|disease|energy|breathe|fitness|exercise)/.test(sample)) {
+    return "health";
+  }
+
+  if (/(station|traffic|ship|sea|travel|hotel|accommodation|navigation|airport|train|bus|car)/.test(sample)) {
+    return "travel";
+  }
+
+  if (/(family|mother|father|son|daughter|partner|friend|people|owner|customer|guest)/.test(sample)) {
+    return "people";
+  }
+
+  return "daily";
+}
+
+function getEnhancedExampleTemplates(category, theme) {
+  const templates = {
+    learning: {
+      verb: [
+        (word) => `Try to ${word} the new idea in one short sentence.`,
+        (word) => `Our teacher asked us to ${word} the main point before class ended.`,
+        (word) => `I used this lesson to ${word} the word in a real example.`,
+        (word) => `We practiced how to ${word} our ideas more clearly in class.`
+      ],
+      adjective: [
+        (word) => `The teacher gave us a ${word} example that was easy to remember.`,
+        (word) => `This explanation feels more ${word} after I read it twice.`,
+        (word) => `The workbook uses a ${word} sentence for new learners.`,
+        (word) => `Her answer was ${word}, so the whole class understood it quickly.`
+      ],
+      adverb: [
+        (word) => `The teacher spoke ${word} so every student could follow.`,
+        (word) => `Please read the sentence ${word} and listen to each sound.`,
+        (word) => `He answered ${word} after checking the example again.`,
+        (word) => `She explained the grammar point ${word} for beginners.`
+      ],
+      noun: [
+        (word) => `Our teacher used ${word} in a short classroom example today.`,
+        (word) => `I wrote a note about ${word} after the lesson ended.`,
+        (word) => `The workbook gives a simple example of ${word} for practice.`,
+        (word) => `We talked about ${word} while learning new vocabulary.`
+      ]
+    },
+    work: {
+      verb: [
+        (word) => `We need to ${word} the plan before the meeting starts.`,
+        (word) => `She will ${word} the task after lunch at the office.`,
+        (word) => `The team tried to ${word} the problem step by step.`,
+        (word) => `He learned how to ${word} the process more smoothly at work.`
+      ],
+      adjective: [
+        (word) => `The manager wanted a ${word} report before the client arrived.`,
+        (word) => `This system is more ${word} after the latest update.`,
+        (word) => `They chose a ${word} design for the new service.`,
+        (word) => `Her suggestion was ${word} and useful for the whole team.`
+      ],
+      adverb: [
+        (word) => `She replied ${word} during the project meeting.`,
+        (word) => `The team worked ${word} to finish the task on time.`,
+        (word) => `He checked the numbers ${word} before sending the report.`,
+        (word) => `They explained the new process ${word} to the client.`
+      ],
+      noun: [
+        (word) => `The team discussed ${word} during the morning meeting.`,
+        (word) => `Our office uses ${word} in its daily work.`,
+        (word) => `The manager gave a clear example of ${word} in the report.`,
+        (word) => `I first heard about ${word} while helping with a project.`
+      ]
+    },
+    health: {
+      verb: [
+        (word) => `The doctor told him to ${word} slowly and stay relaxed.`,
+        (word) => `She wants to ${word} her health by walking every day.`,
+        (word) => `We should ${word} the body gently before exercise.`,
+        (word) => `He learned to ${word} better after talking to the nurse.`
+      ],
+      adjective: [
+        (word) => `A short walk can help you feel more ${word} in the afternoon.`,
+        (word) => `The doctor said this is a ${word} sign during recovery.`,
+        (word) => `She looked ${word} after getting enough rest.`,
+        (word) => `Regular sleep keeps your body in a more ${word} condition.`
+      ],
+      adverb: [
+        (word) => `Please breathe ${word} before you speak again.`,
+        (word) => `She moved ${word} because her leg still hurt.`,
+        (word) => `He answered ${word} after taking a deep breath.`,
+        (word) => `The nurse spoke ${word} to calm the patient.`
+      ],
+      noun: [
+        (word) => `The doctor explained ${word} to the patient in simple language.`,
+        (word) => `We learned more about ${word} during the health talk.`,
+        (word) => `The article gives a clear example of ${word} in daily life.`,
+        (word) => `She asked a question about ${word} at the hospital.`
+      ]
+    },
+    travel: {
+      verb: [
+        (word) => `We used the map to ${word} our way back to the station.`,
+        (word) => `She plans to ${word} the route before the trip begins.`,
+        (word) => `He learned how to ${word} through the busy city streets.`,
+        (word) => `The guide helped us ${word} the area with confidence.`
+      ],
+      adjective: [
+        (word) => `The station was still ${word} even late at night.`,
+        (word) => `We stayed in a ${word} hotel near the beach.`,
+        (word) => `This road looks ${word} after the heavy rain.`,
+        (word) => `The travel guide recommends a ${word} route for visitors.`
+      ],
+      adverb: [
+        (word) => `The driver turned ${word} when the road became narrow.`,
+        (word) => `We moved ${word} through the crowded station.`,
+        (word) => `She checked the map ${word} before leaving the hotel.`,
+        (word) => `The guide spoke ${word} so every visitor could follow.`
+      ],
+      noun: [
+        (word) => `We heard about ${word} while waiting at the station.`,
+        (word) => `The guide gave us a simple example of ${word} during the trip.`,
+        (word) => `I saw ${word} on the travel app before we left.`,
+        (word) => `The hotel staff explained ${word} to the new guests.`
+      ]
+    },
+    people: {
+      verb: [
+        (word) => `She tried to ${word} her ideas in a calm way.`,
+        (word) => `He learned to ${word} others with more patience.`,
+        (word) => `We should ${word} each other with respect in class.`,
+        (word) => `The coach asked the team to ${word} together more clearly.`
+      ],
+      adjective: [
+        (word) => `She is a ${word} friend when I need help.`,
+        (word) => `His answer was ${word}, and everyone trusted him.`,
+        (word) => `The new student seems ${word} after only one week here.`,
+        (word) => `Her voice stayed ${word} even during the busy activity.`
+      ],
+      adverb: [
+        (word) => `She smiled ${word} when her friend helped her.`,
+        (word) => `He answered ${word} during the family discussion.`,
+        (word) => `They listened ${word} and waited for her opinion.`,
+        (word) => `The student spoke ${word} to the younger children.`
+      ],
+      noun: [
+        (word) => `The story uses ${word} to talk about a person clearly.`,
+        (word) => `We discussed ${word} while reading about one family.`,
+        (word) => `The teacher gave a simple example of ${word} in daily conversation.`,
+        (word) => `I first understood ${word} through a story about friends.`
+      ]
+    },
+    daily: {
+      verb: [
+        (word) => `I try to ${word} this idea in daily life.`,
+        (word) => `She will ${word} the plan after dinner tonight.`,
+        (word) => `We use this time to ${word} one step at a time.`,
+        (word) => `He wants to ${word} the problem before tomorrow morning.`
+      ],
+      adjective: [
+        (word) => `This word feels ${word} in a simple daily sentence.`,
+        (word) => `Her idea sounds ${word} after one more example.`,
+        (word) => `The instructions are ${word} enough for beginners.`,
+        (word) => `That was a ${word} answer in a real-life situation.`
+      ],
+      adverb: [
+        (word) => `She spoke ${word} during our short practice.`,
+        (word) => `Please say the sentence ${word} and watch the stress.`,
+        (word) => `He checked the answer ${word} before moving on.`,
+        (word) => `The teacher repeated the phrase ${word} for the class.`
+      ],
+      noun: [
+        (word) => `I noticed ${word} in a simple daily example.`,
+        (word) => `The lesson uses ${word} in a real-life sentence.`,
+        (word) => `We talked about ${word} while practicing new words.`,
+        (word) => `My notebook keeps ${word} with an easy example.`
+      ]
+    }
+  };
+
+  return templates[theme]?.[category] || templates.daily[category];
+}
+
+function buildEnhancedExample(word, meaning) {
+  const primaryMeaning = sanitizeMeaningText(meaning);
+  const category = inferWordCategory(word, primaryMeaning);
+  const theme = inferExampleTheme(word, primaryMeaning);
+  const templates = getEnhancedExampleTemplates(category, theme);
+  const index = pickVariantIndex(word, primaryMeaning, templates.length, theme.length + category.length);
+
+  return {
+    example: templates[index](word),
+    exampleTranslation: `這句把 ${word} 放進比較自然的 ${theme === "learning" ? "學習" : theme === "work" ? "工作" : theme === "health" ? "健康" : theme === "travel" ? "移動旅行" : theme === "people" ? "人物互動" : "日常生活"}情境裡，幫你理解它「${primaryMeaning}」的用法。`
+  };
+}
+
+function isWeakExampleText(example, word) {
+  if (!example) {
+    return true;
+  }
+
+  const normalized = String(example).trim().toLowerCase();
+  const weakPatterns = [
+    `the word ${String(word).toLowerCase()} is useful`,
+    "this sentence uses",
+    "this example shows",
+    "this lesson helps me remember",
+    "can you use ",
+    "i heard the word ",
+    "our teacher asked us to practice"
+  ];
+
+  return weakPatterns.some((pattern) => normalized.includes(pattern));
+}
+
+function resolveLessonExampleContent(entry) {
+  const manualOverride = MANUAL_EXAMPLE_OVERRIDES[entry.word];
+
+  if (manualOverride?.example) {
+    return {
+      example: manualOverride.example,
+      exampleTranslation: manualOverride.exampleTranslation || buildEnhancedExample(entry.word, entry.meaning).exampleTranslation
+    };
+  }
+
+  if (entry.example && !isWeakExampleText(entry.example, entry.word)) {
+    return {
+      example: entry.example,
+      exampleTranslation: entry.exampleTranslation || buildEnhancedExample(entry.word, entry.meaning).exampleTranslation
+    };
+  }
+
+  return buildEnhancedExample(entry.word, entry.meaning);
+}
+
 function createGeneratedLesson(entry, distractorMeanings) {
   const correctMeaning = entry.meaning || "待補充";
   const uniqueDistractors = [];
@@ -3529,15 +3787,17 @@ function createGeneratedLesson(entry, distractorMeanings) {
     uniqueDistractors.push(`與 ${entry.word} 不同的意思`);
   }
 
-  const generatedExample = createContextualExample(entry.word, correctMeaning);
-  const manualOverride = MANUAL_EXAMPLE_OVERRIDES[entry.word];
+  const exampleContent = resolveLessonExampleContent({
+    ...entry,
+    meaning: correctMeaning
+  });
 
   return {
     word: entry.word,
     phonetic: entry.phonetic || "",
     meaning: correctMeaning,
-    example: manualOverride?.example || entry.example || generatedExample.example || createGeneratedExample(entry.word),
-    exampleTranslation: manualOverride?.exampleTranslation || entry.exampleTranslation || generatedExample.exampleTranslation || createGeneratedExampleTranslation(entry.word, correctMeaning),
+    example: exampleContent.example || createGeneratedExample(entry.word),
+    exampleTranslation: exampleContent.exampleTranslation || createGeneratedExampleTranslation(entry.word, correctMeaning),
     question: `請選出 ${entry.word} 的正確中文意思：`,
     options: [correctMeaning, ...uniqueDistractors],
     answer: correctMeaning
@@ -3552,11 +3812,18 @@ function normalizeCatalogLesson(entry, lessonMap, externalWordMap) {
     }
 
     const externalWord = externalWordMap.get(entry);
+    const exampleContent = externalWord
+      ? resolveLessonExampleContent({
+          ...externalWord,
+          word: entry
+        })
+      : null;
+
     return externalWord
       ? {
           ...externalWord,
-          example: MANUAL_EXAMPLE_OVERRIDES[entry]?.example || externalWord.example || "",
-          exampleTranslation: MANUAL_EXAMPLE_OVERRIDES[entry]?.exampleTranslation || externalWord.exampleTranslation || ""
+          example: exampleContent?.example || "",
+          exampleTranslation: exampleContent?.exampleTranslation || ""
         }
       : null;
   }
@@ -3574,12 +3841,14 @@ function normalizeCatalogLesson(entry, lessonMap, externalWordMap) {
     return cloneLesson(fallbackLesson);
   }
 
+  const exampleContent = resolveLessonExampleContent(entry);
+
   return {
     word: entry.word,
     phonetic: entry.phonetic || "",
     meaning: entry.meaning || "待補充",
-    example: MANUAL_EXAMPLE_OVERRIDES[entry.word]?.example || entry.example || "",
-    exampleTranslation: MANUAL_EXAMPLE_OVERRIDES[entry.word]?.exampleTranslation || entry.exampleTranslation || "",
+    example: exampleContent.example || "",
+    exampleTranslation: exampleContent.exampleTranslation || "",
     question: "",
     options: [],
     answer: ""
