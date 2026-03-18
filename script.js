@@ -2654,6 +2654,238 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   mr: {
     example: "Mr Lin will teach our class today.",
     exampleTranslation: "林先生今天會教我們這堂課。"
+  },
+  anal: {
+    example: "This medical article explains anal pain in simple language.",
+    exampleTranslation: "這篇醫學文章用簡單的語言說明肛門疼痛。"
+  },
+  beyond: {
+    example: "The answer was beyond my expectations.",
+    exampleTranslation: "那個答案超出了我的預期。"
+  },
+  borrow: {
+    example: "You can borrow this English book from me.",
+    exampleTranslation: "你可以跟我借這本英文書。"
+  },
+  breathe: {
+    example: "Take a moment to breathe before you start speaking.",
+    exampleTranslation: "開口說話前，先花一點時間呼吸一下。"
+  },
+  calm: {
+    example: "He stayed calm during the interview.",
+    exampleTranslation: "他在面試時保持冷靜。"
+  },
+  career: {
+    example: "Learning English can help your future career.",
+    exampleTranslation: "學英文可以幫助你未來的職涯發展。"
+  },
+  certain: {
+    example: "I am certain that she will do well in the test.",
+    exampleTranslation: "我很確定她考試會表現得很好。"
+  },
+  challenge: {
+    example: "Speaking in public is still a challenge for me.",
+    exampleTranslation: "對我來說，公開說話仍然是一項挑戰。"
+  },
+  choice: {
+    example: "You have a choice between the red one and the blue one.",
+    exampleTranslation: "你可以在紅色那個和藍色那個之間做選擇。"
+  },
+  common: {
+    example: "This is a common mistake for new learners.",
+    exampleTranslation: "這是新學習者常見的錯誤。"
+  },
+  compare: {
+    example: "Compare your answer with the sample sentence.",
+    exampleTranslation: "把你的答案和範例句子比較一下。"
+  },
+  complete: {
+    example: "She was happy to complete all fifty words today.",
+    exampleTranslation: "她很開心今天完成了五十個單字。"
+  },
+  condition: {
+    example: "The plants grow well under warm conditions.",
+    exampleTranslation: "這些植物在溫暖的條件下長得很好。"
+  },
+  consider: {
+    example: "Please consider my idea before you decide.",
+    exampleTranslation: "請在決定前先考慮我的想法。"
+  },
+  contain: {
+    example: "This box may contain old photos from school.",
+    exampleTranslation: "這個盒子裡可能裝著以前在學校的照片。"
+  },
+  continue: {
+    example: "They continue practicing even after class ends.",
+    exampleTranslation: "即使下課了，他們還是繼續練習。"
+  },
+  control: {
+    example: "He tried to control his voice during the meeting.",
+    exampleTranslation: "他在會議中試著控制自己的音量。"
+  },
+  conversation: {
+    example: "We had a short conversation in English after lunch.",
+    exampleTranslation: "午餐後我們用英文進行了一段簡短對話。"
+  },
+  create: {
+    example: "The designer will create a new logo for the team.",
+    exampleTranslation: "設計師將為團隊製作一個新標誌。"
+  },
+  curious: {
+    example: "The child was curious about the strange machine.",
+    exampleTranslation: "那個孩子對那台奇怪的機器感到好奇。"
+  },
+  custom: {
+    example: "It is a local custom to bring a small gift when visiting.",
+    exampleTranslation: "拜訪別人時帶一份小禮物是當地的習俗。"
+  },
+  daily: {
+    example: "She keeps a daily record of the new words she learns.",
+    exampleTranslation: "她每天都會記錄自己學到的新單字。"
+  },
+  decide: {
+    example: "We need to decide the meeting time before noon.",
+    exampleTranslation: "我們需要在中午前決定開會時間。"
+  },
+  deep: {
+    example: "The lake is too deep for young children to swim in alone.",
+    exampleTranslation: "這座湖太深了，不適合小孩子自己游泳。"
+  },
+  develop: {
+    example: "Reading every day can develop your sense of English rhythm.",
+    exampleTranslation: "每天閱讀可以培養你的英文語感。"
+  },
+  difference: {
+    example: "There is a big difference between hearing and understanding.",
+    exampleTranslation: "聽到和聽懂之間有很大的差別。"
+  },
+  difficult: {
+    example: "It was difficult for him to answer so quickly.",
+    exampleTranslation: "對他來說，要這麼快回答並不容易。"
+  },
+  discover: {
+    example: "I discovered a useful podcast while searching for study materials.",
+    exampleTranslation: "我在找學習資料時發現了一個很有用的 podcast。"
+  },
+  discuss: {
+    example: "The students stayed after class to discuss the article.",
+    exampleTranslation: "學生們下課後留下來討論那篇文章。"
+  },
+  distance: {
+    example: "The distance from my home to the station is about two kilometers.",
+    exampleTranslation: "我家到車站的距離大約是兩公里。"
+  },
+  divide: {
+    example: "Let's divide the work into three simple parts.",
+    exampleTranslation: "我們把工作分成三個簡單的部分吧。"
+  },
+  double: {
+    example: "The price became double after the holiday season.",
+    exampleTranslation: "假期過後，價格變成了兩倍。"
+  },
+  during: {
+    example: "Please stay quiet during the listening practice.",
+    exampleTranslation: "請在聽力練習期間保持安靜。"
+  },
+  early: {
+    example: "He arrived early so he could review before class.",
+    exampleTranslation: "他提早到，好在上課前先複習。"
+  },
+  earth: {
+    example: "We learned that the earth travels around the sun.",
+    exampleTranslation: "我們學到地球會繞著太陽運行。"
+  },
+  education: {
+    example: "Good education gives children more choices in life.",
+    exampleTranslation: "良好的教育能給孩子更多人生選擇。"
+  },
+  effect: {
+    example: "Lack of sleep can have a strong effect on memory.",
+    exampleTranslation: "睡眠不足會對記憶力有很大的影響。"
+  },
+  effort: {
+    example: "Her effort finally paid off in the final exam.",
+    exampleTranslation: "她的努力終於在期末考有了回報。"
+  },
+  either: {
+    example: "You can sit on either side of the table.",
+    exampleTranslation: "你可以坐在桌子的任何一邊。"
+  },
+  electric: {
+    example: "We bought an electric fan for the hot summer days.",
+    exampleTranslation: "我們買了一台電風扇來度過炎熱的夏天。"
+  },
+  empty: {
+    example: "The classroom was empty after the students went home.",
+    exampleTranslation: "學生回家後，教室就空了。"
+  },
+  encourage: {
+    example: "Her parents encourage her to speak English at home.",
+    exampleTranslation: "她的父母鼓勵她在家裡說英文。"
+  },
+  enemy: {
+    example: "For many learners, fear is the biggest enemy.",
+    exampleTranslation: "對很多學習者來說，恐懼是最大的敵人。"
+  },
+  energy: {
+    example: "A short walk can give you enough energy to study again.",
+    exampleTranslation: "短暫散步一下，就能給你足夠的精力再繼續讀書。"
+  },
+  engine: {
+    example: "The bus engine made a strange noise this morning.",
+    exampleTranslation: "今天早上公車的引擎發出奇怪的聲音。"
+  },
+  enough: {
+    example: "Ten minutes is enough to review five words carefully.",
+    exampleTranslation: "十分鐘就足夠仔細複習五個單字了。"
+  },
+  enter: {
+    example: "Please enter your name before you start the test.",
+    exampleTranslation: "開始測驗前，請先輸入你的名字。"
+  },
+  environment: {
+    example: "A quiet environment makes it easier to concentrate.",
+    exampleTranslation: "安靜的環境會讓人更容易專心。"
+  },
+  event: {
+    example: "The school will hold a reading event next Friday.",
+    exampleTranslation: "學校下週五會舉辦一場閱讀活動。"
+  },
+  exact: {
+    example: "I cannot remember the exact time of the phone call.",
+    exampleTranslation: "我記不得那通電話的確切時間。"
+  },
+  example: {
+    example: "The teacher wrote an example on the board for us to follow.",
+    exampleTranslation: "老師在黑板上寫了一個例子讓我們照著做。"
+  },
+  exercise: {
+    example: "Reading aloud is a useful exercise for speaking more clearly.",
+    exampleTranslation: "大聲朗讀是讓口說更清楚的有用練習。"
+  },
+  except: {
+    example: "Everyone finished the task except Kevin.",
+    exampleTranslation: "除了 Kevin 之外，每個人都完成了任務。"
+  },
+  excite: {
+    example: "New travel plans always excite my younger sister.",
+    exampleTranslation: "新的旅行計畫總是讓我妹妹很興奮。"
+  },
+  exist: {
+    example: "Many small study habits exist in successful learners.",
+    exampleTranslation: "很多成功的學習者都具備一些小小的學習習慣。"
+  },
+  expect: {
+    example: "Do not expect perfect English after only one week.",
+    exampleTranslation: "不要期待只學一週英文就能達到完美。"
+  },
+  experience: {
+    example: "Working at the store gave her valuable customer service experience.",
+    exampleTranslation: "在那家店工作讓她得到寶貴的顧客服務經驗。"
+  },
+  explain: {
+    example: "Can you explain this grammar rule in a simpler way?",
+    exampleTranslation: "你可以用更簡單的方式解釋這個文法規則嗎？"
   }
 };
 
