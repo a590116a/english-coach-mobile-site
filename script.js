@@ -1822,6 +1822,90 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   enterprise: {
     example: "The small enterprise started with only five workers.",
     exampleTranslation: "這家小企業一開始只有五名員工。"
+  },
+  entire: {
+    example: "She spent the entire afternoon reading English articles.",
+    exampleTranslation: "她整個下午都在讀英文文章。"
+  },
+  educational: {
+    example: "This video is both fun and educational for children.",
+    exampleTranslation: "這部影片對孩子來說既有趣又有教育意義。"
+  },
+  leading: {
+    example: "She works for a leading company in the technology field.",
+    exampleTranslation: "她在科技領域一家領先的公司工作。"
+  },
+  metal: {
+    example: "The table has a metal frame and a wooden top.",
+    exampleTranslation: "這張桌子有金屬框架和木頭桌面。"
+  },
+  positive: {
+    example: "Try to keep a positive attitude when learning new words.",
+    exampleTranslation: "學新單字時，盡量保持正面的態度。"
+  },
+  fitness: {
+    example: "Walking every day can improve your fitness.",
+    exampleTranslation: "每天走路可以改善你的體能。"
+  },
+  opinion: {
+    example: "In my opinion, this is the easiest way to remember it.",
+    exampleTranslation: "依我看，這是記住它最簡單的方法。"
+  },
+  football: {
+    example: "The boys played football on the playground after school.",
+    exampleTranslation: "那些男孩放學後在操場上踢足球。"
+  },
+  abstract: {
+    example: "The report begins with a short abstract on the first page.",
+    exampleTranslation: "這份報告在第一頁先有一段簡短摘要。"
+  },
+  output: {
+    example: "The machine's output increased after the repair.",
+    exampleTranslation: "那台機器修好後，產量提高了。"
+  },
+  funds: {
+    example: "The school raised funds for new library books.",
+    exampleTranslation: "學校募款來購買新的圖書館書籍。"
+  },
+  greater: {
+    example: "With practice, she gained greater confidence in speaking.",
+    exampleTranslation: "透過練習，她對口說更有自信了。"
+  },
+  likely: {
+    example: "It is likely to rain later this afternoon.",
+    exampleTranslation: "今天下午晚一點很可能會下雨。"
+  },
+  employees: {
+    example: "The company has more than one hundred employees.",
+    exampleTranslation: "那家公司有一百多名員工。"
+  },
+  artists: {
+    example: "Many local artists showed their work at the fair.",
+    exampleTranslation: "許多在地藝術家在展覽會上展示了作品。"
+  },
+  alternative: {
+    example: "We chose a cheaper alternative for the school trip.",
+    exampleTranslation: "我們為校外教學選了一個比較便宜的替代方案。"
+  },
+  responsibility: {
+    example: "Taking care of the class plants is our shared responsibility.",
+    exampleTranslation: "照顧班上的植物是我們共同的責任。"
+  },
+  resolution: {
+    example: "She made a resolution to read English every night.",
+    exampleTranslation: "她下定決心每天晚上都要讀英文。"
+  },
+  guest: {
+    example: "The hotel guest asked for another clean towel.",
+    exampleTranslation: "那位飯店房客要求再拿一條乾淨毛巾。"
+  },
+  grab: {
+    example: "I need to grab my bag before the bus arrives.",
+    exampleTranslation: "我得在公車到站前先拿上我的包包。"
+  },
+  attract: {
+    example: "Bright signs can attract more customers at night.",
+    exampleTranslation: "明亮的招牌在晚上可以吸引更多顧客。"
   }
 };
 
