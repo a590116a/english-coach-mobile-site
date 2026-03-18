@@ -214,6 +214,169 @@ const exampleTranslations = {
   final: "這是今天最後一題。"
 };
 
+const MANUAL_EXAMPLE_OVERRIDES = {
+  navigation: {
+    example: "The driver used the phone for navigation in the city.",
+    exampleTranslation: "那位駕駛在城市裡用手機導航。"
+  },
+  operations: {
+    example: "The factory stopped operations for two hours this morning.",
+    exampleTranslation: "那間工廠今天早上停工兩個小時。"
+  },
+  therefore: {
+    example: "He studied hard; therefore, he passed the test.",
+    exampleTranslation: "他很努力讀書，所以通過了考試。"
+  },
+  ass: {
+    example: "In the story, the old ass carried food to the village.",
+    exampleTranslation: "在故事裡，那頭老驢把食物運到村子裡。"
+  },
+  simply: {
+    example: "Please explain the answer simply for the new students.",
+    exampleTranslation: "請用簡單的方式向新同學解釋這個答案。"
+  },
+  evidence: {
+    example: "The police found evidence near the broken window.",
+    exampleTranslation: "警方在破掉的窗戶附近找到證據。"
+  },
+  station: {
+    example: "We will meet in front of the station at seven.",
+    exampleTranslation: "我們七點在車站前面見。"
+  },
+  christian: {
+    example: "He grew up in a Christian family.",
+    exampleTranslation: "他在基督教家庭中長大。"
+  },
+  round: {
+    example: "The children sat round the table and listened.",
+    exampleTranslation: "孩子們圍著桌子坐著聽。"
+  },
+  paypal: {
+    example: "I paid for the book with PayPal online.",
+    exampleTranslation: "我在線上用 PayPal 買了那本書。"
+  },
+  favorite: {
+    example: "Blue is still my favorite color.",
+    exampleTranslation: "藍色仍然是我最喜歡的顏色。"
+  },
+  understand: {
+    example: "I can understand this sentence without a dictionary.",
+    exampleTranslation: "我不用字典也能理解這個句子。"
+  },
+  option: {
+    example: "You have the option to study now or after dinner.",
+    exampleTranslation: "你可以選擇現在讀書，或晚餐後再讀。"
+  },
+  master: {
+    example: "She wants to master English pronunciation this year.",
+    exampleTranslation: "她想在今年精通英文發音。"
+  },
+  valley: {
+    example: "A small river runs through the valley.",
+    exampleTranslation: "一條小河流過那座山谷。"
+  },
+  recently: {
+    example: "I have been very busy recently.",
+    exampleTranslation: "我最近一直很忙。"
+  },
+  probably: {
+    example: "He will probably arrive after lunch.",
+    exampleTranslation: "他很可能會在午餐後到。"
+  },
+  thu: {
+    example: "Our English class is on Thu this week.",
+    exampleTranslation: "我們這週的英文課在星期四。"
+  },
+  rentals: {
+    example: "Beach rentals are expensive in summer.",
+    exampleTranslation: "海邊出租房在夏天很貴。"
+  },
+  sea: {
+    example: "We could see the sea from the hotel window.",
+    exampleTranslation: "我們從飯店窗戶就能看到海。"
+  },
+  built: {
+    example: "This bridge was built more than fifty years ago.",
+    exampleTranslation: "這座橋是在五十多年前建成的。"
+  },
+  publications: {
+    example: "The library keeps many science publications.",
+    exampleTranslation: "圖書館收藏了很多科學出版物。"
+  },
+  blood: {
+    example: "The doctor checked his blood after the accident.",
+    exampleTranslation: "醫生在意外後檢查了他的血液。"
+  },
+  cut: {
+    example: "Be careful not to cut your finger with the knife.",
+    exampleTranslation: "小心不要被刀子割到手指。"
+  },
+  worldwide: {
+    example: "The company sells its products worldwide.",
+    exampleTranslation: "那家公司在全球販售產品。"
+  },
+  improve: {
+    example: "Reading every day will improve your English.",
+    exampleTranslation: "每天閱讀會提升你的英文。"
+  },
+  connection: {
+    example: "The internet connection is slow tonight.",
+    exampleTranslation: "今晚的網路連線很慢。"
+  },
+  publisher: {
+    example: "The publisher plans to print more copies next month.",
+    exampleTranslation: "出版社計畫下個月再印更多本。"
+  },
+  hall: {
+    example: "The students waited in the hall before the meeting.",
+    exampleTranslation: "學生們在開會前在大廳等候。"
+  },
+  larger: {
+    example: "We need a larger table for the whole family.",
+    exampleTranslation: "我們需要一張更大的桌子給全家人使用。"
+  },
+  anti: {
+    example: "The hospital started an anti-smoking campaign.",
+    exampleTranslation: "那家醫院開始推動反吸菸活動。"
+  },
+  networks: {
+    example: "Social networks spread the news very quickly.",
+    exampleTranslation: "社群網路很快就把消息傳開了。"
+  },
+  impact: {
+    example: "Good teachers have a strong impact on students.",
+    exampleTranslation: "好老師對學生有很大的影響。"
+  },
+  transfer: {
+    example: "She will transfer to a new school next term.",
+    exampleTranslation: "她下學期會轉到新學校。"
+  },
+  introduction: {
+    example: "His short introduction made everyone smile.",
+    exampleTranslation: "他簡短的自我介紹讓大家都笑了。"
+  },
+  kitchen: {
+    example: "My mother is cooking in the kitchen now.",
+    exampleTranslation: "我媽媽現在正在廚房煮飯。"
+  },
+  strong: {
+    example: "You need strong legs to climb that mountain.",
+    exampleTranslation: "要爬那座山，你需要很有力的腿。"
+  },
+  wedding: {
+    example: "They met many old friends at the wedding.",
+    exampleTranslation: "他們在婚禮上遇見很多老朋友。"
+  },
+  hospital: {
+    example: "He stayed in the hospital for three days.",
+    exampleTranslation: "他在醫院住了三天。"
+  },
+  opportunity: {
+    example: "This job is a great opportunity for her.",
+    exampleTranslation: "這份工作對她來說是很好的機會。"
+  }
+};
+
 const DEFAULT_WORDS_PER_DAY = 50;
 const DEFAULT_TARGET_LEVEL_WORD_COUNTS = {
   2000: 2000,
@@ -855,13 +1018,14 @@ function createGeneratedLesson(entry, distractorMeanings) {
   }
 
   const generatedExample = createContextualExample(entry.word, correctMeaning);
+  const manualOverride = MANUAL_EXAMPLE_OVERRIDES[entry.word];
 
   return {
     word: entry.word,
     phonetic: entry.phonetic || "",
     meaning: correctMeaning,
-    example: entry.example || generatedExample.example || createGeneratedExample(entry.word),
-    exampleTranslation: entry.exampleTranslation || generatedExample.exampleTranslation || createGeneratedExampleTranslation(entry.word, correctMeaning),
+    example: manualOverride?.example || entry.example || generatedExample.example || createGeneratedExample(entry.word),
+    exampleTranslation: manualOverride?.exampleTranslation || entry.exampleTranslation || generatedExample.exampleTranslation || createGeneratedExampleTranslation(entry.word, correctMeaning),
     question: `請選出 ${entry.word} 的正確中文意思：`,
     options: [correctMeaning, ...uniqueDistractors],
     answer: correctMeaning
@@ -876,7 +1040,13 @@ function normalizeCatalogLesson(entry, lessonMap, externalWordMap) {
     }
 
     const externalWord = externalWordMap.get(entry);
-    return externalWord ? { ...externalWord } : null;
+    return externalWord
+      ? {
+          ...externalWord,
+          example: MANUAL_EXAMPLE_OVERRIDES[entry]?.example || externalWord.example || "",
+          exampleTranslation: MANUAL_EXAMPLE_OVERRIDES[entry]?.exampleTranslation || externalWord.exampleTranslation || ""
+        }
+      : null;
   }
 
   if (!entry || typeof entry !== "object" || typeof entry.word !== "string") {
@@ -896,8 +1066,8 @@ function normalizeCatalogLesson(entry, lessonMap, externalWordMap) {
     word: entry.word,
     phonetic: entry.phonetic || "",
     meaning: entry.meaning || "待補充",
-    example: entry.example || "",
-    exampleTranslation: entry.exampleTranslation || "",
+    example: MANUAL_EXAMPLE_OVERRIDES[entry.word]?.example || entry.example || "",
+    exampleTranslation: MANUAL_EXAMPLE_OVERRIDES[entry.word]?.exampleTranslation || entry.exampleTranslation || "",
     question: "",
     options: [],
     answer: ""
