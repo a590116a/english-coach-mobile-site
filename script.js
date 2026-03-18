@@ -2042,6 +2042,82 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   sculpture: {
     example: "The park has a large sculpture near the entrance.",
     exampleTranslation: "那座公園入口附近有一座大型雕塑。"
+  },
+  galaxy: {
+    example: "Our science teacher showed us a picture of a galaxy.",
+    exampleTranslation: "我們的自然老師給我們看了一張星系的圖片。"
+  },
+  snapshot: {
+    example: "This photo gives a quick snapshot of village life.",
+    exampleTranslation: "這張照片快速呈現了鄉村生活的樣貌。"
+  },
+  caring: {
+    example: "She is a caring teacher who listens to every student.",
+    exampleTranslation: "她是一位很有愛心的老師，會聽每個學生說話。"
+  },
+  worn: {
+    example: "His shoes looked old and worn after the long trip.",
+    exampleTranslation: "經過那趟長途旅行後，他的鞋子看起來又舊又磨損。"
+  },
+  synthetic: {
+    example: "This jacket is made from synthetic material.",
+    exampleTranslation: "這件外套是用合成材料做成的。"
+  },
+  segments: {
+    example: "The video is divided into three short segments.",
+    exampleTranslation: "這支影片被分成三個短片段。"
+  },
+  testament: {
+    example: "Her work is a testament to years of steady effort.",
+    exampleTranslation: "她的成果證明了多年持續努力的價值。"
+  },
+  expo: {
+    example: "We visited a technology expo on Saturday afternoon.",
+    exampleTranslation: "我們星期六下午參觀了一場科技展。"
+  },
+  dominant: {
+    example: "Blue is the dominant color in this design.",
+    exampleTranslation: "藍色是這個設計裡最主要的顏色。"
+  },
+  brilliant: {
+    example: "She gave a brilliant answer during the class discussion.",
+    exampleTranslation: "她在課堂討論中給了一個非常精彩的回答。"
+  },
+  factory: {
+    example: "My father works at a factory outside the city.",
+    exampleTranslation: "我爸爸在城市外的一間工廠工作。"
+  },
+  familiar: {
+    example: "This song sounds familiar to me.",
+    exampleTranslation: "這首歌聽起來讓我覺得很熟悉。"
+  },
+  famous: {
+    example: "That restaurant is famous for its beef noodles.",
+    exampleTranslation: "那家餐廳以牛肉麵聞名。"
+  },
+  feature: {
+    example: "The app has a new feature for daily review.",
+    exampleTranslation: "這個應用程式有一個新的每日複習功能。"
+  },
+  feed: {
+    example: "The boy feeds the fish every morning before school.",
+    exampleTranslation: "那個男孩每天上學前都會餵魚。"
+  },
+  female: {
+    example: "The female doctor spoke to us kindly.",
+    exampleTranslation: "那位女醫師很親切地和我們說話。"
+  },
+  festival: {
+    example: "We saw colorful lights during the spring festival.",
+    exampleTranslation: "我們在春季節慶期間看到了彩色燈光。"
+  },
+  field: {
+    example: "She wants to work in the medical field one day.",
+    exampleTranslation: "她希望有一天能在醫療領域工作。"
+  },
+  final: {
+    example: "This is the final page of today's lesson.",
+    exampleTranslation: "這是今天課程的最後一頁。"
   }
 };
 
