@@ -1974,6 +1974,74 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   containers: {
     example: "The kitchen shelf is full of food containers.",
     exampleTranslation: "廚房的架子上放滿了食物容器。"
+  },
+  attitudes: {
+    example: "Positive attitudes can change the atmosphere of a classroom.",
+    exampleTranslation: "正面的態度可以改變整個教室的氣氛。"
+  },
+  berry: {
+    example: "She put a fresh berry on top of each cake.",
+    exampleTranslation: "她在每塊蛋糕上面放了一顆新鮮莓果。"
+  },
+  collar: {
+    example: "The dog wore a blue collar in the park.",
+    exampleTranslation: "那隻狗在公園裡戴著藍色項圈。"
+  },
+  simultaneously: {
+    example: "The two lights turned on simultaneously.",
+    exampleTranslation: "那兩盞燈同時亮了起來。"
+  },
+  racial: {
+    example: "The class discussed racial equality in modern society.",
+    exampleTranslation: "這堂課討論了現代社會中的種族平等。"
+  },
+  integrate: {
+    example: "The teacher tried to integrate music into the lesson.",
+    exampleTranslation: "老師試著把音樂融入這堂課裡。"
+  },
+  sociology: {
+    example: "She is studying sociology at the university.",
+    exampleTranslation: "她正在大學裡學社會學。"
+  },
+  screenshot: {
+    example: "Please send me a screenshot of the error message.",
+    exampleTranslation: "請把錯誤訊息的截圖傳給我。"
+  },
+  exhibitions: {
+    example: "The museum holds two art exhibitions every year.",
+    exampleTranslation: "那間博物館每年都會舉辦兩場藝術展覽。"
+  },
+  humanities: {
+    example: "He enjoys both science and the humanities.",
+    exampleTranslation: "他同時喜歡科學和人文學科。"
+  },
+  independently: {
+    example: "The children learned to finish the work independently.",
+    exampleTranslation: "孩子們學會了獨立完成工作。"
+  },
+  custody: {
+    example: "The court gave custody of the child to her mother.",
+    exampleTranslation: "法院把孩子的監護權判給了她的母親。"
+  },
+  scratch: {
+    example: "He got a small scratch on his hand while cleaning.",
+    exampleTranslation: "他在打掃的時候手上被刮出了一道小傷痕。"
+  },
+  launches: {
+    example: "The company launches a new product every spring.",
+    exampleTranslation: "那家公司每年春天都會推出新產品。"
+  },
+  disturbed: {
+    example: "She looked disturbed after reading the message.",
+    exampleTranslation: "她看完那則訊息後，看起來有點不安。"
+  },
+  determines: {
+    example: "Hard work often determines the final result.",
+    exampleTranslation: "努力往往會決定最後的結果。"
+  },
+  sculpture: {
+    example: "The park has a large sculpture near the entrance.",
+    exampleTranslation: "那座公園入口附近有一座大型雕塑。"
   }
 };
 
