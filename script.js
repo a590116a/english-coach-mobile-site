@@ -1698,7 +1698,70 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   son: {
     example: "Their son started junior high school this year.",
     exampleTranslation: "他們的兒子今年開始讀國中。"
-  }
+  },
+  providing: {
+    example: "We can have class outside, providing the weather stays nice.",
+    exampleTranslation: "如果天氣持續不錯，我們就可以在戶外上課。"
+  },
+  rule: {
+    example: "One important rule is to listen before you answer.",
+    exampleTranslation: "一條重要的規則是先聽再回答。"
+  },
+  housing: {
+    example: "The city is building more affordable housing for families.",
+    exampleTranslation: "這座城市正在為家庭興建更多可負擔的住宅。"
+  },
+  takes: {
+    example: "It takes about fifteen minutes to walk to the station.",
+    exampleTranslation: "走到車站大約要十五分鐘。"
+  },
+  bring: {
+    example: "Please bring your notebook to class tomorrow.",
+    exampleTranslation: "請明天把你的筆記本帶來上課。"
+  },
+  catalog: {
+    example: "The library catalog helped me find the book quickly.",
+    exampleTranslation: "圖書館目錄幫我很快找到那本書。"
+  },
+  searches: {
+    example: "Her online searches led her to a useful English website.",
+    exampleTranslation: "她的網路搜尋讓她找到一個很有用的英文網站。"
+  },
+  trying: {
+    example: "He kept trying even after making several mistakes.",
+    exampleTranslation: "即使犯了好幾個錯，他還是繼續努力。"
+  },
+  mother: {
+    example: "My mother reads short English stories with me at night.",
+    exampleTranslation: "我媽媽晚上會陪我讀短篇英文故事。"
+  },
+  authority: {
+    example: "The local authority closed the road for repairs.",
+    exampleTranslation: "當地主管機關為了維修而封閉了那條路。"
+  },
+  considered: {
+    example: "Her idea was considered helpful by the whole group.",
+    exampleTranslation: "她的想法被整個小組認為很有幫助。"
+  },
+  told: {
+    example: "She told me the answer after the class ended.",
+    exampleTranslation: "下課後她把答案告訴了我。"
+  },
+  traffic: {
+    example: "There was heavy traffic near the station this morning.",
+    exampleTranslation: "今天早上車站附近的交通非常擁擠。"
+  },
+  programme: {
+    example: "The school programme begins with a welcome speech.",
+    exampleTranslation: "學校的活動流程以歡迎致詞開始。"
+  },
+  joined: {
+    example: "He joined the reading club last month.",
+    exampleTranslation: "他上個月加入了閱讀社。"
+  },
+  input: {
+    example: "The teacher asked for student input before changing the plan.",
+    exampleTranslation: "老師在改變計畫前先徵求學生的意見。"
   }
 };
 
