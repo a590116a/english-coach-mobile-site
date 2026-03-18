@@ -826,6 +826,158 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   enterprise: {
     example: "The small enterprise started with only five workers.",
     exampleTranslation: "那家小型企業一開始只有五名員工。"
+  },
+  ships: {
+    example: "Large ships were waiting outside the harbor.",
+    exampleTranslation: "大型船隻正在港口外等待。"
+  },
+  entire: {
+    example: "I spent the entire afternoon reading that book.",
+    exampleTranslation: "我花了整個下午在讀那本書。"
+  },
+  educational: {
+    example: "This video is both fun and educational.",
+    exampleTranslation: "這支影片既有趣又有教育意義。"
+  },
+  md: {
+    example: "Please send the report to the MD before noon.",
+    exampleTranslation: "請在中午前把報告寄給總經理。"
+  },
+  leading: {
+    example: "She works for a leading company in the field.",
+    exampleTranslation: "她在這個領域的領先公司工作。"
+  },
+  metal: {
+    example: "The table has a metal frame and a wooden top.",
+    exampleTranslation: "那張桌子有金屬框架和木製桌面。"
+  },
+  positive: {
+    example: "Try to keep a positive attitude when learning.",
+    exampleTranslation: "學習時要盡量保持正向態度。"
+  },
+  fl: {
+    example: "My aunt moved to FL last summer.",
+    exampleTranslation: "我阿姨去年夏天搬到佛州。"
+  },
+  fitness: {
+    example: "Regular walking can improve your fitness.",
+    exampleTranslation: "規律走路能改善你的體能。"
+  },
+  chinese: {
+    example: "He is learning Chinese at the language center.",
+    exampleTranslation: "他正在語言中心學中文。"
+  },
+  opinion: {
+    example: "In my opinion, this is the best answer.",
+    exampleTranslation: "依我看，這是最好的答案。"
+  },
+  mb: {
+    example: "The file is only 5 MB, so it downloads quickly.",
+    exampleTranslation: "這個檔案只有 5 MB，所以下載很快。"
+  },
+  asia: {
+    example: "Taiwan is one of the most interesting places in Asia.",
+    exampleTranslation: "台灣是亞洲很有意思的地方之一。"
+  },
+  football: {
+    example: "The boys played football after school.",
+    exampleTranslation: "男孩們放學後去踢足球。"
+  },
+  abstract: {
+    example: "The paper begins with a short abstract.",
+    exampleTranslation: "那篇論文一開始有一段簡短摘要。"
+  },
+  uses: {
+    example: "This tool has many useful uses in daily life.",
+    exampleTranslation: "這個工具在日常生活中有很多有用的用途。"
+  },
+  output: {
+    example: "The machine's output increased this month.",
+    exampleTranslation: "這台機器這個月的產量提高了。"
+  },
+  funds: {
+    example: "The school raised funds for new computers.",
+    exampleTranslation: "學校募款來購買新電腦。"
+  },
+  mr: {
+    example: "Mr Lin will teach our class today.",
+    exampleTranslation: "林先生今天會來教我們這堂課。"
+  },
+  greater: {
+    example: "With practice, she gained greater confidence.",
+    exampleTranslation: "透過練習，她有了更大的自信。"
+  },
+  likely: {
+    example: "It is likely to rain this evening.",
+    exampleTranslation: "今天傍晚很可能會下雨。"
+  },
+  employees: {
+    example: "The company has more than two hundred employees.",
+    exampleTranslation: "那家公司有超過兩百名員工。"
+  },
+  artists: {
+    example: "Many local artists showed their work at the fair.",
+    exampleTranslation: "許多在地藝術家在展覽會上展示作品。"
+  },
+  alternative: {
+    example: "We chose the cheaper alternative.",
+    exampleTranslation: "我們選了比較便宜的替代方案。"
+  },
+  processing: {
+    example: "The bank is still processing the payment.",
+    exampleTranslation: "銀行仍在處理這筆付款。"
+  },
+  responsibility: {
+    example: "Taking care of the class pet is our shared responsibility.",
+    exampleTranslation: "照顧班上的寵物是我們共同的責任。"
+  },
+  resolution: {
+    example: "She made a resolution to read more this year.",
+    exampleTranslation: "她下定決心今年要讀更多書。"
+  },
+  java: {
+    example: "My brother is learning Java at college.",
+    exampleTranslation: "我哥哥在大學學 Java。"
+  },
+  guest: {
+    example: "The hotel guest asked for another towel.",
+    exampleTranslation: "那位飯店客人要求再拿一條毛巾。"
+  },
+  ou: {
+    example: "She plans to study through the OU next year.",
+    exampleTranslation: "她計畫明年透過開放大學進修。"
+  },
+  quotations: {
+    example: "The report includes quotations from two experts.",
+    exampleTranslation: "那份報告引用了兩位專家的話。"
+  },
+  grab: {
+    example: "I need to grab my bag before the bus comes.",
+    exampleTranslation: "在公車來之前，我得先拿上我的包包。"
+  },
+  inspector: {
+    example: "The inspector checked the building for safety problems.",
+    exampleTranslation: "檢查員檢查了那棟建築的安全問題。"
+  },
+  attract: {
+    example: "Bright signs attract many customers at night.",
+    exampleTranslation: "明亮的招牌在晚上吸引很多顧客。"
+  },
+  brighton: {
+    example: "They spent the weekend in Brighton by the sea.",
+    exampleTranslation: "他們在海邊的布萊頓度過週末。"
+  },
+  beans: {
+    example: "She added beans to the soup for dinner.",
+    exampleTranslation: "她在晚餐的湯裡加了豆子。"
+  },
+  bookmarks: {
+    example: "I bought two new bookmarks at the bookstore.",
+    exampleTranslation: "我在書店買了兩個新書籤。"
+  },
+  ellis: {
+    example: "Ellis joined our reading group last week.",
+    exampleTranslation: "Ellis 上週加入了我們的讀書小組。"
   }
 };
 
