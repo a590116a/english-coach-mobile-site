@@ -2542,6 +2542,118 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   tx: {
     example: "My uncle lives in TX with his family.",
     exampleTranslation: "我叔叔和家人住在 TX。"
+  },
+  navigation: {
+    example: "The driver used the phone for navigation in the city.",
+    exampleTranslation: "司機在城市裡用手機做導航。"
+  },
+  operations: {
+    example: "The factory stopped operations for two hours this morning.",
+    exampleTranslation: "那間工廠今天早上停工了兩個小時。"
+  },
+  therefore: {
+    example: "He studied hard; therefore, he passed the test.",
+    exampleTranslation: "他很努力讀書，因此通過了考試。"
+  },
+  ass: {
+    example: "In the story, the old ass carried food to the village.",
+    exampleTranslation: "在故事裡，那頭老驢把食物運到村莊。"
+  },
+  simply: {
+    example: "Please explain the answer simply for the new students.",
+    exampleTranslation: "請用簡單的方式向新學生解釋答案。"
+  },
+  evidence: {
+    example: "The police found evidence near the broken window.",
+    exampleTranslation: "警方在破掉的窗戶附近找到證據。"
+  },
+  station: {
+    example: "We will meet in front of the station at seven.",
+    exampleTranslation: "我們七點會在車站前面見面。"
+  },
+  christian: {
+    example: "He grew up in a Christian family.",
+    exampleTranslation: "他在一個基督徒家庭長大。"
+  },
+  ie: {
+    example: "Write your answer clearly, i.e., one sentence only.",
+    exampleTranslation: "請把答案寫清楚，也就是只寫一句話。"
+  },
+  el: {
+    example: "The old train still stops at the El station downtown.",
+    exampleTranslation: "那台老列車仍然停靠市中心的 El 車站。"
+  },
+  partners: {
+    example: "The two business partners opened a new shop together.",
+    exampleTranslation: "那兩位商業夥伴一起開了一家新店。"
+  },
+  ma: {
+    example: "Ma called me home for dinner at six.",
+    exampleTranslation: "媽媽六點打電話叫我回家吃晚餐。"
+  },
+  horse: {
+    example: "The horse ran across the field very fast.",
+    exampleTranslation: "那匹馬很快地跑過草地。"
+  },
+  est: {
+    example: "The meeting starts at 8 p.m. EST.",
+    exampleTranslation: "這場會議在美東時間晚上八點開始。"
+  },
+  mac: {
+    example: "He bought a new Mac for his design work.",
+    exampleTranslation: "他為了做設計買了一台新的 Mac。"
+  },
+  iii: {
+    example: "King Henry III is mentioned in this history book.",
+    exampleTranslation: "這本歷史書裡提到了亨利三世。"
+  },
+  gmt: {
+    example: "The online meeting begins at 3 p.m. GMT.",
+    exampleTranslation: "這場線上會議在 GMT 下午三點開始。"
+  },
+  max: {
+    example: "Max sits near the window in our classroom.",
+    exampleTranslation: "Max 坐在我們教室靠窗的位置。"
+  },
+  xml: {
+    example: "The data is stored in an XML file.",
+    exampleTranslation: "這些資料被存放在 XML 檔案裡。"
+  },
+  feet: {
+    example: "My feet were tired after the long walk.",
+    exampleTranslation: "走了那麼長一段路後，我的腳很累。"
+  },
+  bin: {
+    example: "Please throw the paper into the bin.",
+    exampleTranslation: "請把紙丟進垃圾桶。"
+  },
+  ireland: {
+    example: "She hopes to travel to Ireland one day.",
+    exampleTranslation: "她希望有一天能去愛爾蘭旅行。"
+  },
+  units: {
+    example: "This book has ten reading units.",
+    exampleTranslation: "這本書有十個閱讀單元。"
+  },
+  canadian: {
+    example: "Our new teacher is Canadian.",
+    exampleTranslation: "我們的新老師是加拿大人。"
+  },
+  wrote: {
+    example: "She wrote three new words in her notebook.",
+    exampleTranslation: "她在筆記本裡寫下了三個新單字。"
+  },
+  ships: {
+    example: "Large ships were waiting outside the harbor.",
+    exampleTranslation: "大船正在港口外等待。"
+  },
+  uses: {
+    example: "This tool has many useful uses in daily life.",
+    exampleTranslation: "這個工具在日常生活中有很多實用用途。"
+  },
+  mr: {
+    example: "Mr Lin will teach our class today.",
+    exampleTranslation: "林先生今天會教我們這堂課。"
   }
 };
 
