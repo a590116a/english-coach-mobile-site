@@ -2270,6 +2270,110 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   vp: {
     example: "The VP will visit our office next week.",
     exampleTranslation: "副總下週會來我們辦公室。"
+  },
+  paid: {
+    example: "She already paid for the tickets online.",
+    exampleTranslation: "她已經在線上付完票錢了。"
+  },
+  italy: {
+    example: "They want to visit Italy in the spring.",
+    exampleTranslation: "他們想在春天去義大利旅行。"
+  },
+  perfect: {
+    example: "This quiet room is perfect for study.",
+    exampleTranslation: "這個安靜的房間非常適合讀書。"
+  },
+  budget: {
+    example: "We planned the trip on a small budget.",
+    exampleTranslation: "我們用不高的預算安排了這趟旅行。"
+  },
+  rated: {
+    example: "This hotel is highly rated by travelers online.",
+    exampleTranslation: "這間飯店在網路上獲得旅客很高的評價。"
+  },
+  guides: {
+    example: "These guides help visitors find the museum quickly.",
+    exampleTranslation: "這些指南能幫助遊客很快找到博物館。"
+  },
+  success: {
+    example: "Hard work was the key to her success.",
+    exampleTranslation: "努力是她成功的關鍵。"
+  },
+  maximum: {
+    example: "The room can hold a maximum of twenty people.",
+    exampleTranslation: "這個房間最多可以容納二十個人。"
+  },
+  operation: {
+    example: "The doctor explained the operation before it began.",
+    exampleTranslation: "手術開始前，醫生先做了說明。"
+  },
+  existing: {
+    example: "We kept the existing rules for this semester.",
+    exampleTranslation: "這學期我們維持原本的規則。"
+  },
+  quite: {
+    example: "The test was quite easy for most students.",
+    exampleTranslation: "對大多數學生來說，這份考試相當容易。"
+  },
+  selected: {
+    example: "Only ten students were selected for the team.",
+    exampleTranslation: "只有十位學生被選進這個隊伍。"
+  },
+  boy: {
+    example: "The boy ran across the playground after school.",
+    exampleTranslation: "那個男孩放學後跑過操場。"
+  },
+  amazon: {
+    example: "She ordered the notebook from Amazon last night.",
+    exampleTranslation: "她昨晚在 Amazon 訂了那本筆記本。"
+  },
+  patients: {
+    example: "The nurses cared for the patients all night.",
+    exampleTranslation: "護理師整晚都在照顧病人。"
+  },
+  restaurants: {
+    example: "This street has many small restaurants.",
+    exampleTranslation: "這條街上有很多小餐廳。"
+  },
+  beautiful: {
+    example: "The beach looked beautiful at sunset.",
+    exampleTranslation: "那片海灘在日落時看起來很美。"
+  },
+  md: {
+    example: "Please send the report to the MD before noon.",
+    exampleTranslation: "請在中午前把報告送給總經理。"
+  },
+  fl: {
+    example: "My aunt moved to FL last summer.",
+    exampleTranslation: "我阿姨去年夏天搬去了佛州。"
+  },
+  chinese: {
+    example: "He is learning Chinese at the language center.",
+    exampleTranslation: "他正在語言中心學中文。"
+  },
+  mb: {
+    example: "The file is only 5 MB, so it downloads quickly.",
+    exampleTranslation: "這個檔案只有 5 MB，所以下載很快。"
+  },
+  asia: {
+    example: "Taiwan is one of the most interesting places in Asia.",
+    exampleTranslation: "台灣是亞洲最有趣的地方之一。"
+  },
+  processing: {
+    example: "The bank is still processing the payment.",
+    exampleTranslation: "銀行目前仍在處理這筆付款。"
+  },
+  java: {
+    example: "My brother is learning Java at college.",
+    exampleTranslation: "我哥哥正在大學學 Java。"
+  },
+  ou: {
+    example: "She plans to study through the OU next year.",
+    exampleTranslation: "她計畫明年透過 OU 進修。"
+  },
+  brighton: {
+    example: "They spent the weekend in Brighton by the sea.",
+    exampleTranslation: "他們在海邊的 Brighton 度過了週末。"
   }
 };
 
