@@ -1566,6 +1566,70 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   extra: {
     example: "The teacher gave us extra time to check our answers.",
     exampleTranslation: "老師多給了我們一些時間檢查答案。"
+  },
+  hair: {
+    example: "Her hair was still wet after she walked in the rain.",
+    exampleTranslation: "她在雨中走過之後，頭髮還是濕的。"
+  },
+  kit: {
+    example: "He always keeps a small first-aid kit in his car.",
+    exampleTranslation: "他總是在車上放一個小急救包。"
+  },
+  classic: {
+    example: "That novel is now considered a classic in English literature.",
+    exampleTranslation: "那本小說現在被視為英國文學中的經典。"
+  },
+  basis: {
+    example: "Trust is the basis of every good friendship.",
+    exampleTranslation: "信任是每段好友情的基礎。"
+  },
+  command: {
+    example: "The captain gave the command to start moving.",
+    exampleTranslation: "隊長下達了開始前進的命令。"
+  },
+  cities: {
+    example: "Many large cities become quieter late at night.",
+    exampleTranslation: "很多大城市到了深夜會變得比較安靜。"
+  },
+  william: {
+    example: "William brought his notebook to the meeting this morning.",
+    exampleTranslation: "William 今天早上帶著筆記本去開會。"
+  },
+  award: {
+    example: "She received an award for her volunteer work.",
+    exampleTranslation: "她因為志工服務而得到一個獎項。"
+  },
+  tree: {
+    example: "We sat under a big tree to enjoy the cool air.",
+    exampleTranslation: "我們坐在一棵大樹下享受涼爽的空氣。"
+  },
+  peter: {
+    example: "Peter sent me the file before lunch.",
+    exampleTranslation: "Peter 在午餐前把檔案傳給我。"
+  },
+  assessment: {
+    example: "The teacher finished the reading assessment this afternoon.",
+    exampleTranslation: "老師今天下午完成了閱讀評量。"
+  },
+  ensure: {
+    example: "Please read the form again to ensure everything is correct.",
+    exampleTranslation: "請再看一次表格，確認每一項都正確。"
+  },
+  thus: {
+    example: "The road was blocked, thus we had to take another way.",
+    exampleTranslation: "那條路被堵住了，因此我們只好改走別條路。"
+  },
+  wall: {
+    example: "There is a large world map on the classroom wall.",
+    exampleTranslation: "教室的牆上有一張很大的世界地圖。"
+  },
+  involved: {
+    example: "Many parents were involved in planning the school fair.",
+    exampleTranslation: "很多家長都有參與規劃學校園遊會。"
+  },
+  interface: {
+    example: "The app has a simple interface that is easy to use.",
+    exampleTranslation: "這個應用程式的介面很簡單，也很容易使用。"
   }
 };
 
