@@ -1402,6 +1402,130 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   custom: {
     example: "It is a local custom to bring a small gift when visiting.",
     exampleTranslation: "拜訪別人時帶一份小禮物是當地的習俗。"
+  },
+  daily: {
+    example: "She keeps a daily record of the new words she learns.",
+    exampleTranslation: "她每天都會記錄自己學到的新單字。"
+  },
+  decide: {
+    example: "We need to decide the meeting time before noon.",
+    exampleTranslation: "我們需要在中午前決定開會時間。"
+  },
+  deep: {
+    example: "The lake is too deep for young children to swim in alone.",
+    exampleTranslation: "這座湖太深了，不適合小孩子自己游泳。"
+  },
+  develop: {
+    example: "Reading every day can develop your sense of English rhythm.",
+    exampleTranslation: "每天閱讀可以培養你的英文語感。"
+  },
+  difference: {
+    example: "There is a big difference between hearing and understanding.",
+    exampleTranslation: "聽到和聽懂之間有很大的差別。"
+  },
+  difficult: {
+    example: "It was difficult for him to answer so quickly.",
+    exampleTranslation: "對他來說，要這麼快回答並不容易。"
+  },
+  discover: {
+    example: "I discovered a useful podcast while searching for study materials.",
+    exampleTranslation: "我在找學習資料時發現了一個很有用的 podcast。"
+  },
+  discuss: {
+    example: "The students stayed after class to discuss the article.",
+    exampleTranslation: "學生們下課後留下來討論那篇文章。"
+  },
+  distance: {
+    example: "The distance from my home to the station is about two kilometers.",
+    exampleTranslation: "我家到車站的距離大約是兩公里。"
+  },
+  divide: {
+    example: "Let's divide the work into three simple parts.",
+    exampleTranslation: "我們把工作分成三個簡單的部分吧。"
+  },
+  double: {
+    example: "The price became double after the holiday season.",
+    exampleTranslation: "假期過後，價格變成了兩倍。"
+  },
+  during: {
+    example: "Please stay quiet during the listening practice.",
+    exampleTranslation: "請在聽力練習期間保持安靜。"
+  },
+  early: {
+    example: "He arrived early so he could review before class.",
+    exampleTranslation: "他提早到，好在上課前先複習。"
+  },
+  earth: {
+    example: "We learned that the earth travels around the sun.",
+    exampleTranslation: "我們學到地球會繞著太陽運行。"
+  },
+  education: {
+    example: "Good education gives children more choices in life.",
+    exampleTranslation: "良好的教育能給孩子更多人生選擇。"
+  },
+  effect: {
+    example: "Lack of sleep can have a strong effect on memory.",
+    exampleTranslation: "睡眠不足會對記憶力有很大的影響。"
+  },
+  effort: {
+    example: "Her effort finally paid off in the final exam.",
+    exampleTranslation: "她的努力終於在期末考有了回報。"
+  },
+  either: {
+    example: "You can sit on either side of the table.",
+    exampleTranslation: "你可以坐在桌子的任何一邊。"
+  },
+  electric: {
+    example: "We bought an electric fan for the hot summer days.",
+    exampleTranslation: "我們買了一台電風扇來度過炎熱的夏天。"
+  },
+  empty: {
+    example: "The classroom was empty after the students went home.",
+    exampleTranslation: "學生回家後，教室就空了。"
+  },
+  encourage: {
+    example: "Her parents encourage her to speak English at home.",
+    exampleTranslation: "她的父母鼓勵她在家裡說英文。"
+  },
+  enemy: {
+    example: "For many learners, fear is the biggest enemy.",
+    exampleTranslation: "對很多學習者來說，恐懼是最大的敵人。"
+  },
+  energy: {
+    example: "A short walk can give you enough energy to study again.",
+    exampleTranslation: "短暫散步一下，就能給你足夠的精力再繼續讀書。"
+  },
+  engine: {
+    example: "The bus engine made a strange noise this morning.",
+    exampleTranslation: "今天早上公車的引擎發出奇怪的聲音。"
+  },
+  enough: {
+    example: "Ten minutes is enough to review five words carefully.",
+    exampleTranslation: "十分鐘就足夠仔細複習五個單字了。"
+  },
+  enter: {
+    example: "Please enter your name before you start the test.",
+    exampleTranslation: "開始測驗前，請先輸入你的名字。"
+  },
+  environment: {
+    example: "A quiet environment makes it easier to concentrate.",
+    exampleTranslation: "安靜的環境會讓人更容易專心。"
+  },
+  especially: {
+    example: "This lesson is especially helpful for beginners.",
+    exampleTranslation: "這堂課對初學者尤其有幫助。"
+  },
+  event: {
+    example: "The school will hold a reading event next Friday.",
+    exampleTranslation: "學校下週五會舉辦一場閱讀活動。"
+  },
+  exact: {
+    example: "I cannot remember the exact time of the phone call.",
+    exampleTranslation: "我記不得那通電話的確切時間。"
+  },
+  example: {
+    example: "The teacher wrote an example on the board for us to follow.",
+    exampleTranslation: "老師在黑板上寫了一個例子讓我們照著做。"
   }
 };
 
