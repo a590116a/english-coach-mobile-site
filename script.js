@@ -254,11 +254,49 @@ const ORDERED_LEVEL_WORDS = [
   "factory", "familiar", "famous", "feature", "feed", "female", "festival", "field", "final", "beyond"
 ];
 
+const GENERATED_EXAMPLE_BUILDERS = [
+  (word) => `The word ${word} is useful in daily English.`,
+  (word) => `I heard the word ${word} in class today.`,
+  (word) => `Our teacher asked us to practice ${word} again.`,
+  (word) => `I wrote ${word} in my notebook this morning.`,
+  (word) => `This lesson helps me remember the word ${word}.`,
+  (word) => `Can you use ${word} in a simple sentence?`
+];
+
+const GENERATED_TRANSLATION_BUILDERS = [
+  (word, meaning) => `單字 ${word} 在日常英文裡很實用，意思是「${meaning}」。`,
+  (word, meaning) => `我今天上課聽到了 ${word} 這個字，它的意思是「${meaning}」。`,
+  (word, meaning) => `老師要我們再練習一次 ${word}，這個字是「${meaning}」。`,
+  (word, meaning) => `我今天早上把 ${word} 寫進筆記本，它的意思是「${meaning}」。`,
+  (word, meaning) => `這課在幫我記住 ${word} 這個字，也就是「${meaning}」。`,
+  (word, meaning) => `你可以試著把 ${word} 放進簡單句子裡，它的意思是「${meaning}」。`
+];
+
 function cloneLesson(lesson) {
   return {
     ...lesson,
     options: [...lesson.options]
   };
+}
+
+function getTemplateIndexByWord(word, size) {
+  let total = 0;
+
+  for (const character of word) {
+    total += character.charCodeAt(0);
+  }
+
+  return total % size;
+}
+
+function createGeneratedExample(word) {
+  const builder = GENERATED_EXAMPLE_BUILDERS[getTemplateIndexByWord(word, GENERATED_EXAMPLE_BUILDERS.length)];
+  return builder(word);
+}
+
+function createGeneratedExampleTranslation(word, meaning) {
+  const builder = GENERATED_TRANSLATION_BUILDERS[getTemplateIndexByWord(word, GENERATED_TRANSLATION_BUILDERS.length)];
+  return builder(word, meaning);
 }
 
 function createGeneratedLesson(entry, distractorMeanings) {
@@ -279,7 +317,8 @@ function createGeneratedLesson(entry, distractorMeanings) {
     word: entry.word,
     phonetic: entry.phonetic || "",
     meaning: correctMeaning,
-    example: entry.example || `We will learn the word ${entry.word} today.`,
+    example: entry.example || createGeneratedExample(entry.word),
+    exampleTranslation: entry.exampleTranslation || createGeneratedExampleTranslation(entry.word, correctMeaning),
     question: `請選出 ${entry.word} 的正確中文意思：`,
     options: [correctMeaning, ...uniqueDistractors],
     answer: correctMeaning
@@ -315,6 +354,7 @@ function normalizeCatalogLesson(entry, lessonMap, externalWordMap) {
     phonetic: entry.phonetic || "",
     meaning: entry.meaning || "待補充",
     example: entry.example || "",
+    exampleTranslation: entry.exampleTranslation || "",
     question: "",
     options: [],
     answer: ""
@@ -693,7 +733,10 @@ function renderLesson(lesson) {
   cardPhonetic.textContent = lesson.phonetic;
   cardDetail.textContent = lesson.meaning;
   renderExampleText(lesson.example);
-  cardExampleTranslation.textContent = exampleTranslations[lesson.word] || `這個單字的意思是：${lesson.meaning}`;
+  cardExampleTranslation.textContent =
+    lesson.exampleTranslation ||
+    exampleTranslations[lesson.word] ||
+    `這個單字的意思是：${lesson.meaning}`;
   audioStatus.textContent = "按下按鈕聽英文發音";
   progressCurrent.textContent = String(currentIndex + 1);
   progressTotal.textContent = String(currentLessons.length);
