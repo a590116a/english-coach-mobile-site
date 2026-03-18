@@ -2374,6 +2374,174 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   brighton: {
     example: "They spent the weekend in Brighton by the sea.",
     exampleTranslation: "他們在海邊的 Brighton 度過了週末。"
+  },
+  round: {
+    example: "We sat around the round table to discuss the plan.",
+    exampleTranslation: "我們圍坐在圓桌旁討論計畫。"
+  },
+  paypal: {
+    example: "She used PayPal to pay for the online course.",
+    exampleTranslation: "她用 PayPal 支付線上課程的費用。"
+  },
+  favorite: {
+    example: "This is my favorite song for English listening practice.",
+    exampleTranslation: "這是我最喜歡用來練英文聽力的歌。"
+  },
+  understand: {
+    example: "I can understand the main idea of this story now.",
+    exampleTranslation: "我現在可以理解這個故事的大意了。"
+  },
+  option: {
+    example: "You have another option if the first plan fails.",
+    exampleTranslation: "如果第一個計畫失敗了，你還有另一個選項。"
+  },
+  master: {
+    example: "It takes time to master a new language skill.",
+    exampleTranslation: "要熟練一項新的語言技能需要時間。"
+  },
+  valley: {
+    example: "A small village lies in the green valley.",
+    exampleTranslation: "有一個小村莊坐落在綠色山谷中。"
+  },
+  recently: {
+    example: "I have been reading more English books recently.",
+    exampleTranslation: "我最近讀了更多英文書。"
+  },
+  probably: {
+    example: "She will probably arrive a little late today.",
+    exampleTranslation: "她今天可能會晚一點到。"
+  },
+  thu: {
+    example: "The class will be held on Thu at seven in the evening.",
+    exampleTranslation: "這堂課會在週四晚上七點舉行。"
+  },
+  rentals: {
+    example: "This website lists short-term rentals near the station.",
+    exampleTranslation: "這個網站列出了車站附近的短期租屋資訊。"
+  },
+  sea: {
+    example: "We could hear the sea from the hotel window.",
+    exampleTranslation: "我們從飯店窗邊就能聽見海聲。"
+  },
+  built: {
+    example: "The school was built more than fifty years ago.",
+    exampleTranslation: "這所學校是在五十多年前蓋好的。"
+  },
+  publications: {
+    example: "The library keeps many academic publications on the shelf.",
+    exampleTranslation: "圖書館的架上保存了很多學術出版品。"
+  },
+  blood: {
+    example: "The nurse took a small blood sample for the test.",
+    exampleTranslation: "護理師為了檢查抽取了一小份血液樣本。"
+  },
+  cut: {
+    example: "Be careful not to cut your finger in the kitchen.",
+    exampleTranslation: "在廚房裡要小心不要割到手指。"
+  },
+  worldwide: {
+    example: "English is used worldwide in business and travel.",
+    exampleTranslation: "英文在全球的商業和旅行中都被廣泛使用。"
+  },
+  improve: {
+    example: "Daily practice can improve both your speed and accuracy.",
+    exampleTranslation: "每天練習可以同時提升你的速度和準確度。"
+  },
+  connection: {
+    example: "A stable internet connection is important for online classes.",
+    exampleTranslation: "穩定的網路連線對線上課程很重要。"
+  },
+  publisher: {
+    example: "The publisher released a new learning book this month.",
+    exampleTranslation: "出版社這個月推出了一本新的學習書。"
+  },
+  hall: {
+    example: "The students gathered in the main hall before the event.",
+    exampleTranslation: "活動開始前，學生們聚集在大廳裡。"
+  },
+  larger: {
+    example: "We need a larger table for the group discussion.",
+    exampleTranslation: "我們需要一張更大的桌子來進行小組討論。"
+  },
+  anti: {
+    example: "The clinic provides anti-allergy medicine in spring.",
+    exampleTranslation: "這間診所在春天提供抗過敏藥。"
+  },
+  networks: {
+    example: "Social networks can spread news very quickly.",
+    exampleTranslation: "社群網路可以很快地傳播消息。"
+  },
+  impact: {
+    example: "Lack of sleep can have a strong impact on your focus.",
+    exampleTranslation: "睡眠不足會對你的專注力造成很大的影響。"
+  },
+  transfer: {
+    example: "She asked the bank to transfer the money today.",
+    exampleTranslation: "她請銀行今天把這筆錢轉出去。"
+  },
+  introduction: {
+    example: "The teacher began the class with a short introduction.",
+    exampleTranslation: "老師用簡短的介紹開始了這堂課。"
+  },
+  kitchen: {
+    example: "My mother was cooking in the kitchen this morning.",
+    exampleTranslation: "我媽媽今天早上正在廚房煮飯。"
+  },
+  strong: {
+    example: "She has a strong interest in learning languages.",
+    exampleTranslation: "她對學習語言有很強的興趣。"
+  },
+  wedding: {
+    example: "They are preparing for their wedding next month.",
+    exampleTranslation: "他們正在準備下個月的婚禮。"
+  },
+  hospital: {
+    example: "The new hospital is only ten minutes from here.",
+    exampleTranslation: "新的醫院離這裡只有十分鐘。"
+  },
+  opportunity: {
+    example: "Studying abroad gave her a great opportunity to grow.",
+    exampleTranslation: "出國留學給了她很好的成長機會。"
+  },
+  tel: {
+    example: "Please write your tel number on the form.",
+    exampleTranslation: "請把你的電話號碼寫在表格上。"
+  },
+  carolina: {
+    example: "My cousin moved to Carolina last year.",
+    exampleTranslation: "我表哥去年搬去了 Carolina。"
+  },
+  properties: {
+    example: "These materials have useful properties for building.",
+    exampleTranslation: "這些材料有適合建築使用的特性。"
+  },
+  ground: {
+    example: "The children sat on the ground and drew pictures.",
+    exampleTranslation: "孩子們坐在地上畫畫。"
+  },
+  overview: {
+    example: "The teacher gave us an overview of the new lesson.",
+    exampleTranslation: "老師先帶我們快速了解新課程的內容。"
+  },
+  ship: {
+    example: "The ship left the port before sunrise.",
+    exampleTranslation: "那艘船在日出之前就離開港口了。"
+  },
+  accommodation: {
+    example: "We booked accommodation near the train station.",
+    exampleTranslation: "我們訂了火車站附近的住宿。"
+  },
+  owners: {
+    example: "The restaurant owners greeted every guest warmly.",
+    exampleTranslation: "那家餐廳的老闆熱情地招呼每一位客人。"
+  },
+  disease: {
+    example: "Doctors are working to stop the spread of the disease.",
+    exampleTranslation: "醫生們正努力阻止疾病擴散。"
+  },
+  tx: {
+    example: "My uncle lives in TX with his family.",
+    exampleTranslation: "我叔叔和家人住在 TX。"
   }
 };
 
