@@ -299,6 +299,106 @@ function createGeneratedExampleTranslation(word, meaning) {
   return builder(word, meaning);
 }
 
+function getPrimaryMeaning(meaning) {
+  if (!meaning) {
+    return "這個意思";
+  }
+
+  return meaning.split(/[；;/]/)[0].trim() || meaning;
+}
+
+function inferWordCategory(word, meaning) {
+  const primaryMeaning = getPrimaryMeaning(meaning);
+  const normalizedWord = word.toLowerCase();
+
+  if (/ly$/.test(normalizedWord)) {
+    return "adverb";
+  }
+
+  if (/(ing|ed|ize|ise|fy|en)$/.test(normalizedWord) || /^(使|讓|把|將|進行|開始|持續|完成|建立|表達|控制|決定|進入|提高)/.test(primaryMeaning)) {
+    return "verb";
+  }
+
+  if (/(ous|ful|able|ible|al|ive|less|ish|ic|ary)$/.test(normalizedWord) || /^(有.*的|.*的|能.*的|適合.*的|重要的|明顯的|特別的|困難的|簡單的)/.test(primaryMeaning)) {
+    return "adjective";
+  }
+
+  return "noun";
+}
+
+function createContextualExample(word, meaning) {
+  const primaryMeaning = getPrimaryMeaning(meaning);
+  const category = inferWordCategory(word, primaryMeaning);
+  const templatesByCategory = {
+    verb: [
+      `${capitalizeWord(word)} can help us in daily life.`,
+      `Please ${word} this idea in a simple way.`,
+      `We should ${word} it step by step.`,
+      `Try to ${word} before the class ends.`
+    ],
+    adjective: [
+      `This idea sounds ${word} to me.`,
+      `The example is ${word} for beginners.`,
+      `It is good to stay ${word} while learning.`,
+      `That was a very ${word} answer.`
+    ],
+    adverb: [
+      `She spoke ${word} during practice.`,
+      `Please read the sentence ${word}.`,
+      `He answered the question ${word}.`,
+      `The teacher explained it ${word}.`
+    ],
+    noun: [
+      `This ${word} is important in daily life.`,
+      `We talked about ${word} in class today.`,
+      `The lesson gave us a clear example of ${word}.`,
+      `I wrote a note about ${word} in my notebook.`
+    ]
+  };
+  const translationsByCategory = {
+    verb: [
+      `${capitalizeWord(word)} 這個字有「${primaryMeaning}」的意思，這句是在說它能幫助我們的日常生活。`,
+      `這句是說請你用簡單的方式去 ${primaryMeaning}。`,
+      `這句是在表達我們應該一步一步去 ${primaryMeaning}。`,
+      `這句是說在下課前試著先 ${primaryMeaning}。`
+    ],
+    adjective: [
+      `這句是說這個想法聽起來很「${primaryMeaning}」。`,
+      `這句是在說這個例子對初學者來說很「${primaryMeaning}」。`,
+      `這句是在表達學習時保持「${primaryMeaning}」是好的。`,
+      `這句是說那是一個很「${primaryMeaning}」的回答。`
+    ],
+    adverb: [
+      `這句是在說她練習時表現得很「${primaryMeaning}」。`,
+      `這句是請你用「${primaryMeaning}」的方式朗讀句子。`,
+      `這句是在說他回答問題時表現得很「${primaryMeaning}」。`,
+      `這句是說老師把內容講解得很「${primaryMeaning}」。`
+    ],
+    noun: [
+      `這句是在說 ${word} 這件事和日常生活很有關係，也就是「${primaryMeaning}」。`,
+      `這句是說我們今天上課談到了 ${word}，也就是「${primaryMeaning}」。`,
+      `這句是在表達這堂課給了我們一個關於 ${word} 的清楚例子。`,
+      `這句是說我把 ${word} 記進筆記裡，它的意思是「${primaryMeaning}」。`
+    ]
+  };
+  const templates = templatesByCategory[category];
+  const translations = translationsByCategory[category];
+  const templateIndex = getTemplateIndexByWord(word, templates.length);
+
+  return {
+    example: templates[templateIndex],
+    exampleTranslation: translations[templateIndex]
+  };
+}
+
+function capitalizeWord(word) {
+  if (!word) {
+    return word;
+  }
+
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 function createGeneratedLesson(entry, distractorMeanings) {
   const correctMeaning = entry.meaning || "待補充";
   const uniqueDistractors = [];
@@ -313,12 +413,14 @@ function createGeneratedLesson(entry, distractorMeanings) {
     uniqueDistractors.push(`與 ${entry.word} 不同的意思`);
   }
 
+  const generatedExample = createContextualExample(entry.word, correctMeaning);
+
   return {
     word: entry.word,
     phonetic: entry.phonetic || "",
     meaning: correctMeaning,
-    example: entry.example || createGeneratedExample(entry.word),
-    exampleTranslation: entry.exampleTranslation || createGeneratedExampleTranslation(entry.word, correctMeaning),
+    example: entry.example || generatedExample.example || createGeneratedExample(entry.word),
+    exampleTranslation: entry.exampleTranslation || generatedExample.exampleTranslation || createGeneratedExampleTranslation(entry.word, correctMeaning),
     question: `請選出 ${entry.word} 的正確中文意思：`,
     options: [correctMeaning, ...uniqueDistractors],
     answer: correctMeaning
