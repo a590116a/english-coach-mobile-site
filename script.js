@@ -326,6 +326,29 @@ function inferWordCategory(word, meaning) {
   return "noun";
 }
 
+function hashText(text) {
+  return Array.from(text).reduce((total, character) => total + character.charCodeAt(0), 0);
+}
+
+function pickVariantIndex(word, meaning, size, offset = 0) {
+  return (hashText(`${word}|${meaning}`) + offset) % size;
+}
+
+function getMeaningDomain(primaryMeaning) {
+  const domainRules = [
+    { domain: "time", pattern: /(時間|時候|每天|每日|早|晚|期間|最後|已經|最近|再次|立刻)/ },
+    { domain: "place", pattern: /(地方|位置|方向|對面|下方|裡面|外面|到達|進入|穿過|距離|環境)/ },
+    { domain: "feeling", pattern: /(感覺|情緒|害怕|冷靜|開心|生氣|好奇|緊張)/ },
+    { domain: "speaking", pattern: /(說|講|表達|討論|對話|解釋|回答|聲音|發音)/ },
+    { domain: "learning", pattern: /(學習|練習|教育|知識|例子|文章|問題|答案|注意力|經驗)/ },
+    { domain: "work", pattern: /(工作|職業|工廠|工具|引擎|功能|控制|建立|發展)/ },
+    { domain: "person", pattern: /(人|朋友|家人|學生|老師|女性|敵人)/ },
+    { domain: "thing", pattern: /(物品|東西|數量|力量|能源|地球|節日|特色|建議|條件)/ }
+  ];
+
+  return domainRules.find((rule) => rule.pattern.test(primaryMeaning))?.domain || "general";
+}
+
 const MEANING_SCENARIO_BUILDERS = [
   {
     pattern: /(時間|時候|每天|每日|早|晚|期間|最後|已經|最近|再次|立刻)/,
@@ -491,9 +514,251 @@ const MEANING_SCENARIO_BUILDERS = [
 
 function createMeaningDrivenExample(word, meaning) {
   const primaryMeaning = getPrimaryMeaning(meaning);
-  const matchedScenario = MEANING_SCENARIO_BUILDERS.find((scenario) => scenario.pattern.test(primaryMeaning));
+  const category = inferWordCategory(word, primaryMeaning);
+  const domain = getMeaningDomain(primaryMeaning);
+  const domainTemplates = {
+    time: [
+      {
+        example: `In class, we used ${word} to talk about time.`,
+        translation: `這句是在說課堂上我們用 ${word} 來談時間，意思是「${primaryMeaning}」。`
+      },
+      {
+        example: `My teacher chose ${word} when she explained when something happened.`,
+        translation: `這句是在說老師解釋事情何時發生時，選用了 ${word}。`
+      },
+      {
+        example: `I often see ${word} in sentences about daily routines.`,
+        translation: `這句是在說我常在描述日常作息的句子裡看到 ${word}。`
+      },
+      {
+        example: `${capitalizeWord(word)} helps us show a time idea more clearly.`,
+        translation: `這句是在表達 ${word} 可以讓時間概念說得更清楚。`
+      },
+      {
+        example: `This example puts ${word} into a sentence about schedule and timing.`,
+        translation: `這句是把 ${word} 放進和行程、時間點有關的句子裡。`
+      },
+      {
+        example: `We may use ${word} when we describe when an action starts or ends.`,
+        translation: `這句是在說描述動作何時開始或結束時，可能會用到 ${word}。`
+      }
+    ],
+    place: [
+      {
+        example: `The sentence uses ${word} to describe where something is.`,
+        translation: `這句是用 ${word} 來描述東西在哪裡。`
+      },
+      {
+        example: `I learned ${word} while talking about place and direction.`,
+        translation: `這句是在說我是在談地點和方向時學到 ${word} 的。`
+      },
+      {
+        example: `${capitalizeWord(word)} often appears in sentences about movement or location.`,
+        translation: `這句是在表達 ${word} 常出現在移動或位置相關句子裡。`
+      },
+      {
+        example: `My notebook gives ${word} as a useful word for describing a place.`,
+        translation: `這句是在說我的筆記把 ${word} 列為描述地點的實用單字。`
+      },
+      {
+        example: `We can use ${word} when we explain direction to someone.`,
+        translation: `這句是在說替別人指路時可以用到 ${word}。`
+      },
+      {
+        example: `This example shows ${word} in a sentence about position.`,
+        translation: `這句是在示範 ${word} 出現在位置概念的句子裡。`
+      }
+    ],
+    feeling: [
+      {
+        example: `She said ${word} to describe how she felt.`,
+        translation: `這句是在說她用 ${word} 來描述自己的感受。`
+      },
+      {
+        example: `The speaker chose ${word} to express an emotion clearly.`,
+        translation: `這句是在說講話的人選了 ${word} 來清楚表達情緒。`
+      },
+      {
+        example: `I may use ${word} when I want to talk about my feelings.`,
+        translation: `這句是在說當我想談感受時，可能會用到 ${word}。`
+      },
+      {
+        example: `${capitalizeWord(word)} fits naturally in a sentence about mood.`,
+        translation: `這句是在表達 ${word} 很適合放在心情相關的句子裡。`
+      },
+      {
+        example: `The lesson uses ${word} in an example about emotion.`,
+        translation: `這句是在說這課把 ${word} 用在情緒情境的例句裡。`
+      },
+      {
+        example: `We practiced ${word} while learning how to describe feelings.`,
+        translation: `這句是在說我們練習用 ${word} 來描述感受。`
+      }
+    ],
+    speaking: [
+      {
+        example: `This sentence shows how ${word} may appear in conversation.`,
+        translation: `這句是在示範 ${word} 可能怎麼出現在對話裡。`
+      },
+      {
+        example: `We practiced ${word} during speaking class today.`,
+        translation: `這句是在說我們今天口說課練習了 ${word}。`
+      },
+      {
+        example: `${capitalizeWord(word)} is useful when we explain an idea aloud.`,
+        translation: `這句是在表達 ${word} 很適合用在口頭解釋想法時。`
+      },
+      {
+        example: `My teacher used ${word} in a short classroom dialogue.`,
+        translation: `這句是在說老師把 ${word} 放進了一段簡短課堂對話。`
+      },
+      {
+        example: `The example sentence includes ${word} in spoken English.`,
+        translation: `這句是在說例句把 ${word} 放進了口語英文情境中。`
+      },
+      {
+        example: `I wrote down ${word} because it sounds natural in conversation.`,
+        translation: `這句是在說我記下 ${word}，因為它在對話裡聽起來很自然。`
+      }
+    ],
+    learning: [
+      {
+        example: `Our teacher used ${word} in today's lesson.`,
+        translation: `這句是在說老師今天上課用到了 ${word}。`
+      },
+      {
+        example: `I met the word ${word} while studying this unit.`,
+        translation: `這句是在說我在讀這個單元時遇到了 ${word}。`
+      },
+      {
+        example: `This example puts ${word} into a study situation.`,
+        translation: `這句是把 ${word} 放進學習情境裡。`
+      },
+      {
+        example: `${capitalizeWord(word)} is a word students may notice during practice.`,
+        translation: `這句是在表達學生練習時可能會注意到 ${word} 這個字。`
+      },
+      {
+        example: `The lesson highlights ${word} as part of today's learning.`,
+        translation: `這句是在說這堂課把 ${word} 當成今天學習內容的一部分。`
+      },
+      {
+        example: `We saw ${word} in an example from the workbook.`,
+        translation: `這句是在說我們在練習本的例句裡看到了 ${word}。`
+      }
+    ],
+    work: [
+      {
+        example: `People may use ${word} at work or in daily tasks.`,
+        translation: `這句是在說人們在工作或日常事情中可能會用到 ${word}。`
+      },
+      {
+        example: `This sentence places ${word} in a practical work setting.`,
+        translation: `這句是把 ${word} 放進實際工作的場景裡。`
+      },
+      {
+        example: `${capitalizeWord(word)} may appear when people discuss tasks or jobs.`,
+        translation: `這句是在說人們談任務或工作時，可能會出現 ${word}。`
+      },
+      {
+        example: `I learned ${word} through an example about doing a task.`,
+        translation: `這句是在說我是透過執行任務的例子來學 ${word} 的。`
+      },
+      {
+        example: `The lesson uses ${word} in a situation about getting work done.`,
+        translation: `這句是在說這課把 ${word} 用在完成工作事項的情境裡。`
+      },
+      {
+        example: `We heard ${word} in a sentence about practical action.`,
+        translation: `這句是在說我們在一個實作行動的句子裡聽到了 ${word}。`
+      }
+    ],
+    person: [
+      {
+        example: `The story uses ${word} to talk about a person.`,
+        translation: `這句是在說故事裡用 ${word} 來談某個人。`
+      },
+      {
+        example: `This sentence includes ${word} while describing someone.`,
+        translation: `這句是在描述人物時放入了 ${word}。`
+      },
+      {
+        example: `${capitalizeWord(word)} fits naturally in a sentence about people.`,
+        translation: `這句是在表達 ${word} 很自然地出現在和人物有關的句子裡。`
+      },
+      {
+        example: `We practiced ${word} in an example about family or classmates.`,
+        translation: `這句是在說我們在家人或同學的情境裡練習了 ${word}。`
+      },
+      {
+        example: `The teacher chose ${word} for a sentence about someone in class.`,
+        translation: `這句是在說老師替課堂人物情境選用了 ${word}。`
+      },
+      {
+        example: `I remember ${word} from a sentence about a person in the story.`,
+        translation: `這句是在說我記住了故事裡和人物有關的 ${word}。`
+      }
+    ],
+    thing: [
+      {
+        example: `This example shows how ${word} appears in real life.`,
+        translation: `這句是在說 ${word} 這個概念會怎麼出現在真實生活裡。`
+      },
+      {
+        example: `We can connect ${word} to something we see every day.`,
+        translation: `這句是在說我們可以把 ${word} 和每天看到的事物連起來理解。`
+      },
+      {
+        example: `${capitalizeWord(word)} becomes clearer in a practical example.`,
+        translation: `這句是在表達把 ${word} 放進實際例子後會更容易懂。`
+      },
+      {
+        example: `The sentence gives ${word} a simple real-world context.`,
+        translation: `這句是替 ${word} 補上一個簡單的真實情境。`
+      },
+      {
+        example: `I understood ${word} better after reading this everyday example.`,
+        translation: `這句是在說我看完這個日常例子後，更理解 ${word} 了。`
+      },
+      {
+        example: `This lesson uses ${word} in a concrete situation.`,
+        translation: `這句是在說這課把 ${word} 放進具體情境裡。`
+      }
+    ],
+    general: [
+      {
+        example: `I learned the word ${word} in today's English practice.`,
+        translation: `這句是在說我今天英文練習時學到了 ${word}。`
+      },
+      {
+        example: `This example sentence includes ${word} in a simple way.`,
+        translation: `這句是在用簡單的方式把 ${word} 放進例句裡。`
+      },
+      {
+        example: `${capitalizeWord(word)} appears here as a useful vocabulary word.`,
+        translation: `這句是在表達這裡把 ${word} 當成實用單字來示範。`
+      },
+      {
+        example: `We practiced how to understand ${word} in context.`,
+        translation: `這句是在說我們練習怎麼在上下文裡理解 ${word}。`
+      },
+      {
+        example: `My notebook keeps ${word} with an easy example sentence.`,
+        translation: `這句是在說我的筆記把 ${word} 配上一句容易懂的例句。`
+      },
+      {
+        example: `The lesson helps me remember ${word} through this sentence.`,
+        translation: `這句是在說這堂課透過這句話幫我記住 ${word}。`
+      }
+    ]
+  };
+  const templates = domainTemplates[domain];
+  const variantIndex = pickVariantIndex(word, primaryMeaning, templates.length, category.length);
 
-  return matchedScenario ? matchedScenario.build(word, primaryMeaning) : null;
+  return {
+    example: templates[variantIndex].example,
+    exampleTranslation: `${templates[variantIndex].translation} 這個字的意思是「${primaryMeaning}」。`
+  };
 }
 
 function createContextualExample(word, meaning) {
