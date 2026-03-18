@@ -1526,6 +1526,46 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   example: {
     example: "The teacher wrote an example on the board for us to follow.",
     exampleTranslation: "老師在黑板上寫了一個例子讓我們照著做。"
+  },
+  excellent: {
+    example: "Her pronunciation became excellent after months of practice.",
+    exampleTranslation: "經過好幾個月的練習後，她的發音變得非常好。"
+  },
+  exercise: {
+    example: "Reading aloud is a useful exercise for speaking more clearly.",
+    exampleTranslation: "大聲朗讀是讓口說更清楚的有用練習。"
+  },
+  except: {
+    example: "Everyone finished the task except Kevin.",
+    exampleTranslation: "除了 Kevin 之外，每個人都完成了任務。"
+  },
+  excite: {
+    example: "New travel plans always excite my younger sister.",
+    exampleTranslation: "新的旅行計畫總是讓我妹妹很興奮。"
+  },
+  exist: {
+    example: "Many small study habits exist in successful learners.",
+    exampleTranslation: "很多成功的學習者都具備一些小小的學習習慣。"
+  },
+  expect: {
+    example: "Do not expect perfect English after only one week.",
+    exampleTranslation: "不要期待只學一週英文就能達到完美。"
+  },
+  experience: {
+    example: "Working at the store gave her valuable customer service experience.",
+    exampleTranslation: "在那家店工作讓她得到寶貴的顧客服務經驗。"
+  },
+  explain: {
+    example: "Can you explain this grammar rule in a simpler way?",
+    exampleTranslation: "你可以用更簡單的方式解釋這個文法規則嗎？"
+  },
+  express: {
+    example: "She found the right words to express her thanks.",
+    exampleTranslation: "她找到了合適的字句來表達她的感謝。"
+  },
+  extra: {
+    example: "The teacher gave us extra time to check our answers.",
+    exampleTranslation: "老師多給了我們一些時間檢查答案。"
   }
 };
 
