@@ -326,8 +326,80 @@ function inferWordCategory(word, meaning) {
   return "noun";
 }
 
+const MEANING_SCENARIO_BUILDERS = [
+  {
+    pattern: /(時間|時候|每天|每日|早|晚|期間|最後|已經|最近|再次|立刻)/,
+    build: (word, primaryMeaning) => ({
+      example: `I use ${word} when I talk about time in English.`,
+      exampleTranslation: `這句是在說 ${word} 常用來表達時間相關的意思，也就是「${primaryMeaning}」。`
+    })
+  },
+  {
+    pattern: /(地方|位置|方向|對面|下方|裡面|外面|到達|進入|穿過|距離|環境)/,
+    build: (word, primaryMeaning) => ({
+      example: `We often use ${word} when we describe a place or direction.`,
+      exampleTranslation: `這句是在說 ${word} 常用在描述地點或方向，意思是「${primaryMeaning}」。`
+    })
+  },
+  {
+    pattern: /(感覺|情緒|害怕|冷靜|開心|生氣|好奇|緊張)/,
+    build: (word, primaryMeaning) => ({
+      example: `She used the word ${word} to describe her feeling.`,
+      exampleTranslation: `這句是在說她用 ${word} 來描述自己的感受，也就是「${primaryMeaning}」。`
+    })
+  },
+  {
+    pattern: /(說|講|表達|討論|對話|解釋|回答|聲音|發音)/,
+    build: (word, primaryMeaning) => ({
+      example: `This word ${word} is helpful when we speak in class.`,
+      exampleTranslation: `這句是在說 ${word} 這個字在課堂口說時很有幫助，意思是「${primaryMeaning}」。`
+    })
+  },
+  {
+    pattern: /(學習|練習|教育|知識|例子|文章|問題|答案|注意力|經驗)/,
+    build: (word, primaryMeaning) => ({
+      example: `Our teacher used ${word} in today's lesson.`,
+      exampleTranslation: `這句是在說老師今天上課用到了 ${word} 這個字，它的意思是「${primaryMeaning}」。`
+    })
+  },
+  {
+    pattern: /(工作|職業|工廠|工具|引擎|功能|控制|建立|發展)/,
+    build: (word, primaryMeaning) => ({
+      example: `People may use ${word} at work or in daily tasks.`,
+      exampleTranslation: `這句是在說人們在工作或日常事情中可能會用到 ${word}，意思是「${primaryMeaning}」。`
+    })
+  },
+  {
+    pattern: /(人|朋友|家人|學生|老師|女性|敵人)/,
+    build: (word, primaryMeaning) => ({
+      example: `The story uses ${word} to talk about a person.`,
+      exampleTranslation: `這句是在說故事裡用 ${word} 來談某個人，意思是「${primaryMeaning}」。`
+    })
+  },
+  {
+    pattern: /(物品|東西|數量|力量|能源|地球|節日|特色|建議|條件)/,
+    build: (word, primaryMeaning) => ({
+      example: `This example shows how ${word} appears in real life.`,
+      exampleTranslation: `這句是在說 ${word} 這個概念會怎麼出現在真實生活裡，它的意思是「${primaryMeaning}」。`
+    })
+  }
+];
+
+function createMeaningDrivenExample(word, meaning) {
+  const primaryMeaning = getPrimaryMeaning(meaning);
+  const matchedScenario = MEANING_SCENARIO_BUILDERS.find((scenario) => scenario.pattern.test(primaryMeaning));
+
+  return matchedScenario ? matchedScenario.build(word, primaryMeaning) : null;
+}
+
 function createContextualExample(word, meaning) {
   const primaryMeaning = getPrimaryMeaning(meaning);
+  const meaningDrivenExample = createMeaningDrivenExample(word, primaryMeaning);
+
+  if (meaningDrivenExample) {
+    return meaningDrivenExample;
+  }
+
   const category = inferWordCategory(word, primaryMeaning);
   const templatesByCategory = {
     verb: [
