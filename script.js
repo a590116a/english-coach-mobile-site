@@ -374,6 +374,150 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   opportunity: {
     example: "This job is a great opportunity for her.",
     exampleTranslation: "這份工作對她來說是很好的機會。"
+  },
+  tel: {
+    example: "Please write your tel number on this form.",
+    exampleTranslation: "請把你的電話號碼寫在這張表上。"
+  },
+  carolina: {
+    example: "My cousin moved to Carolina last year.",
+    exampleTranslation: "我表哥去年搬到卡羅萊納州。"
+  },
+  properties: {
+    example: "These materials have useful properties for building.",
+    exampleTranslation: "這些材料有適合建築的特性。"
+  },
+  ground: {
+    example: "The children sat on the ground and drew pictures.",
+    exampleTranslation: "孩子們坐在地上畫圖。"
+  },
+  overview: {
+    example: "The teacher gave us an overview of the new lesson.",
+    exampleTranslation: "老師先給我們這堂新課的概觀。"
+  },
+  ship: {
+    example: "The ship left the port before sunrise.",
+    exampleTranslation: "那艘船在日出前離開港口。"
+  },
+  accommodation: {
+    example: "We booked accommodation near the train station.",
+    exampleTranslation: "我們在火車站附近訂了住處。"
+  },
+  owners: {
+    example: "The restaurant owners thanked every customer personally.",
+    exampleTranslation: "那家餐廳的老闆們親自感謝每位顧客。"
+  },
+  disease: {
+    example: "Doctors are working to stop the spread of the disease.",
+    exampleTranslation: "醫生們正在努力阻止疾病擴散。"
+  },
+  tx: {
+    example: "My uncle lives in TX with his family.",
+    exampleTranslation: "我叔叔和家人住在德州。"
+  },
+  excellent: {
+    example: "You did an excellent job on your English homework.",
+    exampleTranslation: "你的英文作業做得非常好。"
+  },
+  paid: {
+    example: "She already paid for the tickets online.",
+    exampleTranslation: "她已經在線上付了票錢。"
+  },
+  italy: {
+    example: "They want to visit Italy in the spring.",
+    exampleTranslation: "他們想在春天去義大利旅行。"
+  },
+  perfect: {
+    example: "This quiet room is perfect for study.",
+    exampleTranslation: "這個安靜的房間非常適合讀書。"
+  },
+  hair: {
+    example: "Her hair was wet after the rain.",
+    exampleTranslation: "她的頭髮淋雨後濕了。"
+  },
+  kit: {
+    example: "He carries a small first-aid kit in his bag.",
+    exampleTranslation: "他包包裡帶著一個小急救包。"
+  },
+  classic: {
+    example: "That movie is a classic for many music lovers.",
+    exampleTranslation: "那部電影對很多音樂愛好者來說是經典。"
+  },
+  basis: {
+    example: "Trust is the basis of a good friendship.",
+    exampleTranslation: "信任是良好友誼的基礎。"
+  },
+  command: {
+    example: "The officer gave a clear command to the team.",
+    exampleTranslation: "那位軍官對隊員下了清楚的命令。"
+  },
+  cities: {
+    example: "Many big cities become quiet late at night.",
+    exampleTranslation: "許多大城市在深夜會變得安靜。"
+  },
+  william: {
+    example: "William sits next to me in English class.",
+    exampleTranslation: "威廉在英文課坐在我旁邊。"
+  },
+  express: {
+    example: "She can express her ideas in simple English.",
+    exampleTranslation: "她能用簡單英文表達自己的想法。"
+  },
+  anal: {
+    example: "This medical article explains anal pain in simple language.",
+    exampleTranslation: "這篇醫學文章用簡單文字解釋肛門疼痛。"
+  },
+  award: {
+    example: "The school gave her an award for hard work.",
+    exampleTranslation: "學校因為她的努力而頒獎給她。"
+  },
+  tree: {
+    example: "We had lunch under a big tree.",
+    exampleTranslation: "我們在一棵大樹下吃午餐。"
+  },
+  peter: {
+    example: "Peter called me after class yesterday.",
+    exampleTranslation: "彼得昨天下課後打電話給我。"
+  },
+  assessment: {
+    example: "The teacher finished the students' reading assessment.",
+    exampleTranslation: "老師完成了學生的閱讀評量。"
+  },
+  ensure: {
+    example: "Please check again to ensure the answer is correct.",
+    exampleTranslation: "請再檢查一次，以確保答案正確。"
+  },
+  thus: {
+    example: "The road was closed, thus we had to walk home.",
+    exampleTranslation: "那條路封住了，因此我們只好走路回家。"
+  },
+  wall: {
+    example: "There is a world map on the classroom wall.",
+    exampleTranslation: "教室的牆上有一張世界地圖。"
+  },
+  ie: {
+    example: "Write your answer clearly, i.e., one sentence only.",
+    exampleTranslation: "請把答案寫清楚，也就是只寫一句話。"
+  },
+  involved: {
+    example: "Many parents were involved in the school event.",
+    exampleTranslation: "許多家長都有參與那場學校活動。"
+  },
+  el: {
+    example: "The old train still stops at the El station downtown.",
+    exampleTranslation: "那班舊火車仍然會停在市中心的高架車站。"
+  },
+  extra: {
+    example: "I need extra time to finish this report.",
+    exampleTranslation: "我需要額外的時間來完成這份報告。"
+  },
+  especially: {
+    example: "I like this song, especially the ending.",
+    exampleTranslation: "我喜歡這首歌，尤其是它的結尾。"
+  },
+  interface: {
+    example: "The new app has a clean and simple interface.",
+    exampleTranslation: "這個新 App 有乾淨又簡單的介面。"
   }
 };
 
