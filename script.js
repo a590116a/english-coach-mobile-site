@@ -978,6 +978,162 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   ellis: {
     example: "Ellis joined our reading group last week.",
     exampleTranslation: "Ellis 上週加入了我們的讀書小組。"
+  },
+  disable: {
+    example: "This button will disable the sound for a while.",
+    exampleTranslation: "這個按鈕會暫時關掉聲音。"
+  },
+  snake: {
+    example: "We saw a snake near the river path.",
+    exampleTranslation: "我們在河邊小路附近看到一條蛇。"
+  },
+  succeed: {
+    example: "If you keep practicing, you will succeed.",
+    exampleTranslation: "如果你持續練習，你就會成功。"
+  },
+  leonard: {
+    example: "Leonard brought cookies to the meeting.",
+    exampleTranslation: "Leonard 帶了餅乾來開會。"
+  },
+  lending: {
+    example: "The bank is careful about lending money.",
+    exampleTranslation: "銀行對借出資金這件事很謹慎。"
+  },
+  oops: {
+    example: "\"Oops, I made a spelling mistake,\" she said.",
+    exampleTranslation: "「哎呀，我拼錯字了。」她說。"
+  },
+  reminder: {
+    example: "I set a reminder on my phone for the class.",
+    exampleTranslation: "我在手機上設了一個上課提醒。"
+  },
+  xi: {
+    example: "The teacher wrote the Greek letter xi on the board.",
+    exampleTranslation: "老師把希臘字母 xi 寫在黑板上。"
+  },
+  searched: {
+    example: "He searched the internet for the answer.",
+    exampleTranslation: "他在網路上搜尋答案。"
+  },
+  behavioral: {
+    example: "The report includes behavioral changes in children.",
+    exampleTranslation: "那份報告包含兒童行為上的變化。"
+  },
+  riverside: {
+    example: "We walked along the riverside after dinner.",
+    exampleTranslation: "晚餐後我們沿著河邊散步。"
+  },
+  bathrooms: {
+    example: "The hotel has two public bathrooms on this floor.",
+    exampleTranslation: "這家飯店這一層有兩間公共浴室。"
+  },
+  plains: {
+    example: "The train crossed the wide plains at sunset.",
+    exampleTranslation: "火車在日落時穿過遼闊的平原。"
+  },
+  sku: {
+    example: "Each product has its own SKU number.",
+    exampleTranslation: "每個產品都有自己的 SKU 編號。"
+  },
+  ht: {
+    example: "Please check the HT information on the label.",
+    exampleTranslation: "請查看標籤上的 HT 資訊。"
+  },
+  raymond: {
+    example: "Raymond called to confirm the schedule.",
+    exampleTranslation: "Raymond 打電話來確認行程。"
+  },
+  insights: {
+    example: "The interview gave us useful insights about the project.",
+    exampleTranslation: "那場訪談讓我們對這個專案有很有用的見解。"
+  },
+  abilities: {
+    example: "Music can improve children's language abilities.",
+    exampleTranslation: "音樂能提升孩子的語言能力。"
+  },
+  initiated: {
+    example: "The school initiated a new reading program.",
+    exampleTranslation: "學校發起了一個新的閱讀計畫。"
+  },
+  sullivan: {
+    example: "Sullivan will lead the discussion this afternoon.",
+    exampleTranslation: "Sullivan 今天下午會主持討論。"
+  },
+  za: {
+    example: "The website uses .za in its web address.",
+    exampleTranslation: "那個網站的網址裡用了 .za。"
+  },
+  midwest: {
+    example: "He grew up in the Midwest of the United States.",
+    exampleTranslation: "他在美國中西部長大。"
+  },
+  karaoke: {
+    example: "They sang their favorite songs at karaoke last night.",
+    exampleTranslation: "他們昨晚在卡拉 OK 唱了最喜歡的歌。"
+  },
+  trap: {
+    example: "The mouse escaped from the trap.",
+    exampleTranslation: "那隻老鼠從陷阱裡逃走了。"
+  },
+  lonely: {
+    example: "He felt lonely after moving to a new city.",
+    exampleTranslation: "搬到新城市後，他感到很孤單。"
+  },
+  fool: {
+    example: "Do not let anyone fool you with false promises.",
+    exampleTranslation: "不要讓任何人用假承諾欺騙你。"
+  },
+  ve: {
+    example: "The map used VE as a country code in one list.",
+    exampleTranslation: "那張地圖在其中一個清單裡用 VE 當國家代碼。"
+  },
+  nonprofit: {
+    example: "She works for a nonprofit that helps children read.",
+    exampleTranslation: "她在一個幫助孩子閱讀的非營利組織工作。"
+  },
+  lancaster: {
+    example: "They spent two nights in Lancaster on the trip.",
+    exampleTranslation: "他們旅行時在蘭開斯特住了兩晚。"
+  },
+  suspended: {
+    example: "The game was suspended because of the heavy rain.",
+    exampleTranslation: "比賽因為大雨而暫停。"
+  },
+  hereby: {
+    example: "I hereby agree to follow the school rules.",
+    exampleTranslation: "我在此同意遵守學校規定。"
+  },
+  observe: {
+    example: "Please observe the signs near the entrance.",
+    exampleTranslation: "請遵守入口附近的標示。"
+  },
+  julia: {
+    example: "Julia shared her notes with the whole class.",
+    exampleTranslation: "Julia 把她的筆記分享給全班。"
+  },
+  containers: {
+    example: "The kitchen shelf is full of food containers.",
+    exampleTranslation: "廚房架子上擺滿了食物容器。"
+  },
+  attitudes: {
+    example: "Positive attitudes can change the classroom atmosphere.",
+    exampleTranslation: "正向的態度能改變教室氣氛。"
+  },
+  karl: {
+    example: "Karl arrived early and helped set up the room.",
+    exampleTranslation: "Karl 很早就到了，還幫忙整理教室。"
+  },
+  berry: {
+    example: "She put a berry on top of each cake.",
+    exampleTranslation: "她在每個蛋糕上放了一顆莓果。"
+  },
+  collar: {
+    example: "The dog wore a red collar in the park.",
+    exampleTranslation: "那隻狗在公園裡戴著紅色項圈。"
+  },
+  simultaneously: {
+    example: "The two lights turned on simultaneously.",
+    exampleTranslation: "兩盞燈同時亮了起來。"
   }
 };
 
