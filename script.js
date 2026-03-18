@@ -1906,6 +1906,74 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   attract: {
     example: "Bright signs can attract more customers at night.",
     exampleTranslation: "明亮的招牌在晚上可以吸引更多顧客。"
+  },
+  disable: {
+    example: "You can disable the sound if you need a quiet place to study.",
+    exampleTranslation: "如果你需要安靜的讀書環境，可以把聲音關掉。"
+  },
+  snake: {
+    example: "We saw a small snake near the river path.",
+    exampleTranslation: "我們在河邊的小路旁看到一條小蛇。"
+  },
+  succeed: {
+    example: "If you keep practicing, you will succeed in the end.",
+    exampleTranslation: "如果你持續練習，最後一定會成功。"
+  },
+  reminder: {
+    example: "I set a reminder on my phone for tonight's study time.",
+    exampleTranslation: "我在手機上設了一個提醒，提醒今晚的讀書時間。"
+  },
+  searched: {
+    example: "She searched the internet for a better explanation.",
+    exampleTranslation: "她上網搜尋一個更好的解釋。"
+  },
+  behavioral: {
+    example: "The report discussed behavioral changes in young children.",
+    exampleTranslation: "這份報告討論了年幼孩子的行為變化。"
+  },
+  riverside: {
+    example: "We took a slow walk along the riverside after dinner.",
+    exampleTranslation: "晚餐後我們沿著河邊慢慢散步。"
+  },
+  insights: {
+    example: "The interview gave us useful insights about the project.",
+    exampleTranslation: "那場訪談讓我們對這個專案有了很有用的見解。"
+  },
+  abilities: {
+    example: "Music can help children develop their language abilities.",
+    exampleTranslation: "音樂可以幫助孩子發展語言能力。"
+  },
+  initiated: {
+    example: "The school initiated a new reading program this month.",
+    exampleTranslation: "學校這個月啟動了一個新的閱讀計畫。"
+  },
+  karaoke: {
+    example: "They sang their favorite songs at karaoke last night.",
+    exampleTranslation: "他們昨晚在 KTV 唱了自己最喜歡的歌。"
+  },
+  trap: {
+    example: "The mouse escaped from the trap before morning.",
+    exampleTranslation: "那隻老鼠在早上之前就逃出了陷阱。"
+  },
+  lonely: {
+    example: "He felt lonely after moving to a new city alone.",
+    exampleTranslation: "他一個人搬到新城市後感到很孤單。"
+  },
+  nonprofit: {
+    example: "She works for a nonprofit that helps children learn.",
+    exampleTranslation: "她在一個幫助孩子學習的非營利組織工作。"
+  },
+  suspended: {
+    example: "The game was suspended because of the heavy rain.",
+    exampleTranslation: "因為大雨，比賽被暫停了。"
+  },
+  observe: {
+    example: "Please observe the signs near the school entrance.",
+    exampleTranslation: "請留意學校入口附近的標示。"
+  },
+  containers: {
+    example: "The kitchen shelf is full of food containers.",
+    exampleTranslation: "廚房的架子上放滿了食物容器。"
   }
 };
 
