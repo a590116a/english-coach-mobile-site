@@ -1134,6 +1134,154 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   simultaneously: {
     example: "The two lights turned on simultaneously.",
     exampleTranslation: "兩盞燈同時亮了起來。"
+  },
+  racial: {
+    example: "The class discussed racial equality in modern society.",
+    exampleTranslation: "那堂課討論了現代社會中的種族平等。"
+  },
+  integrate: {
+    example: "The teacher tried to integrate music into the lesson.",
+    exampleTranslation: "老師試著把音樂融入課程中。"
+  },
+  bermuda: {
+    example: "My uncle once traveled to Bermuda for a holiday.",
+    exampleTranslation: "我叔叔曾經去百慕達度假。"
+  },
+  amanda: {
+    example: "Amanda brought fruit for everyone in the office.",
+    exampleTranslation: "Amanda 帶了水果給辦公室的每個人。"
+  },
+  sociology: {
+    example: "She is studying sociology at the university.",
+    exampleTranslation: "她正在大學攻讀社會學。"
+  },
+  mobiles: {
+    example: "The shop sells mobiles and phone cases.",
+    exampleTranslation: "那家店賣手機和手機殼。"
+  },
+  screenshot: {
+    example: "Please send me a screenshot of the error message.",
+    exampleTranslation: "請把錯誤訊息的截圖傳給我。"
+  },
+  exhibitions: {
+    example: "The museum holds two art exhibitions every year.",
+    exampleTranslation: "那家博物館每年舉辦兩次藝術展覽。"
+  },
+  humanities: {
+    example: "He enjoys both science and the humanities.",
+    exampleTranslation: "他同時喜歡科學和人文學科。"
+  },
+  independently: {
+    example: "The children learned to work independently.",
+    exampleTranslation: "孩子們學會了獨立完成事情。"
+  },
+  wanting: {
+    example: "The final report was still wanting in detail.",
+    exampleTranslation: "最後的報告在細節上仍然不足。"
+  },
+  custody: {
+    example: "The court gave custody of the child to her mother.",
+    exampleTranslation: "法院把孩子的監護權判給了她媽媽。"
+  },
+  scratch: {
+    example: "He got a small scratch on his hand.",
+    exampleTranslation: "他的手上有一道小擦傷。"
+  },
+  launches: {
+    example: "The company launches a new product every spring.",
+    exampleTranslation: "那家公司每年春天都會推出新產品。"
+  },
+  soonest: {
+    example: "Please reply as soonest as possible.",
+    exampleTranslation: "請儘快回覆。"
+  },
+  haiti: {
+    example: "The charity sent supplies to Haiti after the storm.",
+    exampleTranslation: "那個慈善團體在暴風雨後把物資送到海地。"
+  },
+  disturbed: {
+    example: "She looked disturbed after hearing the news.",
+    exampleTranslation: "聽到消息後，她看起來很不安。"
+  },
+  determines: {
+    example: "Hard work often determines the final result.",
+    exampleTranslation: "努力往往決定最後的結果。"
+  },
+  sculpture: {
+    example: "The park has a large sculpture near the entrance.",
+    exampleTranslation: "那座公園入口附近有一座大型雕塑。"
+  },
+  poly: {
+    example: "He studied design at a local poly.",
+    exampleTranslation: "他在當地的工藝學院學設計。"
+  },
+  ears: {
+    example: "Her ears turned red in the cold wind.",
+    exampleTranslation: "她的耳朵在冷風中變紅了。"
+  },
+  dod: {
+    example: "The report was later sent to the DoD office.",
+    exampleTranslation: "那份報告之後被送到國防部辦公室。"
+  },
+  wp: {
+    example: "He saved the file in his WP folder.",
+    exampleTranslation: "他把檔案存進自己的 WP 資料夾。"
+  },
+  fist: {
+    example: "He raised his fist in the air.",
+    exampleTranslation: "他把拳頭舉向空中。"
+  },
+  galaxy: {
+    example: "Our science teacher showed us a picture of a galaxy.",
+    exampleTranslation: "自然老師給我們看了一張星系的照片。"
+  },
+  chester: {
+    example: "Chester sent the email before lunch.",
+    exampleTranslation: "Chester 在午餐前把電子郵件寄出了。"
+  },
+  snapshot: {
+    example: "This photo gives a snapshot of village life.",
+    exampleTranslation: "這張照片呈現了鄉村生活的一個剪影。"
+  },
+  caring: {
+    example: "She is a caring teacher who listens to every student.",
+    exampleTranslation: "她是一位很有愛心的老師，會聽每位學生說話。"
+  },
+  loc: {
+    example: "The map marked the loc of the meeting point.",
+    exampleTranslation: "地圖標出了集合地點的位置。"
+  },
+  worn: {
+    example: "His shoes were old and worn.",
+    exampleTranslation: "他的鞋子又舊又磨損。"
+  },
+  synthetic: {
+    example: "This jacket is made from synthetic material.",
+    exampleTranslation: "這件外套是用合成材料做的。"
+  },
+  shaw: {
+    example: "Mr Shaw will lead today's discussion.",
+    exampleTranslation: "Shaw 先生今天會主持討論。"
+  },
+  vp: {
+    example: "The VP will visit our office next week.",
+    exampleTranslation: "副總裁下週會來我們辦公室。"
+  },
+  segments: {
+    example: "The video is divided into three short segments.",
+    exampleTranslation: "這支影片被分成三個短片段。"
+  },
+  testament: {
+    example: "Her work is a testament to years of effort.",
+    exampleTranslation: "她的成果證明了多年來的努力。"
+  },
+  expo: {
+    example: "We visited a technology expo on Saturday.",
+    exampleTranslation: "我們星期六參觀了一場科技展。"
+  },
+  dominant: {
+    example: "Blue is the dominant color in this design.",
+    exampleTranslation: "藍色是這個設計裡的主色。"
   }
 };
 
