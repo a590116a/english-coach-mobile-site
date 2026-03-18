@@ -329,59 +329,163 @@ function inferWordCategory(word, meaning) {
 const MEANING_SCENARIO_BUILDERS = [
   {
     pattern: /(時間|時候|每天|每日|早|晚|期間|最後|已經|最近|再次|立刻)/,
-    build: (word, primaryMeaning) => ({
-      example: `I use ${word} when I talk about time in English.`,
-      exampleTranslation: `這句是在說 ${word} 常用來表達時間相關的意思，也就是「${primaryMeaning}」。`
-    })
+    build: (word, primaryMeaning) => {
+      const examples = [
+        `I use ${word} when I talk about time in English.`,
+        `This sentence uses ${word} to show a time idea.`,
+        `We often say ${word} when we mention time.`,
+        `${capitalizeWord(word)} is useful when we talk about when something happens.`
+      ];
+      const translations = [
+        `這句是在說 ${word} 常用來表達時間相關的意思，也就是「${primaryMeaning}」。`,
+        `這句用 ${word} 來表達時間概念，意思是「${primaryMeaning}」。`,
+        `這句是在說我們提到時間時，常會用到 ${word}。`,
+        `這句是在表達 ${word} 很適合用來說明事情發生的時間。`
+      ];
+      const index = getTemplateIndexByWord(word, examples.length);
+
+      return { example: examples[index], exampleTranslation: translations[index] };
+    }
   },
   {
     pattern: /(地方|位置|方向|對面|下方|裡面|外面|到達|進入|穿過|距離|環境)/,
-    build: (word, primaryMeaning) => ({
-      example: `We often use ${word} when we describe a place or direction.`,
-      exampleTranslation: `這句是在說 ${word} 常用在描述地點或方向，意思是「${primaryMeaning}」。`
-    })
+    build: (word, primaryMeaning) => {
+      const examples = [
+        `We often use ${word} when we describe a place or direction.`,
+        `This example uses ${word} to talk about location.`,
+        `People may say ${word} when they explain where something is.`,
+        `${capitalizeWord(word)} is useful for describing place and movement.`
+      ];
+      const translations = [
+        `這句是在說 ${word} 常用在描述地點或方向，意思是「${primaryMeaning}」。`,
+        `這句是用 ${word} 來談位置概念，它的意思是「${primaryMeaning}」。`,
+        `這句是在說人們解釋東西在哪裡時，可能會用到 ${word}。`,
+        `這句是在表達 ${word} 很適合用來描述地點和移動。`
+      ];
+      const index = getTemplateIndexByWord(word, examples.length);
+
+      return { example: examples[index], exampleTranslation: translations[index] };
+    }
   },
   {
     pattern: /(感覺|情緒|害怕|冷靜|開心|生氣|好奇|緊張)/,
-    build: (word, primaryMeaning) => ({
-      example: `She used the word ${word} to describe her feeling.`,
-      exampleTranslation: `這句是在說她用 ${word} 來描述自己的感受，也就是「${primaryMeaning}」。`
-    })
+    build: (word, primaryMeaning) => {
+      const examples = [
+        `She used the word ${word} to describe her feeling.`,
+        `This sentence uses ${word} to talk about emotion.`,
+        `I may choose ${word} when I describe how I feel.`,
+        `${capitalizeWord(word)} can help us express a feeling clearly.`
+      ];
+      const translations = [
+        `這句是在說她用 ${word} 來描述自己的感受，也就是「${primaryMeaning}」。`,
+        `這句是用 ${word} 來表達情緒，意思是「${primaryMeaning}」。`,
+        `這句是在說當我描述感受時，可能會選用 ${word}。`,
+        `這句是在表達 ${word} 可以幫助我們清楚說出感受。`
+      ];
+      const index = getTemplateIndexByWord(word, examples.length);
+
+      return { example: examples[index], exampleTranslation: translations[index] };
+    }
   },
   {
     pattern: /(說|講|表達|討論|對話|解釋|回答|聲音|發音)/,
-    build: (word, primaryMeaning) => ({
-      example: `This word ${word} is helpful when we speak in class.`,
-      exampleTranslation: `這句是在說 ${word} 這個字在課堂口說時很有幫助，意思是「${primaryMeaning}」。`
-    })
+    build: (word, primaryMeaning) => {
+      const examples = [
+        `This word ${word} is helpful when we speak in class.`,
+        `We can use ${word} in speaking practice.`,
+        `This sentence shows how ${word} may appear in conversation.`,
+        `${capitalizeWord(word)} is useful when we explain something aloud.`
+      ];
+      const translations = [
+        `這句是在說 ${word} 這個字在課堂口說時很有幫助，意思是「${primaryMeaning}」。`,
+        `這句是在說我們口說練習時可以用到 ${word}。`,
+        `這句是在示範 ${word} 可能怎麼出現在對話裡。`,
+        `這句是在表達 ${word} 很適合用在開口解釋事情的時候。`
+      ];
+      const index = getTemplateIndexByWord(word, examples.length);
+
+      return { example: examples[index], exampleTranslation: translations[index] };
+    }
   },
   {
     pattern: /(學習|練習|教育|知識|例子|文章|問題|答案|注意力|經驗)/,
-    build: (word, primaryMeaning) => ({
-      example: `Our teacher used ${word} in today's lesson.`,
-      exampleTranslation: `這句是在說老師今天上課用到了 ${word} 這個字，它的意思是「${primaryMeaning}」。`
-    })
+    build: (word, primaryMeaning) => {
+      const examples = [
+        `Our teacher used ${word} in today's lesson.`,
+        `This example shows ${word} in a learning context.`,
+        `We saw ${word} while studying in class today.`,
+        `${capitalizeWord(word)} is a word students may meet during practice.`
+      ];
+      const translations = [
+        `這句是在說老師今天上課用到了 ${word} 這個字，它的意思是「${primaryMeaning}」。`,
+        `這句是在示範 ${word} 出現在學習情境中的用法。`,
+        `這句是在說我們今天上課學習時看到了 ${word}。`,
+        `這句是在表達學生練習時可能會遇到 ${word} 這個字。`
+      ];
+      const index = getTemplateIndexByWord(word, examples.length);
+
+      return { example: examples[index], exampleTranslation: translations[index] };
+    }
   },
   {
     pattern: /(工作|職業|工廠|工具|引擎|功能|控制|建立|發展)/,
-    build: (word, primaryMeaning) => ({
-      example: `People may use ${word} at work or in daily tasks.`,
-      exampleTranslation: `這句是在說人們在工作或日常事情中可能會用到 ${word}，意思是「${primaryMeaning}」。`
-    })
+    build: (word, primaryMeaning) => {
+      const examples = [
+        `People may use ${word} at work or in daily tasks.`,
+        `This sentence places ${word} in a work situation.`,
+        `We may hear ${word} when people talk about tasks and jobs.`,
+        `${capitalizeWord(word)} can appear in practical work situations.`
+      ];
+      const translations = [
+        `這句是在說人們在工作或日常事情中可能會用到 ${word}，意思是「${primaryMeaning}」。`,
+        `這句是把 ${word} 放進工作情境裡來表達。`,
+        `這句是在說當人們談工作和任務時，可能會聽到 ${word}。`,
+        `這句是在表達 ${word} 可能出現在實際工作的場景裡。`
+      ];
+      const index = getTemplateIndexByWord(word, examples.length);
+
+      return { example: examples[index], exampleTranslation: translations[index] };
+    }
   },
   {
     pattern: /(人|朋友|家人|學生|老師|女性|敵人)/,
-    build: (word, primaryMeaning) => ({
-      example: `The story uses ${word} to talk about a person.`,
-      exampleTranslation: `這句是在說故事裡用 ${word} 來談某個人，意思是「${primaryMeaning}」。`
-    })
+    build: (word, primaryMeaning) => {
+      const examples = [
+        `The story uses ${word} to talk about a person.`,
+        `This sentence includes ${word} when describing someone.`,
+        `We may use ${word} while talking about people.`,
+        `${capitalizeWord(word)} can appear in a sentence about a person.`
+      ];
+      const translations = [
+        `這句是在說故事裡用 ${word} 來談某個人，意思是「${primaryMeaning}」。`,
+        `這句是在描述人物時放入 ${word} 這個字。`,
+        `這句是在說當我們談人時，可能會用到 ${word}。`,
+        `這句是在表達 ${word} 可以出現在和人物有關的句子裡。`
+      ];
+      const index = getTemplateIndexByWord(word, examples.length);
+
+      return { example: examples[index], exampleTranslation: translations[index] };
+    }
   },
   {
     pattern: /(物品|東西|數量|力量|能源|地球|節日|特色|建議|條件)/,
-    build: (word, primaryMeaning) => ({
-      example: `This example shows how ${word} appears in real life.`,
-      exampleTranslation: `這句是在說 ${word} 這個概念會怎麼出現在真實生活裡，它的意思是「${primaryMeaning}」。`
-    })
+    build: (word, primaryMeaning) => {
+      const examples = [
+        `This example shows how ${word} appears in real life.`,
+        `We can connect ${word} to things we see every day.`,
+        `This sentence gives a practical use for ${word}.`,
+        `${capitalizeWord(word)} can be understood through daily examples.`
+      ];
+      const translations = [
+        `這句是在說 ${word} 這個概念會怎麼出現在真實生活裡，它的意思是「${primaryMeaning}」。`,
+        `這句是在說我們可以把 ${word} 和每天看到的事物連起來理解。`,
+        `這句是在示範 ${word} 的一種實際用法。`,
+        `這句是在表達可以透過日常例子來理解 ${word}。`
+      ];
+      const index = getTemplateIndexByWord(word, examples.length);
+
+      return { example: examples[index], exampleTranslation: translations[index] };
+    }
   }
 ];
 
