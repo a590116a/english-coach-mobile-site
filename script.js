@@ -1044,6 +1044,7 @@ let sentenceHighlightTimer = null;
 let sentenceHighlightFallbackTimer = null;
 let exampleWordElements = [];
 let preferredEnglishVoice = null;
+let speechSequenceToken = 0;
 
 let selectedVocabLevel = VOCAB_LEVELS[0];
 let currentStageIndex = 0;
@@ -1462,12 +1463,113 @@ function configureEnglishUtterance(utterance, rate) {
   utterance.volume = 1;
 }
 
+function resetSpeakingState() {
+  flashcard.classList.remove("is-speaking");
+  exampleBox.classList.remove("is-speaking");
+  clearSentenceHighlight();
+}
+
+function cancelSpeechPlayback() {
+  speechSequenceToken += 1;
+  window.speechSynthesis.cancel();
+  resetSpeakingState();
+}
+
+function speakSequence(parts, options) {
+  if (!("speechSynthesis" in window)) {
+    audioStatus.textContent = "你的瀏覽器目前不支援內建發音。";
+    return;
+  }
+
+  const items = parts.filter(Boolean);
+
+  if (!items.length) {
+    return;
+  }
+
+  cancelSpeechPlayback();
+
+  const sequenceToken = speechSequenceToken;
+  const {
+    rate,
+    startMessage,
+    endMessage,
+    pauseMs = 180,
+    onSequenceStart,
+    onPartStart,
+    onSequenceEnd,
+    onError
+  } = options;
+  let currentPartIndex = 0;
+
+  const speakNext = () => {
+    if (sequenceToken !== speechSequenceToken) {
+      return;
+    }
+
+    if (currentPartIndex >= items.length) {
+      onSequenceEnd?.();
+      audioStatus.textContent = endMessage;
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(items[currentPartIndex]);
+    configureEnglishUtterance(utterance, rate);
+
+    utterance.onstart = () => {
+      if (currentPartIndex === 0) {
+        onSequenceStart?.();
+        audioStatus.textContent = startMessage;
+      }
+
+      onPartStart?.(currentPartIndex);
+    };
+
+    utterance.onend = () => {
+      if (sequenceToken !== speechSequenceToken) {
+        return;
+      }
+
+      currentPartIndex += 1;
+      window.setTimeout(speakNext, pauseMs);
+    };
+
+    utterance.onerror = () => {
+      if (sequenceToken !== speechSequenceToken) {
+        return;
+      }
+
+      onError?.();
+    };
+
+    window.speechSynthesis.speak(utterance);
+  };
+
+  speakNext();
+}
+
 function speakWord() {
   speakWordAtRate(1, `正在播放 ${currentLesson.word} 的發音`, "播放完成，請跟讀一次。");
 }
 
 function speakWordSlowly() {
-  speakWordAtRate(0.45, `正在慢速播放 ${currentLesson.word}`, "慢速播放完成，請慢慢跟讀一次。");
+  speakSequence([currentLesson.word, currentLesson.word], {
+    rate: 0.55,
+    startMessage: `正在慢速播放 ${currentLesson.word}`,
+    endMessage: "慢速播放完成，請慢慢跟讀一次。",
+    pauseMs: 320,
+    onSequenceStart: () => {
+      flashcard.classList.add("is-speaking");
+      exampleBox.classList.remove("is-speaking");
+    },
+    onSequenceEnd: () => {
+      flashcard.classList.remove("is-speaking");
+    },
+    onError: () => {
+      flashcard.classList.remove("is-speaking");
+      audioStatus.textContent = "慢速播放失敗，請再按一次試試看。";
+    }
+  });
 }
 
 function speakWordAtRate(rate, startMessage, endMessage) {
@@ -1476,7 +1578,7 @@ function speakWordAtRate(rate, startMessage, endMessage) {
     return;
   }
 
-  window.speechSynthesis.cancel();
+  cancelSpeechPlayback();
 
   const utterance = new SpeechSynthesisUtterance(currentLesson.word);
   configureEnglishUtterance(utterance, rate);
@@ -1505,7 +1607,31 @@ function speakSentence() {
 }
 
 function speakSentenceSlowly() {
-  speakSentenceAtRate(0.55, "正在慢速播放例句", "慢速例句播放完成，可以慢慢跟讀一次。");
+  const sentenceParts = exampleWordElements.map((item) => item.textContent);
+
+  speakSequence(sentenceParts, {
+    rate: 0.72,
+    startMessage: "正在慢速播放例句",
+    endMessage: "慢速例句播放完成，可以慢慢跟讀一次。",
+    pauseMs: 140,
+    onSequenceStart: () => {
+      exampleBox.classList.add("is-speaking");
+      flashcard.classList.remove("is-speaking");
+      clearSentenceHighlight();
+    },
+    onPartStart: (index) => {
+      activateExampleWord(index);
+    },
+    onSequenceEnd: () => {
+      exampleBox.classList.remove("is-speaking");
+      clearSentenceHighlight();
+    },
+    onError: () => {
+      exampleBox.classList.remove("is-speaking");
+      clearSentenceHighlight();
+      audioStatus.textContent = "慢速例句播放失敗，請再按一次試試看。";
+    }
+  });
 }
 
 function speakSentenceAtRate(rate, startMessage, endMessage) {
@@ -1514,7 +1640,7 @@ function speakSentenceAtRate(rate, startMessage, endMessage) {
     return;
   }
 
-  window.speechSynthesis.cancel();
+  cancelSpeechPlayback();
 
   const utterance = new SpeechSynthesisUtterance(currentLesson.example);
   configureEnglishUtterance(utterance, rate);
