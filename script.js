@@ -670,6 +670,162 @@ const MANUAL_EXAMPLE_OVERRIDES = {
   mac: {
     example: "He bought a new Mac for his design work.",
     exampleTranslation: "他買了一台新的 Mac 來做設計工作。"
+  },
+  housing: {
+    example: "The city is trying to provide better housing for families.",
+    exampleTranslation: "這座城市正努力為家庭提供更好的住房。"
+  },
+  takes: {
+    example: "It takes about twenty minutes to walk there.",
+    exampleTranslation: "走到那裡大約要二十分鐘。"
+  },
+  iii: {
+    example: "King Henry III is mentioned in this history book.",
+    exampleTranslation: "這本歷史書裡提到了亨利三世。"
+  },
+  gmt: {
+    example: "The online meeting begins at 3 p.m. GMT.",
+    exampleTranslation: "那場線上會議在格林威治時間下午三點開始。"
+  },
+  bring: {
+    example: "Please bring your notebook to class tomorrow.",
+    exampleTranslation: "請明天把你的筆記本帶來上課。"
+  },
+  catalog: {
+    example: "The library catalog helps students find books quickly.",
+    exampleTranslation: "圖書館目錄能幫學生很快找到書。"
+  },
+  searches: {
+    example: "Her online searches helped her find the best train ticket.",
+    exampleTranslation: "她在網路上的搜尋幫她找到最好的火車票。"
+  },
+  max: {
+    example: "Max sits near the window in our classroom.",
+    exampleTranslation: "Max 在我們教室裡坐在窗邊。"
+  },
+  trying: {
+    example: "She kept trying even after making mistakes.",
+    exampleTranslation: "即使犯錯，她還是持續嘗試。"
+  },
+  mother: {
+    example: "My mother reads English with me every night.",
+    exampleTranslation: "我媽媽每天晚上都陪我讀英文。"
+  },
+  authority: {
+    example: "The local authority closed the park for repairs.",
+    exampleTranslation: "當地主管單位因維修而關閉了公園。"
+  },
+  considered: {
+    example: "His idea was considered helpful by the whole team.",
+    exampleTranslation: "他的想法被整個團隊認為很有幫助。"
+  },
+  told: {
+    example: "She told me the answer after class.",
+    exampleTranslation: "她下課後告訴我答案。"
+  },
+  xml: {
+    example: "The data is stored in an XML file.",
+    exampleTranslation: "資料是儲存在 XML 檔案裡。"
+  },
+  traffic: {
+    example: "There is heavy traffic near the station this morning.",
+    exampleTranslation: "今天早上車站附近交通很擁擠。"
+  },
+  programme: {
+    example: "The school programme starts with a short speech.",
+    exampleTranslation: "學校的活動流程從一段短講開始。"
+  },
+  joined: {
+    example: "He joined the basketball club last month.",
+    exampleTranslation: "他上個月加入了籃球社。"
+  },
+  input: {
+    example: "The teacher asked for student input before the change.",
+    exampleTranslation: "老師在改變前先徵求學生意見。"
+  },
+  strategy: {
+    example: "Reading aloud is a good strategy for beginners.",
+    exampleTranslation: "大聲朗讀對初學者來說是很好的策略。"
+  },
+  feet: {
+    example: "My feet were tired after the long walk.",
+    exampleTranslation: "走了很久之後，我的腳很累。"
+  },
+  agent: {
+    example: "The travel agent found us a cheaper flight.",
+    exampleTranslation: "旅行社代辦人幫我們找到更便宜的航班。"
+  },
+  valid: {
+    example: "This ticket is valid until the end of the month.",
+    exampleTranslation: "這張票到月底前都有效。"
+  },
+  bin: {
+    example: "Please throw the paper into the bin.",
+    exampleTranslation: "請把紙丟進垃圾桶。"
+  },
+  modern: {
+    example: "The hotel has a clean and modern design.",
+    exampleTranslation: "那間飯店有乾淨又現代的設計。"
+  },
+  senior: {
+    example: "My senior gave me useful study advice.",
+    exampleTranslation: "學長給了我很有用的讀書建議。"
+  },
+  ireland: {
+    example: "She hopes to travel to Ireland one day.",
+    exampleTranslation: "她希望有一天能去愛爾蘭旅行。"
+  },
+  teaching: {
+    example: "Good teaching can make hard ideas easier.",
+    exampleTranslation: "好的教學能讓困難的概念變容易。"
+  },
+  door: {
+    example: "Please close the door when you leave.",
+    exampleTranslation: "你離開時請把門關上。"
+  },
+  grand: {
+    example: "They stayed in a grand old hotel by the river.",
+    exampleTranslation: "他們住在河邊一間宏偉的老飯店。"
+  },
+  testing: {
+    example: "The app is still in testing this week.",
+    exampleTranslation: "這個 App 這週仍在測試中。"
+  },
+  trial: {
+    example: "We used the software for a free trial.",
+    exampleTranslation: "我們試用了那套軟體的免費體驗版。"
+  },
+  charge: {
+    example: "The hotel did not charge us for breakfast.",
+    exampleTranslation: "那家飯店沒有向我們收早餐費。"
+  },
+  units: {
+    example: "This book has ten reading units.",
+    exampleTranslation: "這本書有十個閱讀單元。"
+  },
+  instead: {
+    example: "I stayed home and studied instead of going out.",
+    exampleTranslation: "我沒有出門，而是待在家裡讀書。"
+  },
+  canadian: {
+    example: "Our new teacher is Canadian.",
+    exampleTranslation: "我們的新老師是加拿大人。"
+  },
+  cool: {
+    example: "The evening air feels cool by the sea.",
+    exampleTranslation: "海邊晚上的空氣感覺很涼爽。"
+  },
+  normal: {
+    example: "It is normal to feel nervous before a speech.",
+    exampleTranslation: "演講前感到緊張是很正常的。"
+  },
+  wrote: {
+    example: "She wrote three new words in her notebook.",
+    exampleTranslation: "她在筆記本裡寫下三個新單字。"
+  },
+  enterprise: {
+    example: "The small enterprise started with only five workers.",
+    exampleTranslation: "那家小型企業一開始只有五名員工。"
   }
 };
 
