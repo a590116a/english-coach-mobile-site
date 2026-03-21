@@ -3721,15 +3721,120 @@ function getEnhancedExampleTemplates(category, theme) {
   return templates[theme]?.[category] || templates.daily[category];
 }
 
+function pickBySeed(items, seed) {
+  return items[seed % items.length];
+}
+
+function getThemeScene(theme, seed) {
+  const scenes = {
+    learning: {
+      subjects: ["The teacher", "Our class", "A student", "The workbook"],
+      places: ["the classroom", "the language lab", "today's lesson", "the practice page"],
+      objects: ["the main idea", "a short answer", "the new word", "the grammar point"],
+      actions: ["reviewing the lesson", "doing speaking practice", "checking the example", "reading aloud"],
+      moments: ["before class ended", "during practice time", "after one more example", "in the afternoon lesson"]
+    },
+    work: {
+      subjects: ["The team", "Our manager", "A coworker", "The office"],
+      places: ["the meeting room", "the office", "the project call", "the morning meeting"],
+      objects: ["the report", "the plan", "the task", "the update"],
+      actions: ["preparing the project", "solving the problem", "reviewing the numbers", "talking to the client"],
+      moments: ["before lunch", "during the meeting", "after the update", "before the deadline"]
+    },
+    health: {
+      subjects: ["The doctor", "The nurse", "A patient", "My coach"],
+      places: ["the hospital", "the clinic", "the gym", "the health class"],
+      objects: ["the body", "the breathing exercise", "the health plan", "the recovery advice"],
+      actions: ["doing light exercise", "taking a deep breath", "explaining the problem", "staying calm"],
+      moments: ["in the morning", "after some rest", "during recovery", "before exercise"]
+    },
+    travel: {
+      subjects: ["The guide", "The driver", "A traveler", "The hotel staff"],
+      places: ["the station", "the hotel", "the city center", "the travel app"],
+      objects: ["the route", "the map", "the ticket", "the travel plan"],
+      actions: ["finding the way", "checking the map", "waiting for the train", "planning the trip"],
+      moments: ["before the trip", "late at night", "after the train arrived", "during the journey"]
+    },
+    people: {
+      subjects: ["My friend", "The coach", "A parent", "The new student"],
+      places: ["the classroom", "the family dinner", "the school hallway", "the team meeting"],
+      objects: ["an idea", "a problem", "an opinion", "a short message"],
+      actions: ["talking with others", "helping a classmate", "sharing an opinion", "working together"],
+      moments: ["after school", "during the discussion", "when help was needed", "before everyone left"]
+    },
+    daily: {
+      subjects: ["I", "My notebook", "The lesson", "A simple example"],
+      places: ["daily life", "my study desk", "the example sentence", "the review page"],
+      objects: ["the idea", "the answer", "the new word", "the short sentence"],
+      actions: ["doing a quick review", "reading the example", "practicing at home", "studying for a few minutes"],
+      moments: ["this morning", "after dinner", "before bed", "during my review time"]
+    }
+  };
+
+  const scene = scenes[theme] || scenes.daily;
+
+  return {
+    subject: pickBySeed(scene.subjects, seed),
+    place: pickBySeed(scene.places, seed + 1),
+    object: pickBySeed(scene.objects, seed + 2),
+    action: pickBySeed(scene.actions, seed + 3),
+    moment: pickBySeed(scene.moments, seed + 4)
+  };
+}
+
 function buildEnhancedExample(word, meaning) {
   const primaryMeaning = sanitizeMeaningText(meaning);
   const category = inferWordCategory(word, primaryMeaning);
   const theme = inferExampleTheme(word, primaryMeaning);
-  const templates = getEnhancedExampleTemplates(category, theme);
-  const index = pickVariantIndex(word, primaryMeaning, templates.length, theme.length + category.length);
+  const seed = pickVariantIndex(word, primaryMeaning, 997, theme.length + category.length);
+  const scene = getThemeScene(theme, seed);
+  const templatesByCategory = {
+    verb: [
+      () => `${scene.subject} tried to ${word} ${scene.object} ${scene.moment}.`,
+      () => `We often ${word} ${scene.object} when we are ${scene.action}.`,
+      () => `${scene.subject} learned how to ${word} ${scene.object} in ${scene.place}.`,
+      () => `It became easier to ${word} ${scene.object} after ${scene.action}.`,
+      () => `The lesson showed us how to ${word} ${scene.object} step by step.`,
+      () => `${scene.subject} decided to ${word} ${scene.object} before moving on.`,
+      () => `People usually ${word} ${scene.object} when they are in ${scene.place}.`,
+      () => `I practiced how to ${word} ${scene.object} during my review time.`
+    ],
+    adjective: [
+      () => `${scene.subject} found the result ${word} after ${scene.action}.`,
+      () => `The example looked ${word} once I read it in ${scene.place}.`,
+      () => `That was a ${word} answer for someone still ${scene.action}.`,
+      () => `${scene.object.charAt(0).toUpperCase() + scene.object.slice(1)} felt more ${word} ${scene.moment}.`,
+      () => `The teacher gave us a ${word} sentence to remember.`,
+      () => `${scene.subject} sounded ${word} while ${scene.action}.`,
+      () => `It was a ${word} choice in that real-life situation.`,
+      () => `The new example became more ${word} after one extra explanation.`
+    ],
+    adverb: [
+      () => `${scene.subject} spoke ${word} while ${scene.action}.`,
+      () => `The team moved ${word} through ${scene.place}.`,
+      () => `She answered ${word} after checking ${scene.object} again.`,
+      () => `The teacher explained the point ${word} in today's lesson.`,
+      () => `He read the sentence ${word} so everyone could follow.`,
+      () => `We worked ${word} and finished ${scene.object} on time.`,
+      () => `${scene.subject} listened ${word} during the discussion.`,
+      () => `The guide spoke ${word} before the trip began.`
+    ],
+    noun: [
+      () => `${scene.subject} mentioned ${word} while ${scene.action}.`,
+      () => `We saw ${word} again in ${scene.place} ${scene.moment}.`,
+      () => `The lesson connected ${word} with ${scene.object} in a clear way.`,
+      () => `${scene.subject} wrote ${word} down after ${scene.action}.`,
+      () => `I first noticed ${word} while reading about ${scene.object}.`,
+      () => `A short example used ${word} in ${scene.place}.`,
+      () => `${scene.subject} gave a simple explanation of ${word} before class ended.`,
+      () => `The workbook brought up ${word} when we were ${scene.action}.`
+    ]
+  };
+  const templates = templatesByCategory[category] || templatesByCategory.noun;
+  const index = seed % templates.length;
 
   return {
-    example: templates[index](word),
+    example: templates[index](),
     exampleTranslation: `這句把 ${word} 放進比較自然的 ${theme === "learning" ? "學習" : theme === "work" ? "工作" : theme === "health" ? "健康" : theme === "travel" ? "移動旅行" : theme === "people" ? "人物互動" : "日常生活"}情境裡，幫你理解它「${primaryMeaning}」的用法。`
   };
 }
