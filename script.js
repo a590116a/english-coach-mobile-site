@@ -4561,10 +4561,10 @@ function speakSentenceSlowly() {
   const sentenceParts = exampleWordElements.map((item) => item.textContent);
 
   speakSequence(sentenceParts, {
-    rate: 0.72,
+    rate: 0.45,
     startMessage: "正在慢速播放例句",
     endMessage: "慢速例句播放完成，可以慢慢跟讀一次。",
-    pauseMs: 140,
+    pauseMs: 280,
     onSequenceStart: () => {
       exampleBox.classList.add("is-speaking");
       flashcard.classList.remove("is-speaking");
@@ -4603,7 +4603,7 @@ function speakSentenceAtRate(rate, startMessage, endMessage) {
     audioStatus.textContent = startMessage;
     sentenceHighlightTimer = window.setTimeout(() => {
       if (!boundaryTriggered) {
-        startSentenceHighlightFallback(Math.max(1800, currentLesson.example.length * 90 / rate));
+        startSentenceHighlightFallback(Math.max(1800, currentLesson.example.length * 110 / rate));
       }
     }, 180);
   };
