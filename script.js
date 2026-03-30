@@ -2965,13 +2965,11 @@ function getTemplateIndexByWord(word, size) {
 }
 
 function createGeneratedExample(word) {
-  const builder = GENERATED_EXAMPLE_BUILDERS[getTemplateIndexByWord(word, GENERATED_EXAMPLE_BUILDERS.length)];
-  return builder(word);
+  return buildEnhancedExample(word, "").example;
 }
 
 function createGeneratedExampleTranslation(word, meaning) {
-  const builder = GENERATED_TRANSLATION_BUILDERS[getTemplateIndexByWord(word, GENERATED_TRANSLATION_BUILDERS.length)];
-  return builder(word, meaning);
+  return buildEnhancedExample(word, meaning).exampleTranslation;
 }
 
 function getPrimaryMeaning(meaning) {
@@ -3437,6 +3435,8 @@ function createMeaningDrivenExample(word, meaning) {
 }
 
 function createContextualExample(word, meaning) {
+  return buildEnhancedExample(word, meaning);
+
   const primaryMeaning = getPrimaryMeaning(meaning);
   const meaningDrivenExample = createMeaningDrivenExample(word, primaryMeaning);
 
@@ -3953,7 +3953,12 @@ function normalizeCatalogLesson(entry, lessonMap, externalWordMap) {
   }
 
   if (Array.isArray(entry.options) && typeof entry.answer === "string") {
-    return cloneLesson(entry);
+    const resolvedExample = resolveLessonExampleContent(entry);
+    return {
+      ...cloneLesson(entry),
+      example: resolvedExample.example || entry.example || "",
+      exampleTranslation: resolvedExample.exampleTranslation || entry.exampleTranslation || ""
+    };
   }
 
   const fallbackLesson = lessonMap.get(entry.word);
