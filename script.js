@@ -3729,6 +3729,23 @@ function pickBySeed(items, seed) {
   return items[seed % items.length];
 }
 
+function formatPlacePhrase(place, fallbackPreposition = "in") {
+  if (!place) {
+    return "";
+  }
+
+  if (/^(in|on|at|near|by)\b/i.test(place)) {
+    return place;
+  }
+
+  return `${fallbackPreposition} ${place}`;
+}
+
+function isPlaceLikeMeaning(meaning) {
+  const sample = sanitizeMeaningText(meaning).toLowerCase();
+  return /(city|town|village|country|province|capital|island|lake|river|mountain|beach|park|station|airport|hotel|省|市|縣|國|首都|島|湖|河|山|公園|車站|機場|飯店|城市|地名)/.test(sample);
+}
+
 function getThemeScene(theme, seed) {
   const scenes = {
     school: {
@@ -3799,14 +3816,15 @@ function buildEnhancedExample(word, meaning) {
   const theme = inferExampleTheme(word, primaryMeaning);
   const seed = pickVariantIndex(word, primaryMeaning, 997, theme.length + category.length);
   const scene = getThemeScene(theme, seed);
+  const displayWord = category === "noun" && isPlaceLikeMeaning(primaryMeaning) ? capitalizeWord(word) : word;
   const templatesByCategory = {
     verb: [
       () => `${scene.subject} tried to ${word} ${scene.object} ${scene.moment}.`,
-      () => `${scene.subject} will ${word} ${scene.object} in ${scene.place}.`,
+      () => `${scene.subject} will ${word} ${scene.object} ${formatPlacePhrase(scene.place)}.`,
       () => `We often ${word} ${scene.object} when we are ${scene.action}.`,
       () => `Can you ${word} ${scene.object} by yourself?`,
       () => `It became easier to ${word} ${scene.object} after ${scene.action}.`,
-      () => `People usually ${word} ${scene.object} in ${scene.place}.`,
+      () => `People usually ${word} ${scene.object} ${formatPlacePhrase(scene.place)}.`,
       () => `I want to ${word} ${scene.object} before I go home.`,
       () => `By ${scene.moment}, ${scene.subject.toLowerCase()} could finally ${word} ${scene.object}.`
     ],
@@ -3831,16 +3849,32 @@ function buildEnhancedExample(word, meaning) {
       () => `After one reminder, everyone worked ${word}.`
     ],
     noun: [
-      () => `${scene.subject} mentioned ${word} while ${scene.action}.`,
-      () => `We saw ${word} again in ${scene.place} ${scene.moment}.`,
-      () => `${scene.subject} wrote ${word} down after ${scene.action}.`,
-      () => `I first noticed ${word} while reading at home.`,
-      () => `A short example used ${word} in ${scene.place}.`,
-      () => `${scene.subject} gave a simple explanation of ${word}.`,
-      () => `One question about ${word} started the whole talk.`,
-      () => `By the end of the day, ${word} was still on my mind.`
+      () => `${scene.subject} mentioned ${displayWord} while ${scene.action}.`,
+      () => `We saw ${displayWord} again ${formatPlacePhrase(scene.place)} ${scene.moment}.`,
+      () => `${scene.subject} wrote ${displayWord} down after ${scene.action}.`,
+      () => `I first noticed ${displayWord} while reading at home.`,
+      () => `A short example used ${displayWord} ${formatPlacePhrase(scene.place)}.`,
+      () => `${scene.subject} gave a simple explanation of ${displayWord}.`,
+      () => `One question about ${displayWord} started the whole talk.`,
+      () => `By the end of the day, ${displayWord} was still on my mind.`
     ]
   };
+
+  if (category === "noun" && isPlaceLikeMeaning(primaryMeaning)) {
+    const placeTemplates = [
+      () => `${capitalizeWord(word)} is a place many travelers would like to visit.`,
+      () => `I saw a photo of ${capitalizeWord(word)} in a travel book.`,
+      () => `My teacher said ${capitalizeWord(word)} is a well-known place name.`,
+      () => `Many people know ${capitalizeWord(word)} as the name of a city or region.`,
+      () => `I learned the name ${capitalizeWord(word)} in a geography lesson.`,
+      () => `${capitalizeWord(word)} appears in travel stories and maps.`
+    ];
+
+    return {
+      example: placeTemplates[seed % placeTemplates.length](),
+      exampleTranslation: `這句把 ${capitalizeWord(word)} 當成地名來使用，幫你理解它「${primaryMeaning}」的用法。`
+    };
+  }
   const templates = templatesByCategory[category] || templatesByCategory.noun;
   const index = seed % templates.length;
 
