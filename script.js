@@ -3797,7 +3797,11 @@ function buildEnhancedExample(word, meaning) {
       () => `The lesson showed us how to ${word} ${scene.object} step by step.`,
       () => `${scene.subject} decided to ${word} ${scene.object} before moving on.`,
       () => `People usually ${word} ${scene.object} when they are in ${scene.place}.`,
-      () => `I practiced how to ${word} ${scene.object} during my review time.`
+      () => `I practiced how to ${word} ${scene.object} during my review time.`,
+      () => `Can you ${word} ${scene.object} without stopping to translate?`,
+      () => `By ${scene.moment}, ${scene.subject.toLowerCase()} could finally ${word} ${scene.object}.`,
+      () => `If we ${word} ${scene.object} earlier, the rest becomes easier.`,
+      () => `One short example was enough to show why people ${word} ${scene.object}.`
     ],
     adjective: [
       () => `${scene.subject} found the result ${word} after ${scene.action}.`,
@@ -3807,7 +3811,11 @@ function buildEnhancedExample(word, meaning) {
       () => `The teacher gave us a ${word} sentence to remember.`,
       () => `${scene.subject} sounded ${word} while ${scene.action}.`,
       () => `It was a ${word} choice in that real-life situation.`,
-      () => `The new example became more ${word} after one extra explanation.`
+      () => `The new example became more ${word} after one extra explanation.`,
+      () => `At first it seemed ordinary, but the final result was surprisingly ${word}.`,
+      () => `Nothing in ${scene.place} felt as ${word} as that moment.`,
+      () => `Would you call that a ${word} response or a careful one?`,
+      () => `${scene.subject} gave a small smile because the solution looked ${word}.`
     ],
     adverb: [
       () => `${scene.subject} spoke ${word} while ${scene.action}.`,
@@ -3817,7 +3825,11 @@ function buildEnhancedExample(word, meaning) {
       () => `He read the sentence ${word} so everyone could follow.`,
       () => `We worked ${word} and finished ${scene.object} on time.`,
       () => `${scene.subject} listened ${word} during the discussion.`,
-      () => `The guide spoke ${word} before the trip began.`
+      () => `The guide spoke ${word} before the trip began.`,
+      () => `Even under pressure, ${scene.subject.toLowerCase()} responded ${word}.`,
+      () => `The second time, everyone in ${scene.place} moved more ${word}.`,
+      () => `Why did she answer so ${word} when the question was simple?`,
+      () => `After one reminder, the group followed the instructions ${word}.`
     ],
     noun: [
       () => `${scene.subject} mentioned ${word} while ${scene.action}.`,
@@ -3827,7 +3839,11 @@ function buildEnhancedExample(word, meaning) {
       () => `I first noticed ${word} while reading about ${scene.object}.`,
       () => `A short example used ${word} in ${scene.place}.`,
       () => `${scene.subject} gave a simple explanation of ${word} before class ended.`,
-      () => `The workbook brought up ${word} when we were ${scene.action}.`
+      () => `The workbook brought up ${word} when we were ${scene.action}.`,
+      () => `One question about ${word} was enough to start the whole discussion.`,
+      () => `By the end of the day, ${word} was still the main topic in ${scene.place}.`,
+      () => `Have you ever heard ${word} used this naturally in conversation?`,
+      () => `No one forgot ${word} after the teacher linked it to ${scene.object}.`
     ]
   };
   const templates = templatesByCategory[category] || templatesByCategory.noun;
