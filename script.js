@@ -3859,11 +3859,15 @@ function isWeakExampleText(example, word) {
   const weakPatterns = [
     `the word ${String(word).toLowerCase()} is useful`,
     "this sentence uses",
+    "this example sentence includes",
     "this example shows",
     "this lesson helps me remember",
     "can you use ",
     "i heard the word ",
-    "our teacher asked us to practice"
+    "our teacher asked us to practice",
+    "in a simple way",
+    "useful in daily english",
+    "this lesson helps me remember the word"
   ];
 
   return weakPatterns.some((pattern) => normalized.includes(pattern));
@@ -3912,8 +3916,8 @@ function createGeneratedLesson(entry, distractorMeanings) {
     word: entry.word,
     phonetic: entry.phonetic || "",
     meaning: correctMeaning,
-    example: exampleContent.example || createGeneratedExample(entry.word),
-    exampleTranslation: exampleContent.exampleTranslation || createGeneratedExampleTranslation(entry.word, correctMeaning),
+    example: exampleContent.example || buildEnhancedExample(entry.word, correctMeaning).example,
+    exampleTranslation: exampleContent.exampleTranslation || buildEnhancedExample(entry.word, correctMeaning).exampleTranslation,
     question: `請選出 ${entry.word} 的正確中文意思：`,
     options: [correctMeaning, ...uniqueDistractors],
     answer: correctMeaning
