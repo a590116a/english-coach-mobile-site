@@ -3532,6 +3532,13 @@ function sanitizeMeaningText(meaning) {
   return cleanedMeaning.split(/[；;、,\/]/)[0].trim() || cleanedMeaning;
 }
 
+function getMeaningLabelForSentence(meaning) {
+  const primaryMeaning = sanitizeMeaningText(meaning);
+  return primaryMeaning
+    .replace(/^(n|v|vt|vi|adj|adv|prep|pron|conj|int)\.\s*/i, "")
+    .trim();
+}
+
 function inferExampleTheme(word, meaning) {
   const sample = `${word} ${sanitizeMeaningText(meaning)}`.toLowerCase();
 
@@ -3749,69 +3756,255 @@ function isPlaceLikeMeaning(meaning) {
 function getThemeScene(theme, seed) {
   const scenes = {
     school: {
-      subjects: ["The teacher", "A student", "My classmate", "Our class"],
-      places: ["the classroom", "the library", "the school hallway", "the study desk"],
-      objects: ["the homework", "the new word", "the answer", "the lesson"],
-      actions: ["reading the lesson", "doing homework", "checking the answer", "practicing English"],
-      moments: ["after class", "before the test", "during the lesson", "this afternoon"]
+      subjects: [
+        { en: "The teacher", zh: "老師" },
+        { en: "A student", zh: "一位學生" },
+        { en: "My classmate", zh: "我的同學" },
+        { en: "Our class", zh: "我們班上" }
+      ],
+      places: [
+        { en: "the classroom", zh: "在教室裡" },
+        { en: "the library", zh: "在圖書館裡" },
+        { en: "the school hallway", zh: "在學校走廊上" },
+        { en: "the study desk", zh: "在書桌前" }
+      ],
+      objects: [
+        { en: "the homework", zh: "功課" },
+        { en: "the new word", zh: "這個新單字" },
+        { en: "the answer", zh: "答案" },
+        { en: "the lesson", zh: "這堂課的內容" }
+      ],
+      actions: [
+        { en: "reading the lesson", zh: "讀課文" },
+        { en: "doing homework", zh: "寫作業" },
+        { en: "checking the answer", zh: "確認答案" },
+        { en: "practicing English", zh: "練習英文" }
+      ],
+      moments: [
+        { en: "after class", zh: "下課後" },
+        { en: "before the test", zh: "考試前" },
+        { en: "during the lesson", zh: "上課的時候" },
+        { en: "this afternoon", zh: "今天下午" }
+      ]
     },
     health: {
-      subjects: ["The doctor", "My mother", "A patient", "My friend"],
-      places: ["the hospital", "the clinic", "the park", "at home"],
-      objects: ["some water", "a short walk", "enough sleep", "a deep breath"],
-      actions: ["getting some rest", "walking slowly", "taking a deep breath", "trying to feel better"],
-      moments: ["in the morning", "after lunch", "before bed", "after some rest"]
+      subjects: [
+        { en: "The doctor", zh: "醫生" },
+        { en: "My mother", zh: "我媽媽" },
+        { en: "A patient", zh: "一位病人" },
+        { en: "My friend", zh: "我的朋友" }
+      ],
+      places: [
+        { en: "the hospital", zh: "在醫院裡" },
+        { en: "the clinic", zh: "在診所裡" },
+        { en: "the park", zh: "在公園裡" },
+        { en: "at home", zh: "在家裡" }
+      ],
+      objects: [
+        { en: "some water", zh: "一些水" },
+        { en: "a short walk", zh: "短短散步一下" },
+        { en: "enough sleep", zh: "充足的睡眠" },
+        { en: "a deep breath", zh: "深呼吸一次" }
+      ],
+      actions: [
+        { en: "getting some rest", zh: "先休息一下" },
+        { en: "walking slowly", zh: "慢慢走路" },
+        { en: "taking a deep breath", zh: "做一次深呼吸" },
+        { en: "trying to feel better", zh: "讓自己舒服一點" }
+      ],
+      moments: [
+        { en: "in the morning", zh: "早上" },
+        { en: "after lunch", zh: "午餐後" },
+        { en: "before bed", zh: "睡前" },
+        { en: "after some rest", zh: "休息一會兒後" }
+      ]
     },
     travel: {
-      subjects: ["The driver", "My family", "A traveler", "The guide"],
-      places: ["the station", "the bus stop", "the hotel", "the airport"],
-      objects: ["the map", "the ticket", "the bag", "the way home"],
-      actions: ["waiting for the bus", "checking the map", "planning the trip", "looking for the gate"],
-      moments: ["before the trip", "in the evening", "after we arrived", "during the weekend"]
+      subjects: [
+        { en: "The driver", zh: "司機" },
+        { en: "My family", zh: "我們一家人" },
+        { en: "A traveler", zh: "一位旅客" },
+        { en: "The guide", zh: "導遊" }
+      ],
+      places: [
+        { en: "the station", zh: "在車站" },
+        { en: "the bus stop", zh: "在公車站" },
+        { en: "the hotel", zh: "在飯店裡" },
+        { en: "the airport", zh: "在機場" }
+      ],
+      objects: [
+        { en: "the map", zh: "地圖" },
+        { en: "the ticket", zh: "車票" },
+        { en: "the bag", zh: "行李" },
+        { en: "the way home", zh: "回家的路" }
+      ],
+      actions: [
+        { en: "waiting for the bus", zh: "等公車" },
+        { en: "checking the map", zh: "看地圖" },
+        { en: "planning the trip", zh: "規劃旅程" },
+        { en: "looking for the gate", zh: "找登機門" }
+      ],
+      moments: [
+        { en: "before the trip", zh: "出發前" },
+        { en: "in the evening", zh: "傍晚" },
+        { en: "after we arrived", zh: "我們到達後" },
+        { en: "during the weekend", zh: "週末的時候" }
+      ]
     },
     family: {
-      subjects: ["My mother", "My father", "My sister", "My friend"],
-      places: ["at home", "in the kitchen", "at the dinner table", "near the front door"],
-      objects: ["the meal", "a small gift", "the family photo", "a short message"],
-      actions: ["talking together", "helping at home", "sharing good news", "getting ready to leave"],
-      moments: ["after dinner", "before school", "on Sunday", "last night"]
+      subjects: [
+        { en: "My mother", zh: "我媽媽" },
+        { en: "My father", zh: "我爸爸" },
+        { en: "My sister", zh: "我姊姊" },
+        { en: "My friend", zh: "我的朋友" }
+      ],
+      places: [
+        { en: "at home", zh: "在家裡" },
+        { en: "in the kitchen", zh: "在廚房裡" },
+        { en: "at the dinner table", zh: "在餐桌旁" },
+        { en: "near the front door", zh: "在門口附近" }
+      ],
+      objects: [
+        { en: "the meal", zh: "晚餐" },
+        { en: "a small gift", zh: "一份小禮物" },
+        { en: "the family photo", zh: "全家福照片" },
+        { en: "a short message", zh: "一則短訊息" }
+      ],
+      actions: [
+        { en: "talking together", zh: "一起聊天" },
+        { en: "helping at home", zh: "在家幫忙" },
+        { en: "sharing good news", zh: "分享好消息" },
+        { en: "getting ready to leave", zh: "準備出門" }
+      ],
+      moments: [
+        { en: "after dinner", zh: "晚餐後" },
+        { en: "before school", zh: "上學前" },
+        { en: "on Sunday", zh: "星期天" },
+        { en: "last night", zh: "昨晚" }
+      ]
     },
     shopping: {
-      subjects: ["The shopkeeper", "My mother", "A customer", "My friend"],
-      places: ["the market", "the supermarket", "the small shop", "the restaurant"],
-      objects: ["some fruit", "a bag of rice", "the bill", "a cup of tea"],
-      actions: ["buying food", "choosing a gift", "looking at the price", "ordering dinner"],
-      moments: ["this morning", "before dinner", "after school", "on the way home"]
+      subjects: [
+        { en: "The shopkeeper", zh: "店員" },
+        { en: "My mother", zh: "我媽媽" },
+        { en: "A customer", zh: "一位客人" },
+        { en: "My friend", zh: "我的朋友" }
+      ],
+      places: [
+        { en: "the market", zh: "在市場裡" },
+        { en: "the supermarket", zh: "在超市裡" },
+        { en: "the small shop", zh: "在小店裡" },
+        { en: "the restaurant", zh: "在餐廳裡" }
+      ],
+      objects: [
+        { en: "some fruit", zh: "一些水果" },
+        { en: "a bag of rice", zh: "一袋米" },
+        { en: "the bill", zh: "帳單" },
+        { en: "a cup of tea", zh: "一杯茶" }
+      ],
+      actions: [
+        { en: "buying food", zh: "買食物" },
+        { en: "choosing a gift", zh: "挑禮物" },
+        { en: "looking at the price", zh: "看價格" },
+        { en: "ordering dinner", zh: "點晚餐" }
+      ],
+      moments: [
+        { en: "this morning", zh: "今天早上" },
+        { en: "before dinner", zh: "晚餐前" },
+        { en: "after school", zh: "放學後" },
+        { en: "on the way home", zh: "回家路上" }
+      ]
     },
     nature: {
-      subjects: ["The bird", "The wind", "The children", "My family"],
-      places: ["the park", "the river", "the beach", "the mountain road"],
-      objects: ["the flowers", "the trees", "the sky", "the water"],
-      actions: ["walking outside", "watching the sky", "taking a photo", "enjoying the view"],
-      moments: ["in spring", "after the rain", "at sunset", "on a sunny day"]
+      subjects: [
+        { en: "The bird", zh: "那隻鳥" },
+        { en: "The wind", zh: "風" },
+        { en: "The children", zh: "孩子們" },
+        { en: "My family", zh: "我們一家人" }
+      ],
+      places: [
+        { en: "the park", zh: "在公園裡" },
+        { en: "the river", zh: "在河邊" },
+        { en: "the beach", zh: "在海邊" },
+        { en: "the mountain road", zh: "在山路上" }
+      ],
+      objects: [
+        { en: "the flowers", zh: "花朵" },
+        { en: "the trees", zh: "樹木" },
+        { en: "the sky", zh: "天空" },
+        { en: "the water", zh: "水面" }
+      ],
+      actions: [
+        { en: "walking outside", zh: "在外面散步" },
+        { en: "watching the sky", zh: "看天空" },
+        { en: "taking a photo", zh: "拍照" },
+        { en: "enjoying the view", zh: "欣賞風景" }
+      ],
+      moments: [
+        { en: "in spring", zh: "春天時" },
+        { en: "after the rain", zh: "下雨後" },
+        { en: "at sunset", zh: "日落時" },
+        { en: "on a sunny day", zh: "晴天的時候" }
+      ]
     },
     daily: {
-      subjects: ["I", "My friend", "My family", "The boy"],
-      places: ["at home", "on the bus", "in the park", "at school"],
-      objects: ["the answer", "the new word", "a short note", "the small problem"],
-      actions: ["doing a quick review", "talking to a friend", "walking home", "trying again"],
-      moments: ["this morning", "after dinner", "before bed", "after school"]
+      subjects: [
+        { en: "I", zh: "我" },
+        { en: "My friend", zh: "我的朋友" },
+        { en: "My family", zh: "我家人" },
+        { en: "The boy", zh: "那個男孩" }
+      ],
+      places: [
+        { en: "at home", zh: "在家裡" },
+        { en: "on the bus", zh: "在公車上" },
+        { en: "in the park", zh: "在公園裡" },
+        { en: "at school", zh: "在學校裡" }
+      ],
+      objects: [
+        { en: "the answer", zh: "答案" },
+        { en: "the new word", zh: "這個新單字" },
+        { en: "a short note", zh: "一張短短的筆記" },
+        { en: "the small problem", zh: "那個小問題" }
+      ],
+      actions: [
+        { en: "doing a quick review", zh: "快速複習" },
+        { en: "talking to a friend", zh: "和朋友聊天" },
+        { en: "walking home", zh: "走路回家" },
+        { en: "trying again", zh: "再試一次" }
+      ],
+      moments: [
+        { en: "this morning", zh: "今天早上" },
+        { en: "after dinner", zh: "晚餐後" },
+        { en: "before bed", zh: "睡前" },
+        { en: "after school", zh: "放學後" }
+      ]
     }
   };
 
   const scene = scenes[theme] || scenes.daily;
+  const subject = pickBySeed(scene.subjects, seed);
+  const place = pickBySeed(scene.places, seed + 1);
+  const object = pickBySeed(scene.objects, seed + 2);
+  const action = pickBySeed(scene.actions, seed + 3);
+  const moment = pickBySeed(scene.moments, seed + 4);
 
   return {
-    subject: pickBySeed(scene.subjects, seed),
-    place: pickBySeed(scene.places, seed + 1),
-    object: pickBySeed(scene.objects, seed + 2),
-    action: pickBySeed(scene.actions, seed + 3),
-    moment: pickBySeed(scene.moments, seed + 4)
+    subject: subject.en,
+    subjectZh: subject.zh,
+    place: place.en,
+    placeZh: place.zh,
+    object: object.en,
+    objectZh: object.zh,
+    action: action.en,
+    actionZh: action.zh,
+    moment: moment.en,
+    momentZh: moment.zh
   };
 }
 
 function buildEnhancedExample(word, meaning) {
   const primaryMeaning = sanitizeMeaningText(meaning);
+  const meaningLabel = getMeaningLabelForSentence(meaning);
   const category = inferWordCategory(word, primaryMeaning);
   const theme = inferExampleTheme(word, primaryMeaning);
   const seed = pickVariantIndex(word, primaryMeaning, 997, theme.length + category.length);
@@ -3819,69 +4012,177 @@ function buildEnhancedExample(word, meaning) {
   const displayWord = category === "noun" && isPlaceLikeMeaning(primaryMeaning) ? capitalizeWord(word) : word;
   const templatesByCategory = {
     verb: [
-      () => `${scene.subject} tried to ${word} ${scene.object} ${scene.moment}.`,
-      () => `${scene.subject} will ${word} ${scene.object} ${formatPlacePhrase(scene.place)}.`,
-      () => `We often ${word} ${scene.object} when we are ${scene.action}.`,
-      () => `Can you ${word} ${scene.object} by yourself?`,
-      () => `It became easier to ${word} ${scene.object} after ${scene.action}.`,
-      () => `People usually ${word} ${scene.object} ${formatPlacePhrase(scene.place)}.`,
-      () => `I want to ${word} ${scene.object} before I go home.`,
-      () => `By ${scene.moment}, ${scene.subject.toLowerCase()} could finally ${word} ${scene.object}.`
+      () => ({
+        example: `${scene.subject} tried to ${word} ${scene.object} ${scene.moment}.`,
+        exampleTranslation: `${scene.subjectZh} 在 ${scene.momentZh} 試著 ${meaningLabel} ${scene.objectZh}。`
+      }),
+      () => ({
+        example: `${scene.subject} will ${word} ${scene.object} ${formatPlacePhrase(scene.place)}.`,
+        exampleTranslation: `${scene.subjectZh} 會在 ${scene.placeZh} ${meaningLabel} ${scene.objectZh}。`
+      }),
+      () => ({
+        example: `We often ${word} ${scene.object} when we are ${scene.action}.`,
+        exampleTranslation: `我們在 ${scene.actionZh} 的時候，常常會 ${meaningLabel} ${scene.objectZh}。`
+      }),
+      () => ({
+        example: `Can you ${word} ${scene.object} by yourself?`,
+        exampleTranslation: `你可以自己 ${meaningLabel} ${scene.objectZh} 嗎？`
+      }),
+      () => ({
+        example: `It became easier to ${word} ${scene.object} after ${scene.action}.`,
+        exampleTranslation: `在 ${scene.actionZh} 之後，要 ${meaningLabel} ${scene.objectZh} 就變得比較容易了。`
+      }),
+      () => ({
+        example: `People usually ${word} ${scene.object} ${formatPlacePhrase(scene.place)}.`,
+        exampleTranslation: `人們通常會在 ${scene.placeZh} ${meaningLabel} ${scene.objectZh}。`
+      }),
+      () => ({
+        example: `I want to ${word} ${scene.object} before I go home.`,
+        exampleTranslation: `我想在回家前先 ${meaningLabel} ${scene.objectZh}。`
+      }),
+      () => ({
+        example: `By ${scene.moment}, ${scene.subject.toLowerCase()} could finally ${word} ${scene.object}.`,
+        exampleTranslation: `到了 ${scene.momentZh}，${scene.subjectZh} 終於能夠 ${meaningLabel} ${scene.objectZh}。`
+      })
     ],
     adjective: [
-      () => `${scene.subject} felt ${word} after ${scene.action}.`,
-      () => `The day looked ${word} from the start.`,
-      () => `That was a ${word} answer for a beginner.`,
-      () => `${scene.object.charAt(0).toUpperCase() + scene.object.slice(1)} looked more ${word} ${scene.moment}.`,
-      () => `Everyone thought it was a ${word} idea.`,
-      () => `${scene.subject} sounded ${word} while ${scene.action}.`,
-      () => `It was a ${word} moment for the whole family.`,
-      () => `At first it seemed simple, but the result was very ${word}.`
+      () => ({
+        example: `${scene.subject} felt ${word} after ${scene.action}.`,
+        exampleTranslation: `${scene.subjectZh} 在 ${scene.actionZh} 之後覺得很 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `The day looked ${word} from the start.`,
+        exampleTranslation: `這一天從一開始看起來就很 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `That was a ${word} answer for a beginner.`,
+        exampleTranslation: `對初學者來說，那是一個很 ${meaningLabel} 的答案。`
+      }),
+      () => ({
+        example: `${scene.object.charAt(0).toUpperCase() + scene.object.slice(1)} looked more ${word} ${scene.moment}.`,
+        exampleTranslation: `${scene.objectZh} 在 ${scene.momentZh} 看起來更 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `Everyone thought it was a ${word} idea.`,
+        exampleTranslation: `每個人都覺得那是一個很 ${meaningLabel} 的想法。`
+      }),
+      () => ({
+        example: `${scene.subject} sounded ${word} while ${scene.action}.`,
+        exampleTranslation: `${scene.subjectZh} 在 ${scene.actionZh} 的時候，聽起來很 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `It was a ${word} moment for the whole family.`,
+        exampleTranslation: `那對全家人來說是一個很 ${meaningLabel} 的時刻。`
+      }),
+      () => ({
+        example: `At first it seemed simple, but the result was very ${word}.`,
+        exampleTranslation: `一開始它看起來很簡單，但結果卻非常 ${meaningLabel}。`
+      })
     ],
     adverb: [
-      () => `${scene.subject} spoke ${word} while ${scene.action}.`,
-      () => `${scene.subject} walked ${word} through ${scene.place}.`,
-      () => `She answered ${word} after checking ${scene.object} again.`,
-      () => `He read the sentence ${word} so everyone could follow.`,
-      () => `The children listened ${word} at school.`,
-      () => `Why did she smile so ${word}?`,
-      () => `${scene.subject} moved ${word} after the rain stopped.`,
-      () => `After one reminder, everyone worked ${word}.`
+      () => ({
+        example: `${scene.subject} spoke ${word} while ${scene.action}.`,
+        exampleTranslation: `${scene.subjectZh} 在 ${scene.actionZh} 的時候說得很 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `${scene.subject} walked ${word} through ${scene.place}.`,
+        exampleTranslation: `${scene.subjectZh} 很 ${meaningLabel} 地經過 ${scene.placeZh.replace(/^在/, "")}。`
+      }),
+      () => ({
+        example: `She answered ${word} after checking ${scene.object} again.`,
+        exampleTranslation: `她再次檢查 ${scene.objectZh} 之後，回答得很 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `He read the sentence ${word} so everyone could follow.`,
+        exampleTranslation: `他很 ${meaningLabel} 地把句子讀出來，所以每個人都跟得上。`
+      }),
+      () => ({
+        example: `The children listened ${word} at school.`,
+        exampleTranslation: `孩子們在學校聽得很 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `Why did she smile so ${word}?`,
+        exampleTranslation: `她為什麼笑得那麼 ${meaningLabel} 呢？`
+      }),
+      () => ({
+        example: `${scene.subject} moved ${word} after the rain stopped.`,
+        exampleTranslation: `雨停之後，${scene.subjectZh} 很 ${meaningLabel} 地移動。`
+      }),
+      () => ({
+        example: `After one reminder, everyone worked ${word}.`,
+        exampleTranslation: `提醒一次之後，每個人都做得很 ${meaningLabel}。`
+      })
     ],
     noun: [
-      () => `${scene.subject} mentioned ${displayWord} while ${scene.action}.`,
-      () => `We saw ${displayWord} again ${formatPlacePhrase(scene.place)} ${scene.moment}.`,
-      () => `${scene.subject} wrote ${displayWord} down after ${scene.action}.`,
-      () => `I first noticed ${displayWord} while reading at home.`,
-      () => `A short example used ${displayWord} ${formatPlacePhrase(scene.place)}.`,
-      () => `${scene.subject} gave a simple explanation of ${displayWord}.`,
-      () => `One question about ${displayWord} started the whole talk.`,
-      () => `By the end of the day, ${displayWord} was still on my mind.`
+      () => ({
+        example: `${scene.subject} mentioned ${displayWord} while ${scene.action}.`,
+        exampleTranslation: `${scene.subjectZh} 在 ${scene.actionZh} 的時候提到了 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `We saw ${displayWord} again ${formatPlacePhrase(scene.place)} ${scene.moment}.`,
+        exampleTranslation: `我們在 ${scene.momentZh} 又在 ${scene.placeZh} 看到了 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `${scene.subject} wrote ${displayWord} down after ${scene.action}.`,
+        exampleTranslation: `${scene.subjectZh} 在 ${scene.actionZh} 之後把 ${meaningLabel} 寫了下來。`
+      }),
+      () => ({
+        example: `I first noticed ${displayWord} while reading at home.`,
+        exampleTranslation: `我第一次注意到 ${meaningLabel}，是在家裡閱讀的時候。`
+      }),
+      () => ({
+        example: `A short example used ${displayWord} ${formatPlacePhrase(scene.place)}.`,
+        exampleTranslation: `有一個簡短的例子在 ${scene.placeZh} 用到了 ${meaningLabel}。`
+      }),
+      () => ({
+        example: `${scene.subject} gave a simple explanation of ${displayWord}.`,
+        exampleTranslation: `${scene.subjectZh} 對 ${meaningLabel} 做了簡單的說明。`
+      }),
+      () => ({
+        example: `One question about ${displayWord} started the whole talk.`,
+        exampleTranslation: `一個關於 ${meaningLabel} 的問題，開啟了整段對話。`
+      }),
+      () => ({
+        example: `By the end of the day, ${displayWord} was still on my mind.`,
+        exampleTranslation: `到了這一天結束時，${meaningLabel} 仍然留在我的腦海裡。`
+      })
     ]
   };
 
   if (category === "noun" && isPlaceLikeMeaning(primaryMeaning)) {
     const placeTemplates = [
-      () => `${capitalizeWord(word)} is a place many travelers would like to visit.`,
-      () => `I saw a photo of ${capitalizeWord(word)} in a travel book.`,
-      () => `My teacher said ${capitalizeWord(word)} is a well-known place name.`,
-      () => `Many people know ${capitalizeWord(word)} as the name of a city or region.`,
-      () => `I learned the name ${capitalizeWord(word)} in a geography lesson.`,
-      () => `${capitalizeWord(word)} appears in travel stories and maps.`
+      () => ({
+        example: `${capitalizeWord(word)} is a place many travelers would like to visit.`,
+        exampleTranslation: `${capitalizeWord(word)} 是很多旅客都想去的地方。`
+      }),
+      () => ({
+        example: `I saw a photo of ${capitalizeWord(word)} in a travel book.`,
+        exampleTranslation: `我在一本旅遊書裡看到了 ${capitalizeWord(word)} 的照片。`
+      }),
+      () => ({
+        example: `My teacher said ${capitalizeWord(word)} is a well-known place name.`,
+        exampleTranslation: `老師說 ${capitalizeWord(word)} 是一個很有名的地名。`
+      }),
+      () => ({
+        example: `Many people know ${capitalizeWord(word)} as the name of a city or region.`,
+        exampleTranslation: `很多人知道 ${capitalizeWord(word)} 是一個城市或地區的名字。`
+      }),
+      () => ({
+        example: `I learned the name ${capitalizeWord(word)} in a geography lesson.`,
+        exampleTranslation: `我是在地理課上學到 ${capitalizeWord(word)} 這個名字的。`
+      }),
+      () => ({
+        example: `${capitalizeWord(word)} appears in travel stories and maps.`,
+        exampleTranslation: `${capitalizeWord(word)} 常出現在旅遊故事和地圖裡。`
+      })
     ];
 
-    return {
-      example: placeTemplates[seed % placeTemplates.length](),
-      exampleTranslation: `這句把 ${capitalizeWord(word)} 當成地名來使用，幫你理解它「${primaryMeaning}」的用法。`
-    };
+    return placeTemplates[seed % placeTemplates.length]();
   }
   const templates = templatesByCategory[category] || templatesByCategory.noun;
   const index = seed % templates.length;
 
-  return {
-    example: templates[index](),
-    exampleTranslation: `這句把 ${word} 放進比較自然的 ${theme === "learning" ? "學習" : theme === "work" ? "工作" : theme === "health" ? "健康" : theme === "travel" ? "移動旅行" : theme === "people" ? "人物互動" : "日常生活"}情境裡，幫你理解它「${primaryMeaning}」的用法。`
-  };
+  return templates[index]();
 }
 
 function isWeakExampleText(example, word) {
