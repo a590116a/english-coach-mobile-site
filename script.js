@@ -3535,24 +3535,28 @@ function sanitizeMeaningText(meaning) {
 function inferExampleTheme(word, meaning) {
   const sample = `${word} ${sanitizeMeaningText(meaning)}`.toLowerCase();
 
-  if (/(school|study|class|lesson|teacher|student|learn|example|education|practice|exercise|explain|discuss)/.test(sample)) {
-    return "learning";
-  }
-
-  if (/(work|office|factory|budget|project|plan|team|service|system|operation|process|report|business)/.test(sample)) {
-    return "work";
-  }
-
-  if (/(doctor|nurse|patient|health|hospital|disease|energy|breathe|fitness|exercise)/.test(sample)) {
+  if (/(doctor|nurse|patient|health|hospital|disease|energy|breathe|fitness|exercise|sleep|rest)/.test(sample)) {
     return "health";
   }
 
-  if (/(station|traffic|ship|sea|travel|hotel|accommodation|navigation|airport|train|bus|car)/.test(sample)) {
+  if (/(station|traffic|ship|sea|travel|hotel|airport|train|bus|car|ticket|road|map)/.test(sample)) {
     return "travel";
   }
 
-  if (/(family|mother|father|son|daughter|partner|friend|people|owner|customer|guest)/.test(sample)) {
-    return "people";
+  if (/(school|study|class|lesson|teacher|student|learn|education|homework|notebook|book|read|write)/.test(sample)) {
+    return "school";
+  }
+
+  if (/(family|mother|father|son|daughter|sister|brother|friend|people|guest|child|parent)/.test(sample)) {
+    return "family";
+  }
+
+  if (/(shop|store|buy|sell|money|price|market|bag|food|restaurant|kitchen|breakfast|lunch|dinner|fruit|bread|milk)/.test(sample)) {
+    return "shopping";
+  }
+
+  if (/(rain|sun|wind|snow|cloud|weather|sky|sea|tree|flower|river|mountain|bird|animal)/.test(sample)) {
+    return "nature";
   }
 
   return "daily";
@@ -3727,47 +3731,54 @@ function pickBySeed(items, seed) {
 
 function getThemeScene(theme, seed) {
   const scenes = {
-    learning: {
-      subjects: ["The teacher", "Our class", "A student", "The workbook"],
-      places: ["the classroom", "the language lab", "today's lesson", "the practice page"],
-      objects: ["the main idea", "a short answer", "the new word", "the grammar point"],
-      actions: ["reviewing the lesson", "doing speaking practice", "checking the example", "reading aloud"],
-      moments: ["before class ended", "during practice time", "after one more example", "in the afternoon lesson"]
-    },
-    work: {
-      subjects: ["The team", "Our manager", "A coworker", "The office"],
-      places: ["the meeting room", "the office", "the project call", "the morning meeting"],
-      objects: ["the report", "the plan", "the task", "the update"],
-      actions: ["preparing the project", "solving the problem", "reviewing the numbers", "talking to the client"],
-      moments: ["before lunch", "during the meeting", "after the update", "before the deadline"]
+    school: {
+      subjects: ["The teacher", "A student", "My classmate", "Our class"],
+      places: ["the classroom", "the library", "the school hallway", "the study desk"],
+      objects: ["the homework", "the new word", "the answer", "the lesson"],
+      actions: ["reading the lesson", "doing homework", "checking the answer", "practicing English"],
+      moments: ["after class", "before the test", "during the lesson", "this afternoon"]
     },
     health: {
-      subjects: ["The doctor", "The nurse", "A patient", "My coach"],
-      places: ["the hospital", "the clinic", "the gym", "the health class"],
-      objects: ["the body", "the breathing exercise", "the health plan", "the recovery advice"],
-      actions: ["doing light exercise", "taking a deep breath", "explaining the problem", "staying calm"],
-      moments: ["in the morning", "after some rest", "during recovery", "before exercise"]
+      subjects: ["The doctor", "My mother", "A patient", "My friend"],
+      places: ["the hospital", "the clinic", "the park", "at home"],
+      objects: ["some water", "a short walk", "enough sleep", "a deep breath"],
+      actions: ["getting some rest", "walking slowly", "taking a deep breath", "trying to feel better"],
+      moments: ["in the morning", "after lunch", "before bed", "after some rest"]
     },
     travel: {
-      subjects: ["The guide", "The driver", "A traveler", "The hotel staff"],
-      places: ["the station", "the hotel", "the city center", "the travel app"],
-      objects: ["the route", "the map", "the ticket", "the travel plan"],
-      actions: ["finding the way", "checking the map", "waiting for the train", "planning the trip"],
-      moments: ["before the trip", "late at night", "after the train arrived", "during the journey"]
+      subjects: ["The driver", "My family", "A traveler", "The guide"],
+      places: ["the station", "the bus stop", "the hotel", "the airport"],
+      objects: ["the map", "the ticket", "the bag", "the way home"],
+      actions: ["waiting for the bus", "checking the map", "planning the trip", "looking for the gate"],
+      moments: ["before the trip", "in the evening", "after we arrived", "during the weekend"]
     },
-    people: {
-      subjects: ["My friend", "The coach", "A parent", "The new student"],
-      places: ["the classroom", "the family dinner", "the school hallway", "the team meeting"],
-      objects: ["an idea", "a problem", "an opinion", "a short message"],
-      actions: ["talking with others", "helping a classmate", "sharing an opinion", "working together"],
-      moments: ["after school", "during the discussion", "when help was needed", "before everyone left"]
+    family: {
+      subjects: ["My mother", "My father", "My sister", "My friend"],
+      places: ["at home", "in the kitchen", "at the dinner table", "near the front door"],
+      objects: ["the meal", "a small gift", "the family photo", "a short message"],
+      actions: ["talking together", "helping at home", "sharing good news", "getting ready to leave"],
+      moments: ["after dinner", "before school", "on Sunday", "last night"]
+    },
+    shopping: {
+      subjects: ["The shopkeeper", "My mother", "A customer", "My friend"],
+      places: ["the market", "the supermarket", "the small shop", "the restaurant"],
+      objects: ["some fruit", "a bag of rice", "the bill", "a cup of tea"],
+      actions: ["buying food", "choosing a gift", "looking at the price", "ordering dinner"],
+      moments: ["this morning", "before dinner", "after school", "on the way home"]
+    },
+    nature: {
+      subjects: ["The bird", "The wind", "The children", "My family"],
+      places: ["the park", "the river", "the beach", "the mountain road"],
+      objects: ["the flowers", "the trees", "the sky", "the water"],
+      actions: ["walking outside", "watching the sky", "taking a photo", "enjoying the view"],
+      moments: ["in spring", "after the rain", "at sunset", "on a sunny day"]
     },
     daily: {
-      subjects: ["I", "My notebook", "The lesson", "A simple example"],
-      places: ["daily life", "my study desk", "the example sentence", "the review page"],
-      objects: ["the idea", "the answer", "the new word", "the short sentence"],
-      actions: ["doing a quick review", "reading the example", "practicing at home", "studying for a few minutes"],
-      moments: ["this morning", "after dinner", "before bed", "during my review time"]
+      subjects: ["I", "My friend", "My family", "The boy"],
+      places: ["at home", "on the bus", "in the park", "at school"],
+      objects: ["the answer", "the new word", "a short note", "the small problem"],
+      actions: ["doing a quick review", "talking to a friend", "walking home", "trying again"],
+      moments: ["this morning", "after dinner", "before bed", "after school"]
     }
   };
 
@@ -3791,59 +3802,43 @@ function buildEnhancedExample(word, meaning) {
   const templatesByCategory = {
     verb: [
       () => `${scene.subject} tried to ${word} ${scene.object} ${scene.moment}.`,
+      () => `${scene.subject} will ${word} ${scene.object} in ${scene.place}.`,
       () => `We often ${word} ${scene.object} when we are ${scene.action}.`,
-      () => `${scene.subject} learned how to ${word} ${scene.object} in ${scene.place}.`,
+      () => `Can you ${word} ${scene.object} by yourself?`,
       () => `It became easier to ${word} ${scene.object} after ${scene.action}.`,
-      () => `The lesson showed us how to ${word} ${scene.object} step by step.`,
-      () => `${scene.subject} decided to ${word} ${scene.object} before moving on.`,
-      () => `People usually ${word} ${scene.object} when they are in ${scene.place}.`,
-      () => `I practiced how to ${word} ${scene.object} during my review time.`,
-      () => `Can you ${word} ${scene.object} without stopping to translate?`,
-      () => `By ${scene.moment}, ${scene.subject.toLowerCase()} could finally ${word} ${scene.object}.`,
-      () => `If we ${word} ${scene.object} earlier, the rest becomes easier.`,
-      () => `One short example was enough to show why people ${word} ${scene.object}.`
+      () => `People usually ${word} ${scene.object} in ${scene.place}.`,
+      () => `I want to ${word} ${scene.object} before I go home.`,
+      () => `By ${scene.moment}, ${scene.subject.toLowerCase()} could finally ${word} ${scene.object}.`
     ],
     adjective: [
-      () => `${scene.subject} found the result ${word} after ${scene.action}.`,
-      () => `The example looked ${word} once I read it in ${scene.place}.`,
-      () => `That was a ${word} answer for someone still ${scene.action}.`,
-      () => `${scene.object.charAt(0).toUpperCase() + scene.object.slice(1)} felt more ${word} ${scene.moment}.`,
-      () => `The teacher gave us a ${word} sentence to remember.`,
+      () => `${scene.subject} felt ${word} after ${scene.action}.`,
+      () => `The day looked ${word} from the start.`,
+      () => `That was a ${word} answer for a beginner.`,
+      () => `${scene.object.charAt(0).toUpperCase() + scene.object.slice(1)} looked more ${word} ${scene.moment}.`,
+      () => `Everyone thought it was a ${word} idea.`,
       () => `${scene.subject} sounded ${word} while ${scene.action}.`,
-      () => `It was a ${word} choice in that real-life situation.`,
-      () => `The new example became more ${word} after one extra explanation.`,
-      () => `At first it seemed ordinary, but the final result was surprisingly ${word}.`,
-      () => `Nothing in ${scene.place} felt as ${word} as that moment.`,
-      () => `Would you call that a ${word} response or a careful one?`,
-      () => `${scene.subject} gave a small smile because the solution looked ${word}.`
+      () => `It was a ${word} moment for the whole family.`,
+      () => `At first it seemed simple, but the result was very ${word}.`
     ],
     adverb: [
       () => `${scene.subject} spoke ${word} while ${scene.action}.`,
-      () => `The team moved ${word} through ${scene.place}.`,
+      () => `${scene.subject} walked ${word} through ${scene.place}.`,
       () => `She answered ${word} after checking ${scene.object} again.`,
-      () => `The teacher explained the point ${word} in today's lesson.`,
       () => `He read the sentence ${word} so everyone could follow.`,
-      () => `We worked ${word} and finished ${scene.object} on time.`,
-      () => `${scene.subject} listened ${word} during the discussion.`,
-      () => `The guide spoke ${word} before the trip began.`,
-      () => `Even under pressure, ${scene.subject.toLowerCase()} responded ${word}.`,
-      () => `The second time, everyone in ${scene.place} moved more ${word}.`,
-      () => `Why did she answer so ${word} when the question was simple?`,
-      () => `After one reminder, the group followed the instructions ${word}.`
+      () => `The children listened ${word} at school.`,
+      () => `Why did she smile so ${word}?`,
+      () => `${scene.subject} moved ${word} after the rain stopped.`,
+      () => `After one reminder, everyone worked ${word}.`
     ],
     noun: [
       () => `${scene.subject} mentioned ${word} while ${scene.action}.`,
       () => `We saw ${word} again in ${scene.place} ${scene.moment}.`,
-      () => `The lesson connected ${word} with ${scene.object} in a clear way.`,
       () => `${scene.subject} wrote ${word} down after ${scene.action}.`,
-      () => `I first noticed ${word} while reading about ${scene.object}.`,
+      () => `I first noticed ${word} while reading at home.`,
       () => `A short example used ${word} in ${scene.place}.`,
-      () => `${scene.subject} gave a simple explanation of ${word} before class ended.`,
-      () => `The workbook brought up ${word} when we were ${scene.action}.`,
-      () => `One question about ${word} was enough to start the whole discussion.`,
-      () => `By the end of the day, ${word} was still the main topic in ${scene.place}.`,
-      () => `Have you ever heard ${word} used this naturally in conversation?`,
-      () => `No one forgot ${word} after the teacher linked it to ${scene.object}.`
+      () => `${scene.subject} gave a simple explanation of ${word}.`,
+      () => `One question about ${word} started the whole talk.`,
+      () => `By the end of the day, ${word} was still on my mind.`
     ]
   };
   const templates = templatesByCategory[category] || templatesByCategory.noun;
