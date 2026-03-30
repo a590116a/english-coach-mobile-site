@@ -1,4 +1,4 @@
-const CACHE_NAME = "english-coach-v1";
+const CACHE_NAME = "english-coach-v2-20260330";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -31,6 +31,27 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") {
+    return;
+  }
+
+  const requestUrl = new URL(event.request.url);
+  const isCoreAsset =
+    requestUrl.origin === self.location.origin &&
+    ["/english-coach-mobile-site/", "/english-coach-mobile-site/index.html", "/english-coach-mobile-site/script.js", "/english-coach-mobile-site/style.css", "/english-coach-mobile-site/vocab-catalog.js", "/index.html", "/script.js", "/style.css", "/vocab-catalog.js"].includes(requestUrl.pathname);
+
+  if (isCoreAsset) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200 && networkResponse.type === "basic") {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+          }
+
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
     return;
   }
 
